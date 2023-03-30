@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhancePreview</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SGCEnhancePreview</name>
+        <script><![CDATA[var SGCEnhancePreview = Class.create();
+SGCEnhancePreview.prototype = {
+	initialize: function (importSet) {
+		this._importSetSysId = importSet;
+		this._rteDefSysId = this._getImportSetRTEDefinition(this._importSetSysId);
+		if (!this._rteDefSysId) {
+			gs.warn('SGC Enhancement Suite (SGCEnhancePreview): No active RTE definition was found for import set ' + importSet);
+		}
+	},
+
+
+	preview: function () {
+		if (!this._importSetSysId || !this._rteDefSysId) {
+			gs.error('SGC Enhancement Suite (SGCEnhancePreview): Unable to preview import set the required parameters have not been defined (Import Set: ' + this._importSetSysId + ' RTE Definition: ' + this._rteDefSysId + ')');
+			return;
+		}
+		var previewResult = sn_integration_studio.IntegrationStudioScriptableApi.preview(this._importSetSysId, this._rteDefSysId, '', 10000);
+		previewResult = JSON.parse(previewResult);
+		if (previewResult && previewResult.rollbackContextId && previewResult.importSetRunId) {
+			
+		}
+
+		return previewResult;
+	},
+
+	rollback: function (importSetRunId) {
+		
+		
+
+		var rollbackContextId = '';
+
+		sn_integration_studio.IntegrationStudioScriptableApi.rollback(rollbackContextId);
+	},
+
+	getSummary: function (importSetRunId) {
+		if (!importSetRunId) {
+			var session = gs.getSession();
+			importSetRunId = session.getClientData('x_156954_sgc_enhan.currentImportSetRunId');
+		}
+
+		var importSetRowDictionary = this._getImportSetRowDictionary();
+
+		var ireOutputTargetItemGr = new GlideRecord('cmdb_ire_output_target_item');
+		ireOutputTargetItemGr.addQuery('run_id', importSetRunId);
+		ireOutputTargetItemGr.query();
+		while (ireOutputTargetItemGr.next()) {
+			var importSetRowSysId = ireOutputTargetItemGr.getValue('source_record_id');
+			if (!importSetRowDictionary[importSetRowSysId]) {
+				continue;
+			}
+
+			var targetTable = ireOutputTargetItemGr.getValue('actual_target_table');
+			var targetRecordSysId = ireOutputTargetItemGr.getValue('target_record_id');
+
+			if (!importSetRowDictionary[targetTable]) {
+				importSetRowDictionary[targetTable] = [];
+			}
+			importSetRowDictionary[targetTable].push(targetRecordSysId);
+		}
+	},
+
+
+	//Internal Functions
+
+	_getImportSetRTEDefinition: function (importSetSysId) {
+		if (!importSetSysId) {
+			return;
+		}
+		var importSetGr = new GlideRecord('sys_import_set');
+		if (importSetGr.get(importSetSysId)) {
+			var stagingTable = importSetGr.getValue('table_name');
+			var rteDefinitionSysId = this._getRTEDefinition(stagingTable);
+			return rteDefinitionSysId;
+		}
+	},
+
+	_getRTEDefinition: function (stagingTable) {
+		if (!stagingTable) {
+			return;
+		}
+		var robustImportSetTransformGr = new GlideRecord('sys_robust_import_set_transformer');
+		robustImportSetTransformGr.addQuery('source_table', stagingTable);
+		robustImportSetTransformGr.addActiveQuery();
+		robustImportSetTransformGr.setLimit(1);
+		robustImportSetTransformGr.query();
+		if (robustImportSetTransformGr.next()) {
+			var rteDefinitionSysId = robustImportSetTransformGr.getValue('robust_transform_engine');
+			return rteDefinitionSysId;
+		}
+
+	},
+
+	_getImportSetRowDictionary: function () {
+		if (!this._importSetSysId) {
+			return;
+		}
+		var importSetRowDictionary = {};
+		var importSetRowGr = new GlideRecord('sys_import_set_row');
+		importSetRowGr.addQuery('sys_import_set', this._importSetSysId);
+		importSetRowGr.orderBy('sys_import_row');
+		importSetRowGr.query();
+		while (importSetRowGr.next()) {
+			importSetRowDictionary[importSetRowDictionary.getUniqueValue()] = {};
+		}
+
+		return importSetRowDictionary;
+	},
+
+
+	type: 'SGCEnhancePreview'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-02-17 13:49:41</sys_created_on>
+        <sys_id>b4c0304a47c16110acb08f22736d4369</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_name>SGCEnhancePreview</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_b4c0304a47c16110acb08f22736d4369</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-03-20 17:44:04</sys_updated_on>
+    </sys_script_include>
+</record_update>

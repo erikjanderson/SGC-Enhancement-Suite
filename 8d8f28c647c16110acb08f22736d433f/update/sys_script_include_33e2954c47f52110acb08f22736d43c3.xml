@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceTransformHistory</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SGCEnhanceTransformHistory</name>
+        <script><![CDATA[var SGCEnhanceTransformHistory = Class.create();
+SGCEnhanceTransformHistory.prototype = {
+    initialize: function(transformHistoryGr) {
+		if(transformHistoryGr){
+            if(typeof transformHistoryGr === "string"){
+                transformHistoryGr = this._getGlideRecordWithId(transformHistoryGr);
+            }
+			if(transformHistoryGr + "" === "[object GlideRecord]"){
+				this.setFromGr(transformHistoryGr);
+			}
+			// else if(transformHistoryGr + "" === "[object Object]"){
+			// 	this.setFromModel(transformHistoryGr);
+			// }
+		}
+    },
+	
+	setFromGr: function(transformHistoryGr){
+		this.sysId = transformHistoryGr.getUniqueValue();
+		this.sysCreatedOn = transformHistoryGr.getValue("sys_created_on");
+		this.completed = transformHistoryGr.getValue("completed");
+		this.runTime = transformHistoryGr.getValue("run_time");
+		this.state = transformHistoryGr.getValue("state");
+		this.total = parseInt(transformHistoryGr.getValue("total"));
+		this.inserts = parseInt(transformHistoryGr.getValue("inserts"));
+		this.updates = parseInt(transformHistoryGr.getValue("updates"));
+		this.ignored = parseInt(transformHistoryGr.getValue("ignored"));
+		this.skipped = (transformHistoryGr.getValue("skipped") == "1");
+		this.errors = parseInt(transformHistoryGr.getValue("errors"));  
+		this.tag = new SGCEnhanceTag(transformHistoryGr);
+	},
+
+	rollback: function(){
+		var rollbackContextId = this.getRollbackContextId();
+		if(rollbackContextId){
+			sn_integration_studio.IntegrationStudioScriptableApi.rollback(rollbackContextId);
+		}else{
+			gs.info('SGC Enhancement Suite (SGCEnhanceTransformHistory): cannot rollback transform history (import set run) ' + this.sysId + '. No rollback context ID was stored.');
+		}
+	},
+	
+	getRollbackContextId: function(){
+		var rollbackContextId = this.tag.get('SGCEnhance - RolbackContextId');
+		if(rollbackContextId){
+			var rollbackContextGr = new GlideRecord('sys_rollback_context');
+			if(rollbackContextGr.get(rollbackContextId)){
+				var status = rollbackContextGr.getValue('state');
+				if(status === 'recorded'){
+					return rollbackContextId;
+				}else{
+					gs.info('SGC Enhancement Suite (SGCEnhanceTransformHistory): cannot rollback transform history (import set run) ' + this.sysId + '. Rollback context record is now ' + rollbackContextGr.getDisplayValue('state'));
+				}
+			}
+		}
+	},
+
+	// setFromModel: function(model){
+	// 	for(var key in model){
+	// 		this[key] = model[key];
+	// 	}
+	// },
+
+	// insert: function(){
+	// 	var transformHistoryGr = new GlideRecord("sys_import_set_run");
+	// 	transformHistoryGr.initialize();
+	// 	transformHistoryGr = this._assignGlideRecordValues(transformHistoryGr);
+	// 	this.sysId = transformHistoryGr.insert();
+	// },
+		
+	// update: function(){
+	// 	var transformHistoryGr = new GlideRecord("sys_import_set_run");
+	// 	if(transformHistoryGr.get(this.sysId)){
+	// 		transformHistoryGr = this._assignGlideRecordValues(transformHistoryGr);
+	// 		transformHistoryGr.update();
+	// 	}
+	// },
+
+	// deleteRecord: function(){
+	// 	var transformHistoryGr = new GlideRecord("sys_import_set_run");
+	// 	if(transformHistoryGr.get(this.sysId)){
+	// 		transformHistoryGr.deleteRecord();
+	// 	}
+	// },
+
+	//Internal Functions
+	
+	_getReferenceField: function(columnName, transformHistoryGr){
+		var returnObj = {};
+		if(columnName){
+			returnObj.id = transformHistoryGr.getValue(columnName);
+			returnObj.displayValue = transformHistoryGr.getDisplayValue(columnName);
+		}
+		return returnObj;
+	},
+
+	// _assignGlideRecordValues: function(transformHistoryGr){
+    //     transformHistoryGr.sys_created_on = this.sysCreatedOn;
+	// 	transformHistoryGr.completed = this.completed;
+	// 	transformHistoryGr.run_time = this.runTime;
+	// 	transformHistoryGr.set = this.set.sysId;
+	// 	transformHistoryGr.set.table_name = this.set.tableName;
+	// 	transformHistoryGr.state = this.state;
+	// 	transformHistoryGr.total = this.total;
+	// 	transformHistoryGr.inserts = this.inserts;
+	// 	transformHistoryGr.updates = this.updates;
+	// 	transformHistoryGr.ignored = this.ignored;
+	// 	transformHistoryGr.skipped = this.skipped;
+	// 	transformHistoryGr.errors = this.errors;
+    //     return transformHistoryGr;
+	// },
+
+    _getGlideRecordWithId: function(id){
+        var transformHistoryGr = new GlideRecord("sys_import_set_run");
+        if(transformHistoryGr.get(id)){
+            return transformHistoryGr;
+        }
+    },
+				
+    type: 'SGCEnhanceTransformHistory'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-03-20 17:57:36</sys_created_on>
+        <sys_id>33e2954c47f52110acb08f22736d43c3</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>SGCEnhanceTransformHistory</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_33e2954c47f52110acb08f22736d43c3</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-03-27 18:44:57</sys_updated_on>
+    </sys_script_include>
+</record_update>
