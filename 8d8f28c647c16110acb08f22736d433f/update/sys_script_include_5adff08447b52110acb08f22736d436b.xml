@@ -9,24 +9,55 @@
         <name>SGCEnhanceController</name>
         <script><![CDATA[var SGCEnhanceController = Class.create();
 SGCEnhanceController.prototype = {
-    initialize: function() {
-    },
+	initialize: function () {
+	},
 
-	
+	rollbackLatestImportSetRun: function (importSetGr) {
+		var importSetRunGr = new GlideRecord('sys_import_set_run');
+		importSetRunGr.addQuery('set', importSetGr.getUniqueValue());
+		importSetRunGr.orderByDesc('completed');
+		importSetRunGr.setLimit(1);
+		importSetRunGr.query();
+		if (importSetRunGr.next()) {
+			var state = importSetRunGr.getValue('state');
+			if (state === 'complete') {
+				this.rollbackImportSetRunInBackground(importSetRunGr);
+			}else{
+				gs.warn('SGC Enhancement Suite: (SGCEnhanceController.rollbackLatestImportSetRun) ' + importSetRunGr.getDisplayValue() + ' cannot be rolled back.');
+			}
+		}
+	},
 
-    type: 'SGCEnhanceController'
+	rollbackImportSetRunInBackground: function (importSetRunGr) {
+		if (!importSetRunGr) {
+			gs.warn('SGC Enhancement Suite: (SGCEnhanceController._rollbackImportSetRunInBackground) no import set run defined.');
+			return;
+		}
+		gs.eventQueue('x_156954_sgc_enhan.rollback_import_set_r', importSetRunGr);
+	},
+
+	transformImportSetInBackground: function (importSetGr) {
+		if (!importSetGr) {
+			gs.warn('SGC Enhancement Suite: (SGCEnhanceController._transformImportSetInBackground) no import set defined.');
+			return;
+		}
+		gs.eventQueue('x_156954_sgc_enhan.transform_and_track_i', importSetGr);
+	},
+
+
+	type: 'SGCEnhanceController'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-03-20 16:34:28</sys_created_on>
         <sys_id>5adff08447b52110acb08f22736d436b</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>SGCEnhanceController</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_5adff08447b52110acb08f22736d436b</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-03-20 16:36:03</sys_updated_on>
+        <sys_updated_on>2023-04-04 14:47:42</sys_updated_on>
     </sys_script_include>
 </record_update>
