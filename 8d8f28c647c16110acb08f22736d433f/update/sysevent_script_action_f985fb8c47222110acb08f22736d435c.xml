@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_script_action">
+    <sysevent_script_action action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition_script/>
+        <description/>
+        <event_name>x_156954_sgc_enhan.run_full_import</event_name>
+        <name>SGCEnhance Run Full Import</name>
+        <order>100</order>
+        <script><![CDATA[var dataSourceSysId = event.instance.toString();
+//Get Data from source
+var dataSource = new SGCEnhanceDataSource(dataSourceSysId);
+var importSetSysId = dataSource.loadData();
+//Run Preview
+var importSet = new SGCEnhanceImportSet(importSetSysId);
+importSet.runPreview();]]></script>
+        <synchronous>false</synchronous>
+        <sys_class_name>sysevent_script_action</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-27 12:37:31</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f985fb8c47222110acb08f22736d435c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SGCEnhance Run Full Import</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sysevent_script_action_f985fb8c47222110acb08f22736d435c</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 12:37:31</sys_updated_on>
+    </sysevent_script_action>
+</record_update>

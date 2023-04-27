@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceDataSource</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SGCEnhanceDataSource</name>
+        <script><![CDATA[var SGCEnhanceDataSource = Class.create();
+SGCEnhanceDataSource.prototype = {
+	initialize: function (dataSourceGr) {
+		if (dataSourceGr) {
+			if (typeof dataSourceGr === "string") {
+				dataSourceGr = this._getGlideRecordWithId(dataSourceGr);
+			}
+			if (dataSourceGr + "" === "[object GlideRecord]") {
+				this.setFromGr(dataSourceGr);
+			} else if (dataSourceGr + "" === "[object Object]") {
+				this.setFromModel(dataSourceGr);
+			}
+		}
+	},
+
+	loadData: function (maxRows) {
+
+		if(!maxRows){
+			maxRows = parseInt(gs.getProperty('x_156954_sgc_enhan.max_processing_row'));
+		}
+		var timeFrame = {};
+		timeFrame.start = new GlideDateTime().toString();
+		var importSetId = sn_integration_studio.IntegrationStudioScriptableApi.getSampleData(this.sysId, maxRows);
+		timeFrame.end = new GlideDateTime().toString();
+		var importSetGr = new GlideRecord('sys_import_set');
+		if(importSetGr.get(importSetId)){
+			var tag = new SGCEnhanceTag(importSetGr);
+			tag.setValue('SGC Enhance - ImportSetLoadTime', JSON.stringify(timeFrame));
+		}
+		return importSetId;
+	},
+
+
+	setFromGr: function (dataSourceGr) {
+		this.sysId = dataSourceGr.getUniqueValue();
+		this.name = dataSourceGr.getValue("name");
+		this.importSetTableLabel = dataSourceGr.getValue("import_set_table_label");
+		this.importSetTableName = dataSourceGr.getValue("import_set_table_name");
+		this.type = dataSourceGr.getValue("type");
+		this.dataInSingleColumn = (dataSourceGr.getValue("data_in_single_column") == "1");
+		this.sysScope = this._getReferenceField("sys_scope", dataSourceGr);
+	},
+
+	setFromModel: function (model) {
+		for (var key in model) {
+			this[key] = model[key];
+		}
+	},
+
+	//Internal Functions
+
+	_getReferenceField: function (columnName, dataSourceGr) {
+		var returnObj = {};
+		if (columnName) {
+			returnObj.id = dataSourceGr.getValue(columnName);
+			returnObj.displayValue = dataSourceGr.getDisplayValue(columnName);
+		}
+		return returnObj;
+	},
+
+	_getGlideRecordWithId: function (id) {
+		var dataSourceGr = new GlideRecord("sys_data_source");
+		if (dataSourceGr.get(id)) {
+			return dataSourceGr;
+		}
+	},
+
+	type: 'SGCEnhanceDataSource'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-27 12:09:51</sys_created_on>
+        <sys_id>d4cf67c847222110acb08f22736d438a</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>SGCEnhanceDataSource</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_d4cf67c847222110acb08f22736d438a</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 14:09:45</sys_updated_on>
+    </sys_script_include>
+</record_update>

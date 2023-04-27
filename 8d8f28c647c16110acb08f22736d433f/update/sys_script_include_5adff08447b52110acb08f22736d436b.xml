@@ -30,7 +30,7 @@ SGCEnhanceController.prototype = {
 
 	rollbackImportSetRunInBackground: function (importSetRunGr) {
 		if (!importSetRunGr) {
-			gs.warn('SGC Enhancement Suite: (SGCEnhanceController._rollbackImportSetRunInBackground) no import set run defined.');
+			gs.warn('SGC Enhancement Suite: (SGCEnhanceController.rollbackImportSetRunInBackground) no import set run defined.');
 			return;
 		}
 		gs.eventQueue('x_156954_sgc_enhan.rollback_import_set_r', importSetRunGr);
@@ -38,10 +38,20 @@ SGCEnhanceController.prototype = {
 
 	transformImportSetInBackground: function (importSetGr) {
 		if (!importSetGr) {
-			gs.warn('SGC Enhancement Suite: (SGCEnhanceController._transformImportSetInBackground) no import set defined.');
+			gs.warn('SGC Enhancement Suite: (SGCEnhanceController.transformImportSetInBackground) no import set defined.');
 			return;
 		}
 		gs.eventQueue('x_156954_sgc_enhan.transform_and_track_i', importSetGr);
+	},
+
+	runFullImport: function(scheduledDataImportGr){
+		if(!scheduledDataImportGr || !scheduledDataImportGr.getValue('data_source')){
+			gs.warn('SGC Enhancement Suite: (SGCEnhanceController.runFullImport) import schedule not defined to import a full data set.');
+			return;
+		}
+		var dataSourceGr = scheduledDataImportGr.data_source.getRefRecord();
+		//gs.info(dataSourceGr.getValue('name'))
+		gs.eventQueue('x_156954_sgc_enhan.run_full_import', dataSourceGr);
 	},
 
 
@@ -51,13 +61,13 @@ SGCEnhanceController.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-03-20 16:34:28</sys_created_on>
         <sys_id>5adff08447b52110acb08f22736d436b</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>SGCEnhanceController</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_5adff08447b52110acb08f22736d436b</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-04 14:47:42</sys_updated_on>
+        <sys_updated_on>2023-04-27 12:50:52</sys_updated_on>
     </sys_script_include>
 </record_update>

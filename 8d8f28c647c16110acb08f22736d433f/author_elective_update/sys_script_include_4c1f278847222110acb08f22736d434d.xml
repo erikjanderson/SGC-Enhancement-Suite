@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceDataSource</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SGCEnhanceDataSource</name>
+        <script><![CDATA[var SGCEnhanceDataSource = Class.create();
+SGCEnhanceDataSource.prototype = {
+    initialize: function() {
+    },
+
+    type: 'SGCEnhanceDataSource'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-27 12:06:59</sys_created_on>
+        <sys_id>4c1f278847222110acb08f22736d434d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SGCEnhanceDataSource</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_4c1f278847222110acb08f22736d434d</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 12:06:59</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>8f3db847db8a9d508aea21c4059619e6</instance_id>
+        <instance_name>dev136818</instance_name>
+        <name>sys_script_include_4c1f278847222110acb08f22736d434d</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_156954_sgc_enhan.SGCEnhanceDataSource&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;SGCEnhanceDataSource&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var SGCEnhanceDataSource = Class.create();
+SGCEnhanceDataSource.prototype = {
+    initialize: function() {
+    },
+
+    type: 'SGCEnhanceDataSource'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;erik.anderson&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-04-27 12:06:59&lt;/sys_created_on&gt;&lt;sys_id&gt;4c1f278847222110acb08f22736d434d&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;SGCEnhanceDataSource&lt;/sys_name&gt;&lt;sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="SGC Enhancement Suite"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_4c1f278847222110acb08f22736d434d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;erik.anderson&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-04-27 12:06:59&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-2042942094</payload_hash>
+        <record_name>SGCEnhanceDataSource</record_name>
+        <reverted_from/>
+        <source>918f28c647c16110acb08f22736d4342</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-27 12:06:59</sys_created_on>
+        <sys_id>661fa74447222110acb08f22736d43d7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>187c29c0caf0000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 12:06:59</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>9a1fa74420222110cbb0a809cf55ead6</update_guid>
+        <update_guid_history>9a1fa74420222110cbb0a809cf55ead6:-2042942094</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-27 12:09:21</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>7fdd489b730d44f99a09ae8015ee65d1</sys_id>
+        <sys_metadata>4c1f278847222110acb08f22736d434d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SGCEnhanceDataSource</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sys_script_include_4c1f278847222110acb08f22736d434d</sys_update_name>
+        <sys_update_version display_value="sys_script_include_4c1f278847222110acb08f22736d434d">661fa74447222110acb08f22736d43d7</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 12:09:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
