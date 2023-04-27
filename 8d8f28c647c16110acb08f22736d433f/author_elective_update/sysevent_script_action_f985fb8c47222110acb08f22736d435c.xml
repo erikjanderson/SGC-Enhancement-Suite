@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_script_action">
+    <sysevent_script_action action="DELETE">
+        <active>true</active>
+        <condition_script/>
+        <description/>
+        <event_name>x_156954_sgc_enhan.run_full_import</event_name>
+        <name>SGCEnhance Run Full Import</name>
+        <order>100</order>
+        <script><![CDATA[var dataSourceSysId = event.instance.toString();
+//Get Data from source
+var dataSource = new SGCEnhanceDataSource(dataSourceSysId);
+var importSetSysId = dataSource.loadData();
+//Run Preview
+var importSet = new SGCEnhanceImportSet(importSetSysId);
+importSet.runPreview();]]></script>
+        <synchronous>false</synchronous>
+        <sys_class_name>sysevent_script_action</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-27 12:37:31</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f985fb8c47222110acb08f22736d435c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SGCEnhance Run Full Import</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sysevent_script_action_f985fb8c47222110acb08f22736d435c</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 12:37:31</sys_updated_on>
+    </sysevent_script_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>8f3db847db8a9d508aea21c4059619e6</instance_id>
+        <instance_name>dev136818</instance_name>
+        <name>sysevent_script_action_f985fb8c47222110acb08f22736d435c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sysevent_script_action"&gt;&lt;sysevent_script_action action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;condition_script/&gt;&lt;description/&gt;&lt;event_name&gt;x_156954_sgc_enhan.run_full_import&lt;/event_name&gt;&lt;name&gt;SGCEnhance Run Full Import&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[var dataSourceSysId = event.instance.toString();
+//Get Data from source
+var dataSource = new SGCEnhanceDataSource(dataSourceSysId);
+var importSetSysId = dataSource.loadData();
+//Run Preview
+var importSet = new SGCEnhanceImportSet(importSetSysId);
+importSet.runPreview();]]&gt;&lt;/script&gt;&lt;synchronous&gt;false&lt;/synchronous&gt;&lt;sys_class_name&gt;sysevent_script_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;erik.anderson&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-04-27 12:37:31&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;f985fb8c47222110acb08f22736d435c&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;SGCEnhance Run Full Import&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="SGC Enhancement Suite"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sysevent_script_action_f985fb8c47222110acb08f22736d435c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;erik.anderson&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-04-27 12:37:31&lt;/sys_updated_on&gt;&lt;/sysevent_script_action&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1747838608</payload_hash>
+        <record_name>SGCEnhance Run Full Import</record_name>
+        <reverted_from/>
+        <source>918f28c647c16110acb08f22736d4342</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-27 12:37:31</sys_created_on>
+        <sys_id>6516bb0047622110acb08f22736d438d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>187c2b7ffc20000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 12:37:31</sys_updated_on>
+        <type>Script Action</type>
+        <update_guid>a916bb0090622110835880231d736c8c</update_guid>
+        <update_guid_history>a916bb0090622110835880231d736c8c:1747838608</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-27 17:38:37</sys_created_on>
+        <sys_db_object display_value="" name="sysevent_script_action">sysevent_script_action</sys_db_object>
+        <sys_id>a19fb2ecfa014e3ca90ee84bcc8ffd10</sys_id>
+        <sys_metadata>f985fb8c47222110acb08f22736d435c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SGCEnhance Run Full Import</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sysevent_script_action_f985fb8c47222110acb08f22736d435c</sys_update_name>
+        <sys_update_version display_value="sysevent_script_action_f985fb8c47222110acb08f22736d435c">6516bb0047622110acb08f22736d438d</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 17:38:37</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

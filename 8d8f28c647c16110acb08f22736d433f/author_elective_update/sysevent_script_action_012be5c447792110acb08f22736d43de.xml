@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_script_action">
+    <sysevent_script_action action="DELETE">
+        <active>true</active>
+        <condition_script/>
+        <description/>
+        <event_name>x_156954_sgc_enhan.rollback_import_set_r</event_name>
+        <name>SGEnhance Rollback Import Set Run</name>
+        <order>100</order>
+        <script><![CDATA[var importSetRunId = event.instance.toString();
+var importSetRun = new SGCEnhanceTransformHistory(importSetRunId);
+importSetRun.rollback();
+]]></script>
+        <synchronous>false</synchronous>
+        <sys_class_name>sysevent_script_action</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-03-20 19:43:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>012be5c447792110acb08f22736d43de</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>SGEnhance Rollback Import Set Run</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sysevent_script_action_012be5c447792110acb08f22736d43de</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-03-20 20:40:05</sys_updated_on>
+    </sysevent_script_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>8f3db847db8a9d508aea21c4059619e6</instance_id>
+        <instance_name>dev136818</instance_name>
+        <name>sysevent_script_action_012be5c447792110acb08f22736d43de</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sysevent_script_action"&gt;&lt;sysevent_script_action action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;condition_script/&gt;&lt;description/&gt;&lt;event_name&gt;x_156954_sgc_enhan.rollback_import_set_r&lt;/event_name&gt;&lt;name&gt;SGEnhance Rollback Import Set Run&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[var importSetRunId = event.instance.toString();
+var importSetRun = new SGCEnhanceTransformHistory(importSetRunId);
+importSetRun.rollback();
+]]&gt;&lt;/script&gt;&lt;synchronous&gt;false&lt;/synchronous&gt;&lt;sys_class_name&gt;sysevent_script_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;erik.anderson&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-03-20 19:43:55&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;012be5c447792110acb08f22736d43de&lt;/sys_id&gt;&lt;sys_mod_count&gt;8&lt;/sys_mod_count&gt;&lt;sys_name&gt;SGEnhance Rollback Import Set Run&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="SGC Enhancement Suite"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sysevent_script_action_012be5c447792110acb08f22736d43de&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;erik.anderson&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-03-20 20:40:05&lt;/sys_updated_on&gt;&lt;/sysevent_script_action&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1358363659</payload_hash>
+        <record_name>SGEnhance Rollback Import Set Run</record_name>
+        <reverted_from/>
+        <source>918f28c647c16110acb08f22736d4342</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-03-20 20:40:05</sys_created_on>
+        <sys_id>37187dc047b92110acb08f22736d438f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18700c0265e0000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-03-20 20:40:05</sys_updated_on>
+        <type>Script Action</type>
+        <update_guid>3f187dc03fb92110dbb699e83b8a0c8e</update_guid>
+        <update_guid_history>3f187dc03fb92110dbb699e83b8a0c8e:-1358363659,45c7f1c00fb9211078d010d8bcda5fa1:1788382800,97f6398061b921109a2b445aa5f4e954:-1644559532,e086f90041b921104a0e13bb806b4b59:978389164,ec7531001bb9211031bbb26b94c6225f:1883496678,ebb4f900d5b92110867006235a1bdefd:947137424,6d043dc8a779211053d116a1a328cab0:1498760504,925be9c4977921104d19e2184e692682:-274139911,094bad8409792110b06e6bf86cb90680:-1558206535</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-27 17:38:40</sys_created_on>
+        <sys_db_object display_value="" name="sysevent_script_action">sysevent_script_action</sys_db_object>
+        <sys_id>14f053d8cf6d460ea7e06b0ffcce0504</sys_id>
+        <sys_metadata>012be5c447792110acb08f22736d43de</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SGEnhance Rollback Import Set Run</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sysevent_script_action_012be5c447792110acb08f22736d43de</sys_update_name>
+        <sys_update_version display_value="sysevent_script_action_012be5c447792110acb08f22736d43de">37187dc047b92110acb08f22736d438f</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 17:38:40</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
