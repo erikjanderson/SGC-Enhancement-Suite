@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceImportSetRow</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SGCEnhanceImportSetRow</name>
+        <script><![CDATA[var SGCEnhanceImportSetRow = Class.create();
+SGCEnhanceImportSetRow.prototype = {
+     initialize: function (rowGr) {
+        if (rowGr) {
+            if (typeof rowGr === "string") {
+                rowGr = this._getGlideRecordWithId(rowGr);
+            }
+            if (rowGr + "" === "[object GlideRecord]") {
+                this.setFromGr(rowGr);
+            }
+        }
+    },
+
+	setFromGr: function (rowGr) {
+        this.sysId = rowGr.getUniqueValue();
+		this.row = parseInt(rowGr.getValue('sys_import_row'));
+        this.importSet = new SGCEnhanceImportSet(rowGr.getValue('sys_import_set'));
+        this.createdOn = rowGr.sys_created_on.getDisplayValue();
+        this.className = rowGr.getValue('sys_class_name');
+        this.state = rowGr.getValue('sys_import_state');
+        this.targetCMDBData = this.getTargetCMDBData();
+        this.tags = new SGCEnhanceTag(rowGr);
+    },
+
+    runPreview: function(){
+        var query = 'sys_id=' + this.sysId
+        var transformHistory = this.importSet.runPreview(query);
+
+        this.tags.setValue('SGCEnhance - SingleRunTransformHistoryId', transformHistory.sysId);
+
+    },
+
+    rollbackMostRecentSingleImportRun: function(){
+        var transformHistorySysId = this.tags.get('SGCEnhance - SingleRunTransformHistoryId');
+        if(!transformHistorySysId){
+            return;
+        }
+
+        var transformHistory = new SGCEnhanceTransformHistory(transformHistorySysId);
+        transformHistory.rollback()
+    },
+
+    getTargetCMDBData: function(){
+        var query = 'sys_id=' + this.sysId
+        var transformerResponse = this.importSet.runPartialPreview(query);
+        var targetData = [];
+        if(transformerResponse && transformerResponse[0] && transformerResponse[0].outputRecord){
+            var output = JSON.parse(transformerResponse[0].outputRecord);
+            for(var entityName in output){
+                if(entityName.startsWith('temp') || !output[entityName].source_native_key){
+                    continue;
+                }
+                var sourceNativeKey = output[entityName].source_native_key;
+                var source = this._findSourceRecord(sourceNativeKey);
+                targetData.push(source);
+            }
+        }
+        return targetData;
+    },
+
+    getFormDisplaySummary: function(){
+        var formReport = new SGCEnhanceFormReport();
+        formReport.setTitle('SGC Enhancement Suite - Staging Row Summary');
+        var mainSection = formReport.addSection('main');
+        mainSection.addParagraph('If this row has been processed into the CMDB, you can review the imported target CMDB records below.');
+        
+        var groupedTargetData = {};
+        for(var i = 0; i < this.targetCMDBData.length; i++){
+            var targetData = this.targetCMDBData[i];
+            if(!groupedTargetData[targetData.sys_class]){
+                groupedTargetData[targetData.sys_class] = [];
+            }
+            groupedTargetData[targetData.sys_class].push(targetData);
+        }
+
+        for(var sysClass in groupedTargetData){
+            mainSection.addParagraph('<strong>' + sysClass + '</strong>');
+            var ul = mainSection.addUnorderedList();
+            for(var t = 0; t < groupedTargetData[sysClass].length; t++){
+                var targetData = groupedTargetData[sysClass][t];
+                ul.push('<a href="' + targetData.link + '">' + (targetData.name || targetData.sys_id) +  '</a>')
+            }
+            
+        }
+        var html = formReport.build();
+        return html;
+    },
+
+	//Internal Functions
+
+
+	_getGlideRecordWithId: function (id) {
+        var rowGr = new GlideRecord("sys_import_set_row");
+        if (rowGr.get(id)) {
+            return rowGr;
+        }
+    },
+
+    _getReferenceField: function (columnName, rowGr) {
+        var returnObj = {};
+        if (columnName) {
+            returnObj.id = rowGr.getValue(columnName);
+            returnObj.displayValue = rowGr.getDisplayValue(columnName);
+        }
+        return returnObj;
+    },
+
+    _findSourceRecord: function(id){
+        var source = new global.GlideQuery('sys_object_source')
+            .where('id', id)
+            .selectOne('target_sys_id', 'target_table', 'id', 'name')
+            .flatMap(function(s){
+                return new global.GlideQuery(s.target_table)
+                    .get(s.target_sys_id, ['name'])
+                    .map(function(c){
+                        return {
+                            name: c.name,
+                            sys_id: s.target_sys_id,
+                            sys_class: s.target_table,
+                            link: '/' + s.target_table +'.do?sys_id='+s.target_sys_id
+                        }
+                    })
+            })
+            .get();
+        return source;
+    },
+
+    type: 'SGCEnhanceImportSetRow'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-28 15:30:43</sys_created_on>
+        <sys_id>7066a5a447e66110acb08f22736d4331</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>SGCEnhanceImportSetRow</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_7066a5a447e66110acb08f22736d4331</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-28 18:46:57</sys_updated_on>
+    </sys_script_include>
+</record_update>

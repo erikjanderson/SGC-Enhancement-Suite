@@ -17,14 +17,13 @@ SGCEnhanceTransformHistory.prototype = {
 			if(transformHistoryGr + "" === "[object GlideRecord]"){
 				this.setFromGr(transformHistoryGr);
 			}
-			// else if(transformHistoryGr + "" === "[object Object]"){
-			// 	this.setFromModel(transformHistoryGr);
-			// }
 		}
     },
 	
 	setFromGr: function(transformHistoryGr){
 		this.sysId = transformHistoryGr.getUniqueValue();
+		this.number = transformHistoryGr.getValue('number');
+		this.importSet = this._getReferenceField('set', transformHistoryGr);
 		this.sysCreatedOn = transformHistoryGr.getValue("sys_created_on");
 		this.completed = transformHistoryGr.getValue("completed");
 		this.runTime = transformHistoryGr.getValue("run_time");
@@ -62,38 +61,11 @@ SGCEnhanceTransformHistory.prototype = {
 		}
 	},
 
-	generateReportSummary: function(){
-		var report = new SGCEnhanceReport();
-		report.getSummary(this.sysId);
+	generateImportSummary: function(){
+		var importSummary = new SGCEnhanceImportSummary();
+		importSummary.getSummary(this);
 	},
 
-	// setFromModel: function(model){
-	// 	for(var key in model){
-	// 		this[key] = model[key];
-	// 	}
-	// },
-
-	// insert: function(){
-	// 	var transformHistoryGr = new GlideRecord("sys_import_set_run");
-	// 	transformHistoryGr.initialize();
-	// 	transformHistoryGr = this._assignGlideRecordValues(transformHistoryGr);
-	// 	this.sysId = transformHistoryGr.insert();
-	// },
-		
-	// update: function(){
-	// 	var transformHistoryGr = new GlideRecord("sys_import_set_run");
-	// 	if(transformHistoryGr.get(this.sysId)){
-	// 		transformHistoryGr = this._assignGlideRecordValues(transformHistoryGr);
-	// 		transformHistoryGr.update();
-	// 	}
-	// },
-
-	// deleteRecord: function(){
-	// 	var transformHistoryGr = new GlideRecord("sys_import_set_run");
-	// 	if(transformHistoryGr.get(this.sysId)){
-	// 		transformHistoryGr.deleteRecord();
-	// 	}
-	// },
 
 	//Internal Functions
 	
@@ -105,22 +77,6 @@ SGCEnhanceTransformHistory.prototype = {
 		}
 		return returnObj;
 	},
-
-	// _assignGlideRecordValues: function(transformHistoryGr){
-    //     transformHistoryGr.sys_created_on = this.sysCreatedOn;
-	// 	transformHistoryGr.completed = this.completed;
-	// 	transformHistoryGr.run_time = this.runTime;
-	// 	transformHistoryGr.set = this.set.sysId;
-	// 	transformHistoryGr.set.table_name = this.set.tableName;
-	// 	transformHistoryGr.state = this.state;
-	// 	transformHistoryGr.total = this.total;
-	// 	transformHistoryGr.inserts = this.inserts;
-	// 	transformHistoryGr.updates = this.updates;
-	// 	transformHistoryGr.ignored = this.ignored;
-	// 	transformHistoryGr.skipped = this.skipped;
-	// 	transformHistoryGr.errors = this.errors;
-    //     return transformHistoryGr;
-	// },
 
     _getGlideRecordWithId: function(id){
         var transformHistoryGr = new GlideRecord("sys_import_set_run");
@@ -135,13 +91,13 @@ SGCEnhanceTransformHistory.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-03-20 17:57:36</sys_created_on>
         <sys_id>33e2954c47f52110acb08f22736d43c3</sys_id>
-        <sys_mod_count>18</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>SGCEnhanceTransformHistory</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_33e2954c47f52110acb08f22736d43c3</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-26 13:11:19</sys_updated_on>
+        <sys_updated_on>2023-04-28 18:51:55</sys_updated_on>
     </sys_script_include>
 </record_update>

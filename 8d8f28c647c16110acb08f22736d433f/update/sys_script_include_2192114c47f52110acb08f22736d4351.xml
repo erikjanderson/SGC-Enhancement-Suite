@@ -17,9 +17,6 @@ SGCEnhanceImportSet.prototype = {
 			if(importSetGr + "" === "[object GlideRecord]"){
 				this.setFromGr(importSetGr);
 			}
-			// else if(importSetGr + "" === "[object Object]"){
-			// 	this.setFromModel(importSetGr);
-			// }
 		}
     },
 	
@@ -33,18 +30,11 @@ SGCEnhanceImportSet.prototype = {
 		this.sysCreatedOn = importSetGr.getValue("sys_created_on");
 		this.loadCompleted = importSetGr.getValue("load_completed");
 		this.loadRunTime = importSetGr.getValue("load_run_time");
-		//this.concurrentSGCEnhanceImportSet = this._getReferenceField("concurrent_import_set", importSetGr);
 		this.shortDescription = importSetGr.getValue("short_description");  
 		
 	},
 
-	// setFromModel: function(model){
-	// 	for(var key in model){
-	// 		this[key] = model[key];
-	// 	}
-	// },
-
-	runPreview: function(){
+	runPreview: function(query){
 		if (!this.sysId || !this.rteDefSysId) {
 			gs.error('SGC Enhancement Suite (SGCEnhanceImportSet): Unable to preview import set the required parameters have not been defined (Import Set: ' + this.sysId + ' RTE Definition: ' + this.rteDefSysId + ')');
 			return;
@@ -53,15 +43,30 @@ SGCEnhanceImportSet.prototype = {
 		var maxRows = parseInt(gs.getProperty('x_156954_sgc_enhan.max_processing_row'));
 		var timeFrame = {};
 		timeFrame.start = new GlideDateTime().toString();
-		var previewResult = sn_integration_studio.IntegrationStudioScriptableApi.preview(this.sysId, this.rteDefSysId, '', maxRows);
+		var previewResult = sn_integration_studio.IntegrationStudioScriptableApi.preview(this.sysId, this.rteDefSysId, query, maxRows);
 		timeFrame.end = new GlideDateTime().toString();
 		previewResult = JSON.parse(previewResult);
 		if (previewResult && previewResult.rollbackContextId && previewResult.importSetRunId) {
 			var transformHistory = new SGCEnhanceTransformHistory(previewResult.importSetRunId);
 			transformHistory.tag.setValue('SGCEnhance - RolbackContextId', previewResult.rollbackContextId);
 			transformHistory.tag.setValue('SGC Enhance - ImportSetRunImportTime', JSON.stringify(timeFrame));
+			var autoGenerateImportSummary = gs.getProperty('x_156954_sgc_enhan.auto_generate_import_summary') == 'true';
+			if(autoGenerateImportSummary){
+				transformHistory.generateImportSummary();
+			}
 			return transformHistory;
 		}
+	},
+
+	runPartialPreview: function(query){
+		if (!this.sysId || !this.rteDefSysId || !query) {
+			gs.error('SGC Enhancement Suite (SGCEnhanceImportSet): Unable to partially preview this import set. The required parameters have not been defined (Import Set: ' + this.sysId + ' RTE Definition: ' + this.rteDefSysId + ')');
+			return;
+		}
+
+		var partialPreviewResult = sn_integration_studio.IntegrationStudioScriptableApi.partialPreview(this.sysId, this.rteDefSysId, query);
+		partialPreviewResult = JSON.parse(partialPreviewResult);
+		return partialPreviewResult.transformerResponse;
 	},
 
 
@@ -108,13 +113,13 @@ SGCEnhanceImportSet.prototype = {
 	// 	this.sysId = importSetGr.insert();
 	// },
 		
-	update: function(){
-		var importSetGr = new GlideRecord("sys_import_set");
-		if(importSetGr.get(this.sysId)){
-			importSetGr = this._assignGlideRecordValues(importSetGr);
-			importSetGr.update();
-		}
-	},
+	// update: function(){
+	// 	var importSetGr = new GlideRecord("sys_import_set");
+	// 	if(importSetGr.get(this.sysId)){
+	// 		importSetGr = this._assignGlideRecordValues(importSetGr);
+	// 		importSetGr.update();
+	// 	}
+	// },
 
 	// deleteRecord: function(){
 	// 	var importSetGr = new GlideRecord("sys_import_set");
@@ -134,10 +139,10 @@ SGCEnhanceImportSet.prototype = {
 		return returnObj;
 	},
 
-	_assignGlideRecordValues: function(importSetGr){
-		importSetGr.state = this.state;
-        return importSetGr;
-	},
+	// _assignGlideRecordValues: function(importSetGr){
+	// 	importSetGr.state = this.state;
+    //     return importSetGr;
+	// },
 
     _getGlideRecordWithId: function(id){
         var importSetGr = new GlideRecord("sys_import_set");
@@ -182,13 +187,13 @@ SGCEnhanceImportSet.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-03-20 17:56:05</sys_created_on>
         <sys_id>2192114c47f52110acb08f22736d4351</sys_id>
-        <sys_mod_count>31</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>SGCEnhanceImportSet</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_2192114c47f52110acb08f22736d4351</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 14:11:29</sys_updated_on>
+        <sys_updated_on>2023-04-28 18:12:16</sys_updated_on>
     </sys_script_include>
 </record_update>
