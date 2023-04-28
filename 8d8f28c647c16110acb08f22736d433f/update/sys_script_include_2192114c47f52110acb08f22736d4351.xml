@@ -106,28 +106,6 @@ SGCEnhanceImportSet.prototype = {
 	},
 
 
-	// insert: function(){
-	// 	var importSetGr = new GlideRecord("sys_import_set");
-	// 	importSetGr.initialize();
-	// 	importSetGr = this._assignGlideRecordValues(importSetGr);
-	// 	this.sysId = importSetGr.insert();
-	// },
-		
-	// update: function(){
-	// 	var importSetGr = new GlideRecord("sys_import_set");
-	// 	if(importSetGr.get(this.sysId)){
-	// 		importSetGr = this._assignGlideRecordValues(importSetGr);
-	// 		importSetGr.update();
-	// 	}
-	// },
-
-	// deleteRecord: function(){
-	// 	var importSetGr = new GlideRecord("sys_import_set");
-	// 	if(importSetGr.get(this.sysId)){
-	// 		importSetGr.deleteRecord();
-	// 	}
-	// },
-
 	//Internal Functions
 	
 	_getReferenceField: function(columnName, importSetGr){
@@ -139,10 +117,6 @@ SGCEnhanceImportSet.prototype = {
 		return returnObj;
 	},
 
-	// _assignGlideRecordValues: function(importSetGr){
-	// 	importSetGr.state = this.state;
-    //     return importSetGr;
-	// },
 
     _getGlideRecordWithId: function(id){
         var importSetGr = new GlideRecord("sys_import_set");
@@ -187,13 +161,13 @@ SGCEnhanceImportSet.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-03-20 17:56:05</sys_created_on>
         <sys_id>2192114c47f52110acb08f22736d4351</sys_id>
-        <sys_mod_count>39</sys_mod_count>
+        <sys_mod_count>40</sys_mod_count>
         <sys_name>SGCEnhanceImportSet</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_2192114c47f52110acb08f22736d4351</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-28 18:12:16</sys_updated_on>
+        <sys_updated_on>2023-04-28 19:00:18</sys_updated_on>
     </sys_script_include>
 </record_update>
