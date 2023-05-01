@@ -13,7 +13,7 @@ The SGC Enhancement Suite helps with this by utilizing the out of box platform f
 **Features:**
 
  - Transform import sets.
- - Export import summaries for import sets.
+ - Export transform summaries for import set runs.
  - Roll back import set runs.
  - Transform and roll back individual import set rows.
  - Review target data for each import set row.
