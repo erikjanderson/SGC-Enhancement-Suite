@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view_table">
+    <sys_db_view_table action="DELETE">
+        <active>true</active>
+        <left_join>false</left_join>
+        <order>100</order>
+        <sys_class_name>sys_db_view_table</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-10 13:32:49</sys_created_on>
+        <sys_id>f08f5c7e47422110acb08f22736d4314</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cmdb_ire_output_target_item</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_db_view_table_f08f5c7e47422110acb08f22736d4314</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-10 13:32:49</sys_updated_on>
+        <table>cmdb_ire_output_target_item</table>
+        <variable_prefix>o</variable_prefix>
+        <view display_value="x_156954_sgc_enhan_import_result">d94f187e47422110acb08f22736d43c8</view>
+        <where_clause/>
+    </sys_db_view_table>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>8f3db847db8a9d508aea21c4059619e6</instance_id>
+        <instance_name>dev136818</instance_name>
+        <name>sys_db_view_table_f08f5c7e47422110acb08f22736d4314</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view_table"><sys_db_view_table action="INSERT_OR_UPDATE"><active>true</active><left_join>false</left_join><order>100</order><sys_class_name>sys_db_view_table</sys_class_name><sys_created_by>erik.anderson</sys_created_by><sys_created_on>2023-04-10 13:32:49</sys_created_on><sys_id>f08f5c7e47422110acb08f22736d4314</sys_id><sys_mod_count>0</sys_mod_count><sys_name>cmdb_ire_output_target_item</sys_name><sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package><sys_policy/><sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope><sys_update_name>sys_db_view_table_f08f5c7e47422110acb08f22736d4314</sys_update_name><sys_updated_by>erik.anderson</sys_updated_by><sys_updated_on>2023-04-10 13:32:49</sys_updated_on><table>cmdb_ire_output_target_item</table><variable_prefix>o</variable_prefix><view display_value="x_156954_sgc_enhan_import_result">d94f187e47422110acb08f22736d43c8</view><where_clause/></sys_db_view_table></record_update>]]></payload>
+        <payload_hash>2092047409</payload_hash>
+        <record_name>cmdb_ire_output_target_item</record_name>
+        <reverted_from/>
+        <source>918f28c647c16110acb08f22736d4342</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-10 13:32:49</sys_created_on>
+        <sys_id>4ebf10be47422110acb08f22736d4336</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1876b5e870a0000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-10 13:32:49</sys_updated_on>
+        <type>View Table</type>
+        <update_guid>82bf10bed142211041b28d90b94f8e36</update_guid>
+        <update_guid_history>82bf10bed142211041b28d90b94f8e36:2092047409</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-10 13:35:32</sys_created_on>
+        <sys_db_object display_value="" name="sys_db_view_table">sys_db_view_table</sys_db_object>
+        <sys_id>0dadc0eeea094773824a19e60d84a319</sys_id>
+        <sys_metadata>f08f5c7e47422110acb08f22736d4314</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cmdb_ire_output_target_item</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent display_value="">d94f187e47422110acb08f22736d43c8</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sys_db_view_table_f08f5c7e47422110acb08f22736d4314</sys_update_name>
+        <sys_update_version display_value="sys_db_view_table_f08f5c7e47422110acb08f22736d4314">4ebf10be47422110acb08f22736d4336</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-10 13:35:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

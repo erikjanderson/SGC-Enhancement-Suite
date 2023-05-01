@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceController</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SGCEnhanceController</name>
+        <script><![CDATA[var SGCEnhanceController = Class.create();
+SGCEnhanceController.prototype = {
+	initialize: function () {
+	},
+
+	rollbackLatestImportSetRun: function (importSetGr) {
+		var importSetRunGr = new GlideRecord('sys_import_set_run');
+		importSetRunGr.addQuery('set', importSetGr.getUniqueValue());
+		importSetRunGr.orderByDesc('completed');
+		importSetRunGr.setLimit(1);
+		importSetRunGr.query();
+		if (importSetRunGr.next()) {
+			var state = importSetRunGr.getValue('state');
+			if (state === 'complete') {
+				this.rollbackImportSetRunInBackground(importSetRunGr);
+			}else{
+				gs.warn('SGC Enhancement Suite: (SGCEnhanceController.rollbackLatestImportSetRun) ' + importSetRunGr.getDisplayValue() + ' cannot be rolled back.');
+			}
+		}
+	},
+
+	runFullImport: function(scheduledDataImportGr){
+		if(!scheduledDataImportGr || !scheduledDataImportGr.getValue('data_source')){
+			gs.warn('SGC Enhancement Suite: (SGCEnhanceController.runFullImport) import schedule not defined to import a full data set.');
+			return;
+		}
+		var dataSourceSysId = scheduledDataImportGr.getValue('data_source');
+		var inputs = {};
+		inputs['data_source_sysid'] = dataSourceSysId;
+		sn_fd.FlowAPI.getRunner().action('x_156954_sgc_enhan.sgcenhance_run_full_import').inBackground().withInputs(inputs).run();
+	},
+	
+	transformImportSetInBackground: function (importSetGr) {
+		if (!importSetGr) {
+			gs.warn('SGC Enhancement Suite: (SGCEnhanceController.transformImportSetInBackground) no import set defined.');
+			return;
+		}
+
+		var inputs = {};
+		inputs['import_set_sysid'] = importSetGr.getUniqueValue();
+		sn_fd.FlowAPI.getRunner().action('x_156954_sgc_enhan.sgenhance_transform_and_track_import_set').inBackground().withInputs(inputs).run();
+	},
+
+	rollbackImportSetRunInBackground: function (importSetRunGr) {
+		if (!importSetRunGr) {
+			gs.warn('SGC Enhancement Suite: (SGCEnhanceController.rollbackImportSetRunInBackground) no import set run defined.');
+			return;
+		}
+		var inputs = {};
+		inputs['import_set_run_sysid'] = importSetRunGr.getUniqueValue();
+		sn_fd.FlowAPI.getRunner().action('x_156954_sgc_enhan.sgenhance_rollback_import_set_run').inBackground().withInputs(inputs).run();
+	},
+
+	type: 'SGCEnhanceController'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-03-20 16:34:28</sys_created_on>
+        <sys_id>5adff08447b52110acb08f22736d436b</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>SGCEnhanceController</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_5adff08447b52110acb08f22736d436b</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 17:42:54</sys_updated_on>
+    </sys_script_include>
+</record_update>

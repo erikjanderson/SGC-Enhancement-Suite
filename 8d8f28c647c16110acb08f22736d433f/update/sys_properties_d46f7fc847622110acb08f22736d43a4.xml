@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>&lt;strong&gt;Max Processing Rows&lt;/strong&gt; &lt;p&gt;Limit the number of rows that are either loaded or processed when using the SGC Enhancement Suite. If left empty, no limit will be enforced.&lt;/p&gt;</description>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_156954_sgc_enhan.max_processing_row</name>
+        <read_roles>admin</read_roles>
+        <suffix>max_processing_row</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-27 13:19:37</sys_created_on>
+        <sys_id>d46f7fc847622110acb08f22736d43a4</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>x_156954_sgc_enhan.max_processing_row</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_properties_d46f7fc847622110acb08f22736d43a4</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-27 18:18:12</sys_updated_on>
+        <type>integer</type>
+        <value/>
+        <write_roles>admin</write_roles>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=d46f7fc847622110acb08f22736d43a4"/>
+</record_update>

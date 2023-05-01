@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sys_import_set</collection>
+        <condition>current.mode=='SGCEnhance - Asyncrounus Tracking'</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>SGCEnhance Transform</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	current.mode = 'asyncrounus';
+	current.update();
+
+	var importSet = new SGCEnhanceImportSet(current);
+	importSet.runPreview();
+	
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-02-17 20:23:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7cba820e47096110acb08f22736d43b6</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>SGCEnhance Transform</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_7cba820e47096110acb08f22736d43b6</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-03-20 18:50:31</sys_updated_on>
+        <template/>
+        <when>async_always</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=7cba820e47096110acb08f22736d43b6"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>8f3db847db8a9d508aea21c4059619e6</instance_id>
+        <instance_name>dev136818</instance_name>
+        <name>sys_script_7cba820e47096110acb08f22736d43b6</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;sys_import_set&lt;/collection&gt;&lt;condition&gt;current.mode=='SGCEnhance - Asyncrounus Tracking'&lt;/condition&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;SGCEnhance Transform&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	current.mode = 'asyncrounus';
+	current.update();
+
+	var importSet = new SGCEnhanceImportSet(current);
+	importSet.runPreview();
+	
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;erik.anderson&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-02-17 20:23:43&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;7cba820e47096110acb08f22736d43b6&lt;/sys_id&gt;&lt;sys_mod_count&gt;14&lt;/sys_mod_count&gt;&lt;sys_name&gt;SGCEnhance Transform&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="SGC Enhancement Suite"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_7cba820e47096110acb08f22736d43b6&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;erik.anderson&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-03-20 18:50:31&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;async_always&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=7cba820e47096110acb08f22736d43b6"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1220694595</payload_hash>
+        <record_name>SGCEnhance Transform</record_name>
+        <reverted_from/>
+        <source>918f28c647c16110acb08f22736d4342</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-03-20 18:50:31</sys_created_on>
+        <sys_id>4f0f994447392110acb08f22736d4384</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>187005bd8010000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-03-20 18:50:31</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>830f9944283921108bd2439745d5cd84</update_guid>
+        <update_guid_history>830f9944283921108bd2439745d5cd84:1220694595,4c14e0cc5b352110c62e4494370783e1:-2074229144,d20468cc7a352110f74b8c8ef5692f57:322905039,76f328cc41352110a0c736ece3e7d06d:-97071538,28332404f33521109fb51a9583fdd808:-2092766097,ab02a0c477b1211049a39ec272833400:-1015233930,75026c8423b121109b27cef645680855:-744293517,f8e1e4c4a7b12110a351931720fc60cb:45068636,197120842db12110883e71a10e4a1b0d:1039359936,b7dec20298496110fef681c2887bea63:-1225366432,49aecace5b09611050ec4374e7497453:336114364,6c9b8e0edc09611085c11a8edfbe34df:-358144053,426b8e0e3209611067ab73064392c224:1423766808,662b820eac096110578e849f65638aee:464029739,461b0a0e460961107759e9b6d79dbd7f:992690593</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-03-27 18:27:39</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>032be10feba54584806092ca9b757510</sys_id>
+        <sys_metadata>7cba820e47096110acb08f22736d43b6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SGCEnhance Transform</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent display_value="Import Set">2defc2e0f90211108c8bd16244dfe736</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sys_script_7cba820e47096110acb08f22736d43b6</sys_update_name>
+        <sys_update_version display_value="sys_script_7cba820e47096110acb08f22736d43b6">4f0f994447392110acb08f22736d4384</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-03-27 18:27:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceTag</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SGCEnhanceTag</name>
+        <script><![CDATA[var SGCEnhanceTag = Class.create();
+SGCEnhanceTag.prototype = {
+    initialize: function(gr) {
+		this.gr = gr;
+    },
+
+	
+
+	get: function(tagName){
+		var tagDefinitionGr = this._getTagDefinition(tagName);
+		var tagEntryGr = new GlideRecord('label_entry');
+		tagEntryGr.addQuery('label', tagDefinitionGr.getUniqueValue());
+		tagEntryGr.addQuery('table_key', this.gr.getUniqueValue());
+		tagEntryGr.query();
+		if(tagEntryGr.next()){
+			var value = tagEntryGr.getValue('comments');
+			return value;
+		}else{
+			return '';
+		}
+	},
+
+
+	setValue: function(tagName, value){
+		var tagDefinitionGr = this._getTagDefinition(tagName);
+		var tagEntryGr = new GlideRecord('label_entry');
+		tagEntryGr.addQuery('label', tagDefinitionGr.getUniqueValue());
+		tagEntryGr.addQuery('table_key', this.gr.getUniqueValue());
+		tagEntryGr.query();
+		if(tagEntryGr.next()){
+			tagEntryGr.comments = value;
+			tagEntryGr.update();
+		}else{
+			tagEntryGr.initialize();
+			tagEntryGr.title =  this.gr.getDisplayValue();
+			tagEntryGr.label = tagDefinitionGr.getUniqueValue();
+			var link = this.gr.getLink();
+			tagEntryGr.url = link;
+			tagEntryGr.table = this.gr.getTableName();
+			tagEntryGr.table_key = this.gr.getUniqueValue();
+			tagEntryGr.comments = value;
+			tagEntryGr.insert();
+		}
+	},
+
+
+	//Internal Functions
+
+	_getTagDefinition: function(tagName){
+		if(!tagName){
+			gs.warn('SGC Enhancement Suite (SGCEnhanceTag): No tag name provided.');
+			return;
+		}
+		var tagGr = new GlideRecord('label');
+		tagGr.addActiveQuery();
+		tagGr.addQuery('name', tagName);
+        tagGr.addQuery('type', 'standard');
+		tagGr.query();
+		if(tagGr.next()){
+			return tagGr;
+		}else{
+			tagGr.initialize();
+			tagGr.name = tagName;
+			tagGr.viable_by = 'everyone';
+			tagGr.owner = '';
+			tagGr.insert();
+			return tagGr;
+		}
+	},
+
+
+
+    type: 'SGCEnhanceTag'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-03-20 16:46:49</sys_created_on>
+        <sys_id>30b2c5c847b52110acb08f22736d4363</sys_id>
+        <sys_mod_count>34</sys_mod_count>
+        <sys_name>SGCEnhanceTag</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_30b2c5c847b52110acb08f22736d4363</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-03-20 19:28:20</sys_updated_on>
+    </sys_script_include>
+</record_update>

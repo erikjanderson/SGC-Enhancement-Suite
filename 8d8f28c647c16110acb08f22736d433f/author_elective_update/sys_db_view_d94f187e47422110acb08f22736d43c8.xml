@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view">
+    <sys_db_view action="DELETE">
+        <description/>
+        <label>Import Result</label>
+        <name>x_156954_sgc_enhan_import_result</name>
+        <plural>Import Results</plural>
+        <sys_class_name>sys_db_view</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-10 13:31:43</sys_created_on>
+        <sys_id>d94f187e47422110acb08f22736d43c8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_156954_sgc_enhan_import_result</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_db_view_d94f187e47422110acb08f22736d43c8</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-10 13:31:43</sys_updated_on>
+    </sys_db_view>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>8f3db847db8a9d508aea21c4059619e6</instance_id>
+        <instance_name>dev136818</instance_name>
+        <name>sys_db_view_d94f187e47422110acb08f22736d43c8</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view"><sys_db_view action="INSERT_OR_UPDATE"><description/><label>Import Result</label><name>x_156954_sgc_enhan_import_result</name><plural>Import Results</plural><sys_class_name>sys_db_view</sys_class_name><sys_created_by>erik.anderson</sys_created_by><sys_created_on>2023-04-10 13:31:43</sys_created_on><sys_id>d94f187e47422110acb08f22736d43c8</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_156954_sgc_enhan_import_result</sys_name><sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package><sys_policy/><sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope><sys_update_name>sys_db_view_d94f187e47422110acb08f22736d43c8</sys_update_name><sys_updated_by>erik.anderson</sys_updated_by><sys_updated_on>2023-04-10 13:31:43</sys_updated_on></sys_db_view></record_update>]]></payload>
+        <payload_hash>-1585641619</payload_hash>
+        <record_name>x_156954_sgc_enhan_import_result</record_name>
+        <reverted_from/>
+        <source>918f28c647c16110acb08f22736d4342</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-10 13:31:43</sys_created_on>
+        <sys_id>427fd87e47422110acb08f22736d43c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1876b5d85e30000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-10 13:31:43</sys_updated_on>
+        <type>Database View</type>
+        <update_guid>867fd87e3c4221108506f0c4dcd6acc3</update_guid>
+        <update_guid_history>867fd87e3c4221108506f0c4dcd6acc3:-1585641619</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-10 13:35:35</sys_created_on>
+        <sys_db_object display_value="" name="sys_db_view">sys_db_view</sys_db_object>
+        <sys_id>06ad4bce79ba47a2a1c79c77896cc659</sys_id>
+        <sys_metadata>d94f187e47422110acb08f22736d43c8</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_156954_sgc_enhan_import_result</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sys_db_view_d94f187e47422110acb08f22736d43c8</sys_update_name>
+        <sys_update_version display_value="sys_db_view_d94f187e47422110acb08f22736d43c8">427fd87e47422110acb08f22736d43c4</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-10 13:35:35</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

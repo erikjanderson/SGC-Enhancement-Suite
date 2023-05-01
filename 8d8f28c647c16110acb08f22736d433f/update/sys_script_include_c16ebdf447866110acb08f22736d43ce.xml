@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceImportSummary</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Compiles summaries of import set run making it easier to debug and understand where source data is being transformed to.</description>
+        <name>SGCEnhanceImportSummary</name>
+        <script><![CDATA[var SGCEnhanceImportSummary = Class.create();
+SGCEnhanceImportSummary.prototype = {
+	initialize: function () {	 },
+
+
+	getSummary: function (importSetRun) {
+		var request = new sn_ws.RESTMessageV2();
+		request.setEndpoint(gs.getProperty('glide.servlet.uri').replace(/\/$/, "") + '/api/x_156954_sgc_enhan/sgc_enhance/get_import_summary');
+		request.setQueryParameter('import_set_run', importSetRun.sysId);
+		request.setHttpMethod('GET');
+		request.setRequestHeader("Accept", "application/json");
+		request.saveResponseBodyAsAttachment('sys_import_set_run', importSetRun.sysId,  importSetRun.importSet.displayValue + ' Import Summary (' + importSetRun.number +').csv');
+		request.executeAsync();
+	},
+
+	//Internal Functions
+
+	_report: function (importSetRunSysId, streamWriter) {
+		var importSetRunGr = new GlideRecord('sys_import_set_run');
+		if (importSetRunGr.get(importSetRunSysId.toString())) {
+			var reportArray = this._reportImportSetRun(importSetRunGr);
+			this._reportCSV(reportArray, streamWriter);
+		}
+	},
+
+
+	_reportCSV: function (reportArray, streamWriter) {
+		if (!reportArray || !Array.isArray(reportArray) || !reportArray[0] || !streamWriter) {
+			return;
+		}
+		var csv = new SGCEnhanceCSV(streamWriter);
+		//Create headers
+		var sample = reportArray[0];
+		for (var key in sample) {
+			if (key === 'ire_outputs') {
+				continue;
+			}
+			csv.addHeader(key);
+		}
+		//Add rest of headers;
+		csv.addHeader('target_table', 'actual_table', 'operation', 'target_display', 'target_record', 'target_link', 'error', 'warning');
+
+		for (var i = 0; i < reportArray.length; i++) {
+			var sourceObj = reportArray[i];
+			for (var o = 0; o < sourceObj.ire_outputs.length; o++) {
+				var ireOutput = sourceObj.ire_outputs[o];
+				var mergedObj = this._mergeObjects(sourceObj, ireOutput);
+				csv.addRow(mergedObj);
+			}
+		}
+		csv.build();
+	},
+
+
+	_reportImportSetRun: function (importSetRunGr) {
+		var reportArray = [];
+		var stagingTable = importSetRunGr.set.table_name + '';
+		var importSetSysId = importSetRunGr.getValue('set');
+		var importSetRowGr = new GlideRecord(stagingTable);
+		importSetRowGr.addQuery('sys_import_set', importSetSysId);
+		importSetRowGr.orderBy('sys_import_row');
+		importSetRowGr.query();
+		while (importSetRowGr.next()) {
+			var sourceObj = this._reportStagingRow(importSetRowGr);
+			sourceObj.ire_outputs = this._getIREOutputs(importSetRowGr, importSetRunGr);
+			reportArray.push(sourceObj);
+		}
+		return reportArray;
+	},
+
+	_reportStagingRow: function (importSetRowGr) {
+		var sourceObj = {};
+		sourceObj.row_number = parseInt(importSetRowGr.getValue('sys_import_row')) || 0;
+		for (var columnName in importSetRowGr) {
+			if (columnName.startsWith('sys_') || columnName === 'template_import_log' || columnName === 'import_set_run') {
+				continue;
+			}
+			sourceObj[columnName] = importSetRowGr.getValue(columnName) || '';
+		}
+		return sourceObj;
+	},
+
+	_getIREOutputs: function (importSetRowGr, importSetRunGr) {
+		var ireOutputs = [];
+		if (!importSetRowGr) {
+			gs.warn('SGC Enhancement Suite (SGCEnhanceImportSummary._getIREOutputs): No import set row defined.');
+			return;
+		}
+		var importSetRunSysId;
+		if (importSetRunGr) {
+			importSetRunSysId = importSetRunGr.getUniqueValue();
+		}
+		var ireOutputGr = new GlideRecord('cmdb_ire_output_target_item');
+		ireOutputGr.orderByDesc('sys_created_on');
+		ireOutputGr.addQuery('source_record_id', importSetRowGr.getUniqueValue());
+		if (importSetRunSysId) {
+			ireOutputGr.addQuery('run_id', importSetRunSysId);
+		}
+		ireOutputGr.query();
+		while (ireOutputGr.next()) {
+			if (!importSetRunSysId) {
+				importSetRunSysId = ireOutputGr.getValue('run_id');
+			}
+			if (importSetRunSysId != ireOutputGr.getValue('run_id')) {
+				break;
+			}
+			var ireOutputObj = {};
+			ireOutputObj.target_record = ireOutputGr.getValue('target_record_id');
+			ireOutputObj.target_table = ireOutputGr.getValue('expected_target_table');
+			ireOutputObj.actual_table = ireOutputGr.getValue('actual_target_table');
+			ireOutputObj.operation = ireOutputGr.getDisplayValue('operation');
+
+			var targetGr = this._getTargetRecordGr(ireOutputObj.target_record, ireOutputObj.actual_table);
+			if (targetGr) {
+				ireOutputObj.target_display = targetGr.getDisplayValue();
+				ireOutputObj.target_link = targetGr.getLink();
+			}
+
+
+			ireOutputObj.error = ireOutputGr.getValue('error_detail') || '';
+			ireOutputObj.warning = ireOutputGr.getValue('warning_detail') || '';
+			ireOutputs.push(ireOutputObj);
+		}
+		return ireOutputs;
+	},
+
+
+
+	_getTargetRecordGr: function (targetSysId, targetTable) {
+		if (!targetSysId || !targetTable) {
+			return;
+		}
+
+		var targetGr = new GlideRecord(targetTable);
+		if (targetGr.get(targetSysId)) {
+			return targetGr;
+		}
+	},
+
+
+
+
+
+	_mergeObjects: function (obj1, obj2) {
+		var returnObj = {};
+		for (var key1 in obj1) {
+			returnObj[key1] = obj1[key1];
+		}
+
+		for (var key2 in obj2) {
+			returnObj[key2] = obj2[key2];
+		}
+
+		return returnObj;
+	},
+
+
+
+
+
+
+
+	createAttachment: function (name, gr) {
+		var attachment = new GlideSysAttachment();
+
+		if (!gr) {
+			gr = this._createPollRecord();
+		}
+
+		var fileName = name;
+		if (!fileName) {
+			fileName = gr.getDisplayValue();
+		}
+		if (!fileName) {
+			fileName = gr.getUniqueValue() + '-' + new GlideDateTime().getDisplayValue();
+		}
+
+		var sysId = attachment.write(gr, fileName + '.txt', 'text/plain', '');
+		if (sysId) {
+			var attachmentGr = new GlideRecord('sys_attachment');
+			if (attachmentGr.get(sysId)) {
+				return attachmentGr;
+			}
+		}
+	},
+
+
+	_createPollRecord: function () {
+		var pollGr = new GlideRecord('sys_poll');
+		pollGr.initialize();
+		pollGr.session_id = gs.getSessionID();
+		pollGr.session_user = gs.getUserID();
+		pollGr.state = 'complete';
+		pollGr.max = '0';
+		pollGr.current = '0';
+		pollGr.message = 'Created by the Developer Operations DevOperationCSV Script include.';
+		pollGr.insert();
+		return pollGr;
+	},
+
+	type: 'SGCEnhanceImportSummary'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-04 15:21:46</sys_created_on>
+        <sys_id>c16ebdf447866110acb08f22736d43ce</sys_id>
+        <sys_mod_count>77</sys_mod_count>
+        <sys_name>SGCEnhanceImportSummary</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_c16ebdf447866110acb08f22736d43ce</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-28 13:08:18</sys_updated_on>
+    </sys_script_include>
+</record_update>

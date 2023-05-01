@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_script_action">
+    <sysevent_script_action action="DELETE">
+        <active>true</active>
+        <condition_script/>
+        <description/>
+        <event_name>x_156954_sgc_enhan.SGEnhance Background </event_name>
+        <name>SGEnhance Background Processor</name>
+        <order>100</order>
+        <script><![CDATA[//var importSetSysId = event.instance.toString();
+gs.info('TEST:' + JSON.stringify(event))
+gs.info('event:  ' + event.parm1.type);
+//var importSet = new SGCEnhanceImportSet(importSetSysId);
+//importSet.runPreview();]]></script>
+        <synchronous>false</synchronous>
+        <sys_class_name>sysevent_script_action</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-03-30 15:55:17</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>38c6549747f12110acb08f22736d439c</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>SGEnhance Background Processor</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sysevent_script_action_38c6549747f12110acb08f22736d439c</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-03-30 16:04:23</sys_updated_on>
+    </sysevent_script_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>8f3db847db8a9d508aea21c4059619e6</instance_id>
+        <instance_name>dev136818</instance_name>
+        <name>sysevent_script_action_38c6549747f12110acb08f22736d439c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sysevent_script_action"&gt;&lt;sysevent_script_action action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;condition_script/&gt;&lt;description/&gt;&lt;event_name&gt;x_156954_sgc_enhan.SGEnhance Background &lt;/event_name&gt;&lt;name&gt;SGEnhance Background Processor&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[//var importSetSysId = event.instance.toString();
+gs.info('TEST:' + JSON.stringify(event))
+gs.info('event:  ' + event.parm1.type);
+//var importSet = new SGCEnhanceImportSet(importSetSysId);
+//importSet.runPreview();]]&gt;&lt;/script&gt;&lt;synchronous&gt;false&lt;/synchronous&gt;&lt;sys_class_name&gt;sysevent_script_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;erik.anderson&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-03-30 15:55:17&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;38c6549747f12110acb08f22736d439c&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;SGEnhance Background Processor&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="SGC Enhancement Suite"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sysevent_script_action_38c6549747f12110acb08f22736d439c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;erik.anderson&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-03-30 16:04:23&lt;/sys_updated_on&gt;&lt;/sysevent_script_action&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>613255265</payload_hash>
+        <record_name>SGEnhance Background Processor</record_name>
+        <reverted_from/>
+        <source>918f28c647c16110acb08f22736d4342</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-03-30 16:04:23</sys_created_on>
+        <sys_id>36e8d8d747f12110acb08f22736d431b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>187334353fb0000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-03-30 16:04:23</sys_updated_on>
+        <type>Script Action</type>
+        <update_guid>3ee8d8d77cf12110d883dd6731024b1a</update_guid>
+        <update_guid_history>3ee8d8d77cf12110d883dd6731024b1a:613255265,30e894d70cf12110926f6a8825ee108b:2080164393,760814d770f1211090747b47f354fa8c:1172241199,41375497f8f121102e3ec1a15f4351a7:34207517,82275897c3f12110b8a0a29ff86dc644:881597702,a6d69017a7f12110416d9dc232e87d7e:-1369075435,75d69813eff12110a341f14ee118f688:229325931</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-04 14:51:43</sys_created_on>
+        <sys_db_object display_value="" name="sysevent_script_action">sysevent_script_action</sys_db_object>
+        <sys_id>67f166adfa2b4633bb4a39235909bc99</sys_id>
+        <sys_metadata>38c6549747f12110acb08f22736d439c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SGEnhance Background Processor</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sysevent_script_action_38c6549747f12110acb08f22736d439c</sys_update_name>
+        <sys_update_version display_value="sysevent_script_action_38c6549747f12110acb08f22736d439c">36e8d8d747f12110acb08f22736d431b</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-04 14:51:43</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
