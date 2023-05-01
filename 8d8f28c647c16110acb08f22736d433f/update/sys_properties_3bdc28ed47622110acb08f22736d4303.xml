@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>&lt;strong&gt;Display Import Set Row Report Data&lt;/strong&gt; &lt;p&gt;When set to true, the SGC Enhancement Suite will calculate insights about the current record and display it as an info message when the form loads.&lt;/p&gt;</description>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_156954_sgc_enhan.display_import_set_row_report_data</name>
+        <read_roles>admin</read_roles>
+        <suffix>display_import_set_row_report_data</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-05-01 13:49:17</sys_created_on>
+        <sys_id>3bdc28ed47622110acb08f22736d4303</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>x_156954_sgc_enhan.display_import_set_row_report_data</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_properties_3bdc28ed47622110acb08f22736d4303</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-05-01 14:13:19</sys_updated_on>
+        <type>boolean</type>
+        <value>true</value>
+        <write_roles>admin</write_roles>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=3bdc28ed47622110acb08f22736d4303"/>
+</record_update>

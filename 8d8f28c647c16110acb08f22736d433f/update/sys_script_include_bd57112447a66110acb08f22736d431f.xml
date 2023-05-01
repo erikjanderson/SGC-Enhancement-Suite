@@ -12,7 +12,8 @@ SGCEnhanceAjaxController.prototype = Object.extendsObject(global.AbstractAjaxPro
 
     getCIReportData: function(){
         var ciSysId = this.getParameter('sysparm_ci_sysid');
-        if(ciSysId){
+		var displayReportData = gs.getProperty('x_156954_sgc_enhan.display_ci_report_data') === 'true';
+        if(ciSysId  && displayReportData){
             var configurationItem = new SGCEnhanceConfigurationItem(ciSysId);
             var reportHTML = configurationItem.getFormDisplaySummary();
             return reportHTML;
@@ -21,7 +22,8 @@ SGCEnhanceAjaxController.prototype = Object.extendsObject(global.AbstractAjaxPro
 
     getStagingRowReportData: function(){
         var stagingRowSysId = this.getParameter('sysparm_staging_row_sysid');
-        if(stagingRowSysId){
+		var displayReportData = gs.getProperty('x_156954_sgc_enhan.display_import_set_row_report_data') === 'true';
+        if(stagingRowSysId && displayReportData){
             var stagingRow = new SGCEnhanceImportSetRow(stagingRowSysId);
             var reportHTML = stagingRow.getFormDisplaySummary();
             return reportHTML;
@@ -35,13 +37,13 @@ SGCEnhanceAjaxController.prototype = Object.extendsObject(global.AbstractAjaxPro
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-28 14:21:12</sys_created_on>
         <sys_id>bd57112447a66110acb08f22736d431f</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>SGCEnhanceAjaxController</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_bd57112447a66110acb08f22736d431f</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-28 17:19:50</sys_updated_on>
+        <sys_updated_on>2023-05-01 14:12:58</sys_updated_on>
     </sys_script_include>
 </record_update>

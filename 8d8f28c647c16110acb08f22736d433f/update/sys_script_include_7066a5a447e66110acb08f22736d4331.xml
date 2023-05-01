@@ -39,7 +39,7 @@ SGCEnhanceImportSetRow.prototype = {
 
     },
 
-    rollbackMostRecentSingleImportRun: function(){
+    rollback: function(){
         var transformHistorySysId = this.tags.get('SGCEnhance - SingleRunTransformHistoryId');
         if(!transformHistorySysId){
             return;
@@ -47,6 +47,19 @@ SGCEnhanceImportSetRow.prototype = {
 
         var transformHistory = new SGCEnhanceTransformHistory(transformHistorySysId);
         transformHistory.rollback()
+    },
+
+    rollbackAvailable: function(){
+        var available = false;
+        var transformHistorySysId = this.tags.get('SGCEnhance - SingleRunTransformHistoryId');
+        if(!transformHistorySysId){
+            return available;
+        }
+        var transformHistory = new SGCEnhanceTransformHistory(transformHistorySysId);
+        if(transformHistory.getRollbackContextId()){
+            available = true;
+        }
+		return available;
     },
 
     getTargetCMDBData: function(){
@@ -71,7 +84,7 @@ SGCEnhanceImportSetRow.prototype = {
         var formReport = new SGCEnhanceFormReport();
         formReport.setTitle('SGC Enhancement Suite - Staging Row Summary');
         var mainSection = formReport.addSection('main');
-        mainSection.addParagraph('If this row has been processed into the CMDB, you can review the imported target CMDB records below.');
+        mainSection.addParagraph('If this row has been processed, you can review the imported target CMDB records below.');
         
         var groupedTargetData = {};
         for(var i = 0; i < this.targetCMDBData.length; i++){
@@ -140,13 +153,13 @@ SGCEnhanceImportSetRow.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-28 15:30:43</sys_created_on>
         <sys_id>7066a5a447e66110acb08f22736d4331</sys_id>
-        <sys_mod_count>39</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_name>SGCEnhanceImportSetRow</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_7066a5a447e66110acb08f22736d4331</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-28 18:46:57</sys_updated_on>
+        <sys_updated_on>2023-05-01 14:37:59</sys_updated_on>
     </sys_script_include>
 </record_update>

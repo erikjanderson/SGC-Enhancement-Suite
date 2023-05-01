@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_app">
     <sys_app action="INSERT_OR_UPDATE">
         <active>true</active>
-        <can_edit_in_studio>true</can_edit_in_studio>
+        <can_edit_in_studio>false</can_edit_in_studio>
         <enforce_license>log</enforce_license>
         <guided_setup_guid/>
         <hide_on_ui>false</hide_on_ui>
@@ -13,14 +13,14 @@
         <license_definition/>
         <license_model>none</license_model>
         <logo/>
-        <menu/>
+        <menu display_value="SGC Enhancement Suite">8cad642147a22110acb08f22736d43da</menu>
         <name>SGC Enhancement Suite</name>
         <private>false</private>
         <restrict_table_access>false</restrict_table_access>
-        <runtime_access_tracking>permissive</runtime_access_tracking>
+        <runtime_access_tracking/>
         <scope>x_156954_sgc_enhan</scope>
         <scoped_administration>false</scoped_administration>
-        <short_description/>
+        <short_description>The SGC Enhancement Suite is a custom-scoped application designed to help implement and test Service Graph Connectors by allowing admins to import and roll back their CMDB data and gain insights on where their data is landing in the CMDB after imports.</short_description>
         <source>x_156954_sgc_enhan</source>
         <store_correlation_id/>
         <store_url/>
@@ -29,13 +29,13 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-02-17 13:43:37</sys_created_on>
         <sys_id>8d8f28c647c16110acb08f22736d433f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-02-17 13:43:37</sys_updated_on>
+        <sys_updated_on>2023-05-01 14:01:38</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
-        <user_role/>
+        <user_role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</user_role>
         <vendor/>
         <vendor_prefix/>
         <version>1.0.0</version>

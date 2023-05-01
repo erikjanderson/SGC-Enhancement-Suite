@@ -27,9 +27,9 @@
         <list_save_with_form_button>false</list_save_with_form_button>
         <list_style/>
         <messages/>
-        <name>[SGC Enhance] Transform This Row</name>
+        <name>[SGC Enhance] Transform this row</name>
         <onclick/>
-        <order>100</order>
+        <order>7000</order>
         <script><![CDATA[var importSetRow = new SGCEnhanceImportSetRow(current);
 importSetRow.runPreview();
 
@@ -45,15 +45,15 @@ action.setReturnURL(current);]]></script>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>5a1e8a2c476a6110acb08f22736d43f8</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>[SGC Enhance] Transform This Row</sys_name>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>[SGC Enhance] Transform this row</sys_name>
         <sys_overrides/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_ui_action_5a1e8a2c476a6110acb08f22736d43f8</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-28 18:26:15</sys_updated_on>
+        <sys_updated_on>2023-05-01 13:58:08</sys_updated_on>
         <table>sys_import_set_row</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>
