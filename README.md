@@ -8,7 +8,7 @@ This framework primarily consist of using Flow Designer Data Stream Actions to l
 
 Although Service Graph Connectors are meant to be easy to set up and start using, depending on the current state of your CMDB this isn't always the case, there are often custom identification rules in place or the source data is not 100% reliable. Once the data is in the CMDB and you find things aren't where they should be, its very hard to untangle.
 
-The SGC Enhancement Suite helps with this by utilizing the out of box platform features to help admins run imports and get granular visibility on where that data is going. And if things don't appear as expected, the SGC Enhancement Suite allows you to rollback entire import sets to make it like it never even happened.
+The SGC Enhancement Suite helps with this by utilizing the out of box platform features to help admins run imports and get full visibility on where that data is going. And if things don't appear as expected, the SGC Enhancement Suite allows you to roll back entire import sets to make it like it never even happened.
 
 **Features:**
 
@@ -18,4 +18,3 @@ The SGC Enhancement Suite helps with this by utilizing the out of box platform f
  - Transform and roll back individual import set rows.
  - Review target data for each import set row.
  - Review source IDs on CI records.
-
