@@ -128,23 +128,19 @@ SGCEnhanceImportSetRow.prototype = {
     },
 
     _findSourceRecord: function(id){
-        var source = new global.GlideQuery('sys_object_source')
-            .where('id', id)
-            .selectOne('target_sys_id', 'target_table', 'id', 'name')
-            .flatMap(function(s){
-                return new global.GlideQuery(s.target_table)
-                    .get(s.target_sys_id, ['name'])
-                    .map(function(c){
-                        return {
-                            name: c.name,
-                            sys_id: s.target_sys_id,
-                            sys_class: s.target_table,
-                            link: '/' + s.target_table +'.do?sys_id='+s.target_sys_id
-                        }
-                    })
-            })
-            .get();
-        return source;
+		var sourceGr = new GlideRecord('sys_object_source');
+		if(sourceGr.get('id', id)){
+			var obj = {
+				sys_id: sourceGr.target_sys_id,
+				sys_class: sourceGr.getValue('target_table'),
+				link: '/' + sourceGr.getValue('target_table') +'.do?sys_id='+sourceGr.getValue('target_sys_id')
+			};
+			var gr = new GlideRecord(obj.sys_class);
+			if(gr.get(obj.sys_id)){
+				obj.name = gr.getDisplayValue();
+			}
+			return obj;
+		}
     },
 
     type: 'SGCEnhanceImportSetRow'
@@ -153,13 +149,13 @@ SGCEnhanceImportSetRow.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-28 15:30:43</sys_created_on>
         <sys_id>7066a5a447e66110acb08f22736d4331</sys_id>
-        <sys_mod_count>42</sys_mod_count>
+        <sys_mod_count>52</sys_mod_count>
         <sys_name>SGCEnhanceImportSetRow</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_7066a5a447e66110acb08f22736d4331</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:37:59</sys_updated_on>
+        <sys_updated_on>2023-05-03 14:49:10</sys_updated_on>
     </sys_script_include>
 </record_update>
