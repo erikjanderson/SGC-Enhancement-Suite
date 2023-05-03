@@ -1,3 +1,6 @@
+
+
+
 # SGC Enhancement Suite
 **The SGC Enhancement Suite is a custom-scoped application designed to help implement and test Service Graph Connectors by allowing admins to import and roll back their CMDB data and gain insights on where their data is landing in the CMDB after imports.**
 ## About
@@ -65,3 +68,34 @@ Simply for convenience, you can additionally perfrom a rollback from the import 
 When you transform a single import set row, an import set run record is also created with just one row in it for processing. You can roll back that transform history record but once the row is finished processing, you can also use the **[SGC Enhance] Roll back this row** UI Action. 
 
 ![](Docs/RollBackImportSetRow.png)
+
+## Generate and Export an Import Summary
+The SGC Enhancement Suite aims to add more visibility to the data you are importing through Service Graph Connectors. One of the ways it can do this is by allowing you to export a CSV summary of an import set that goes row by row of the set going into detail which CMDB records were created or if any IRE errors were encountered. The CSV can be exported so that it can be shared more easily as well as not prevent you from performing a rollback after the transform completes.
+
+To generate this export, navigate to the Transform History that you have run through the SGC Enhancment Suite. Click the **[SGC Enhance] Get Import Summary** UI Action to begin generating the file. This process happens in the background so it may take between a few seconds or a few minutes depending on the size of the import.
+
+![](Docs/GetImportSummary.png)
+
+Once the summary  has been generated, the CSV file will be automatically attached to the same Transform History record.
+
+![](Docs/ImportSummaryDownloadAttachment.png)
+
+Download the attachment to review the Import Set Run Summary.
+
+The CSV file is laid out in the oder of the import set rows by row number in ascending order.
+File columns include:
+
+ - **Row Number**: The row number reflected on the import set row record.
+ - **Staging row columns**: The source data values that were processed through the transform.
+ - **Target Table**: The CMDB table the RTE inteded to map this row to.
+ - **Actual Table**: The ServiceNow table this row ended up targeting at runtime.
+ - **Operation**: Shows what database operation was performed by the IRE.
+ - **Target Display**: The display value of the CMDB record that was targeted by the IRE.
+ - **Target Record**: The sys_id value of the CMDB record that was targeted by the IRE.
+ - **Target Link**: A link value to make it easier to navigate to the target CMDB record.
+ - **Error**: Reported errors that could have occurred from the RTE or IRE.
+ - **Warning**: Reported warnings that could have occurred from the RTE or IRE.
+ 
+ ![](Docs/ImportSummaryCSV.png)
+ 
+
