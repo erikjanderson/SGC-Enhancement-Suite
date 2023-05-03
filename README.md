@@ -1,4 +1,6 @@
 
+
+
 # SGC Enhancement Suite
 **The SGC Enhancement Suite is a custom-scoped application designed to help implement and test Service Graph Connectors by allowing admins to import and roll back their CMDB data and gain insights on where their data is landing in the CMDB after imports.**
 ## About
@@ -18,3 +20,48 @@ The SGC Enhancement Suite helps with this by utilizing the out of box platform f
  - Transform and roll back individual import set rows.
  - Review target data for each import set row.
  - Review source IDs on CI records.
+
+## Run a transform through the SGC Enhancement Suite.
+To utilize the majority of the features with the SGC Enchantment Suite, import set's need to be processed using through the tool itself. This is necessary because the SGC Enhancment Suite utilizes the **sn_integration_studio.IntegrationStudioScriptableApi** to do its processing which allows for the ability to generate transform summaries as well as roll back import set runs.
+
+Here are the ways to run this process.
+### Transform and track an import set
+If you have an existing import set, you can simply navigate to it and click the **[SGC Enhance] Transform and track** UI Action. You can use this regardless if the Import set has already been processed or its only been loaded, the appropriate states for the import set and rows will be handled automatically.
+
+![](Docs/TransformAndTrackUIAction.png)
+
+**Note:** Don't use the out of box "Reprocess" or "Transform" UI Actions since these will not allow you to perform a roll back or generate an import summary export. 
+
+The import runs asyncrounusly so and you can monitor the progress of the import under the **Import Set Runs** tab on the import set or in the **Transform History** module.
+
+![](Docs/RunningImportSetRunTab.png)
+
+Because running a transform through this process utilizing more ServiceNow reporting and logging, exect for the run time of this process to take longer than if you had just ran the import through the regular process.
+### Run a full import
+If there is no import set currently available, you can execute a full import like you normally would through the scheduled data import record. If you navigate to the Scheduled Data Import record that you want to track imports for, you can use the **[SGC Enhance] Run full import** UI Action instead of using the "Execute Now" button.
+
+![](Docs/RunFullImportUIAction.png)
+
+**Note:** If there are child Scheduled Data Imports related to the selected job, those child jobs will not be executed and will have to be individually executed for each job that you want to track.
+### Tranform a single import set row
+If you are testing things out or are trying to debug an individual issue, you can transform import set rows individually using the **[SGC Enance] Transform this row** UI Action. This will still allow you to perform a roll back later on but helps keep things simple when first working with a new connector.
+
+![](Docs/TransformSingleRowUIAction.png)
+
+## Perform a rollback
+After an import has completed, the SGC Enhancement Suite receives a rollback context ID which allows us to roll back the completed import to the CMDB's previous state.
+### Roll back an import set run
+Either from the transform history table or by reviewing the import set run's for a spesific import set, navigate to the transform history once the processing is complete. Use the **[SGC Enhance] Roll back** UI Action to begin the roll back. 
+
+![](Docs/RollBackImportSetRun.png)
+
+You can monitor the progress of the rollback by simply watching the total processed count on the tranform history record count backwards to 0 or empty. The Transform History record does not get deleted though.
+### Roll back an import set's most recent run
+Simply for convenience, you can additionally perfrom a rollback from the import set record using the **[SG Enhance] Roll back most recent run** UI Action. This will look at the most recent import set for this import set and perform the rollback.
+
+![](Docs/RollBackImportSetRun.png)
+
+### Roll back a single import set row
+When you transform a single import set row, an import set run record is also created with just one row in it for processing. You can roll back that transform history record but once the row is finished processing, you can also use the **[SGC Enhance] Roll back this row** UI Action. 
+
+![](Docs/RollBackImportSetRow.png)
