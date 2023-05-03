@@ -1,6 +1,3 @@
-
-
-
 # SGC Enhancement Suite
 **The SGC Enhancement Suite is a custom-scoped application designed to help implement and test Service Graph Connectors by allowing admins to import and roll back their CMDB data and gain insights on where their data is landing in the CMDB after imports.**
 ## About
@@ -34,7 +31,7 @@ If you have an existing import set, you can simply navigate to it and click the 
 
 The import runs asyncrounusly so and you can monitor the progress of the import under the **Import Set Runs** tab on the import set or in the **Transform History** module.
 
-![](Docs/RunningImportSetRunTab.png)
+![](Docs/CompleteImportSetRunTab.png)
 
 Because running a transform through this process utilizing more ServiceNow reporting and logging, exect for the run time of this process to take longer than if you had just ran the import through the regular process.
 ### Run a full import
@@ -56,6 +53,9 @@ Either from the transform history table or by reviewing the import set run's for
 ![](Docs/RollBackImportSetRun.png)
 
 You can monitor the progress of the rollback by simply watching the total processed count on the tranform history record count backwards to 0 or empty. The Transform History record does not get deleted though.
+
+![](Docs/RunningImportSetRunTab.png)
+
 ### Roll back an import set's most recent run
 Simply for convenience, you can additionally perfrom a rollback from the import set record using the **[SG Enhance] Roll back most recent run** UI Action. This will look at the most recent import set for this import set and perform the rollback.
 
