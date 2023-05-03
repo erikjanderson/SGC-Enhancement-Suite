@@ -22,7 +22,7 @@ The SGC Enhancement Suite helps with this by utilizing the out of box platform f
  - Review source IDs on CI records.
 
 ## Run a transform through the SGC Enhancement Suite.
-To utilize the majority of the features with the SGC Enchantment Suite, import set's need to be processed using through the tool itself. This is necessary because the SGC Enhancment Suite utilizes the **sn_integration_studio.IntegrationStudioScriptableApi** to do its processing which allows for the ability to generate transform summaries as well as roll back import set runs.
+To utilize the majority of the features with the SGC Enchantment Suite, import set's need to be processed using through the tool itself. This is necessary because the SGC Enhancement Suite utilizes the **sn_integration_studio.IntegrationStudioScriptableApi** to do its processing which allows for the ability to generate transform summaries as well as roll back import set runs.
 
 Here are the ways to run this process.
 ### Transform and track an import set
@@ -32,11 +32,11 @@ If you have an existing import set, you can simply navigate to it and click the 
 
 **Note:** Don't use the out of box "Reprocess" or "Transform" UI Actions since these will not allow you to perform a roll back or generate an import summary export. 
 
-The import runs asyncrounusly so and you can monitor the progress of the import under the **Import Set Runs** tab on the import set or in the **Transform History** module.
+The import runs asynchronously so and you can monitor the progress of the import under the **Import Set Runs** tab on the import set or in the **Transform History** module.
 
 ![](Docs/CompleteImportSetRunTab.png)
 
-Because running a transform through this process utilizing more ServiceNow reporting and logging, exect for the run time of this process to take longer than if you had just ran the import through the regular process.
+Because running a transform through this process utilizing more ServiceNow reporting and logging, exact for the run time of this process to take longer than if you had just ran the import through the regular process.
 ### Run a full import
 If there is no import set currently available, you can execute a full import like you normally would through the scheduled data import record. If you navigate to the Scheduled Data Import record that you want to track imports for, you can use the **[SGC Enhance] Run full import** UI Action instead of using the "Execute Now" button.
 
@@ -44,23 +44,23 @@ If there is no import set currently available, you can execute a full import lik
 
 **Note:** If there are child Scheduled Data Imports related to the selected job, those child jobs will not be executed and will have to be individually executed for each job that you want to track.
 ### Tranform a single import set row
-If you are testing things out or are trying to debug an individual issue, you can transform import set rows individually using the **[SGC Enance] Transform this row** UI Action. This will still allow you to perform a roll back later on but helps keep things simple when first working with a new connector.
+If you are testing things out or are trying to debug an individual issue, you can transform import set rows individually using the **[SGC Enhance] Transform this row** UI Action. This will still allow you to perform a roll back later on but helps keep things simple when first working with a new connector.
 
 ![](Docs/TransformSingleRowUIAction.png)
 
 ## Perform a rollback
 After an import has completed, the SGC Enhancement Suite receives a rollback context ID which allows us to roll back the completed import to the CMDB's previous state.
 ### Roll back an import set run
-Either from the transform history table or by reviewing the import set run's for a spesific import set, navigate to the transform history once the processing is complete. Use the **[SGC Enhance] Roll back** UI Action to begin the roll back. 
+Either from the transform history table or by reviewing the import set run's for a specific import set, navigate to the transform history once the processing is complete. Use the **[SGC Enhance] Roll back** UI Action to begin the roll back. 
 
 ![](Docs/RollBackImportSetRun.png)
 
-You can monitor the progress of the rollback by simply watching the total processed count on the tranform history record count backwards to 0 or empty. The Transform History record does not get deleted though.
+You can monitor the progress of the rollback by simply watching the total processed count on the transform history record count backwards to 0 or empty. The Transform History record does not get deleted though.
 
 ![](Docs/RunningImportSetRunTab.png)
 
 ### Roll back an import set's most recent run
-Simply for convenience, you can additionally perfrom a rollback from the import set record using the **[SG Enhance] Roll back most recent run** UI Action. This will look at the most recent import set for this import set and perform the rollback.
+Simply for convenience, you can additionally perform a rollback from the import set record using the **[SG Enhance] Roll back most recent run** UI Action. This will look at the most recent import set for this import set and perform the rollback.
 
 ![](Docs/RollBackImportSetRun.png)
 
@@ -72,7 +72,7 @@ When you transform a single import set row, an import set run record is also cre
 ## Generate and Export an Import Summary
 The SGC Enhancement Suite aims to add more visibility to the data you are importing through Service Graph Connectors. One of the ways it can do this is by allowing you to export a CSV summary of an import set that goes row by row of the set going into detail which CMDB records were created or if any IRE errors were encountered. The CSV can be exported so that it can be shared more easily as well as not prevent you from performing a rollback after the transform completes.
 
-To generate this export, navigate to the Transform History that you have run through the SGC Enhancment Suite. Click the **[SGC Enhance] Get Import Summary** UI Action to begin generating the file. This process happens in the background so it may take between a few seconds or a few minutes depending on the size of the import.
+To generate this export, navigate to the Transform History that you have run through the SGC Enhancement Suite. Click the **[SGC Enhance] Get Import Summary** UI Action to begin generating the file. This process happens in the background so it may take between a few seconds or a few minutes depending on the size of the import.
 
 ![](Docs/GetImportSummary.png)
 
@@ -82,12 +82,12 @@ Once the summary  has been generated, the CSV file will be automatically attache
 
 Download the attachment to review the Import Set Run Summary.
 
-The CSV file is laid out in the oder of the import set rows by row number in ascending order.
+The CSV file is laid out in the order of the import set rows by row number in ascending order.
 File columns include:
 
  - **Row Number**: The row number reflected on the import set row record.
  - **Staging row columns**: The source data values that were processed through the transform.
- - **Target Table**: The CMDB table the RTE inteded to map this row to.
+ - **Target Table**: The CMDB table the RTE intended to map this row to.
  - **Actual Table**: The ServiceNow table this row ended up targeting at runtime.
  - **Operation**: Shows what database operation was performed by the IRE.
  - **Target Display**: The display value of the CMDB record that was targeted by the IRE.
