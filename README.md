@@ -24,7 +24,6 @@ The SGC Enhancement Suite helps with this by utilizing the out of box platform f
 ## Run a transform through the SGC Enhancement Suite.
 To utilize the majority of the features with the SGC Enchantment Suite, import sets need to be processed using the tool itself. This is necessary because the SGC Enhancement Suite utilizes the **sn_integration_studio.IntegrationStudioScriptableApi** to do its processing which allows for the ability to generate transform summaries as well as roll back import set runs.
 
-Here are the ways to run this process.
 ### Transform and track an import set
 If you have an existing import set, you can simply navigate to it and click the **[SGC Enhance] Transform and track** UI Action. You can use this regardless if the Import set has already been processed or its only been loaded, the appropriate states for the import set and rows will be handled automatically.
 
