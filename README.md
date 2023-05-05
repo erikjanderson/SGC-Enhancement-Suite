@@ -22,7 +22,7 @@ The SGC Enhancement Suite helps with this by utilizing the out of box platform f
  - Review source IDs on CI records.
 
 ## Run a transform through the SGC Enhancement Suite.
-To utilize the majority of the features with the SGC Enchantment Suite, import set's need to be processed using through the tool itself. This is necessary because the SGC Enhancement Suite utilizes the **sn_integration_studio.IntegrationStudioScriptableApi** to do its processing which allows for the ability to generate transform summaries as well as roll back import set runs.
+To utilize the majority of the features with the SGC Enchantment Suite, import sets need to be processed using the tool itself. This is necessary because the SGC Enhancement Suite utilizes the **sn_integration_studio.IntegrationStudioScriptableApi** to do its processing which allows for the ability to generate transform summaries as well as roll back import set runs.
 
 Here are the ways to run this process.
 ### Transform and track an import set
