@@ -98,7 +98,7 @@ File columns include:
  ![](Docs/ImportSummaryCSV.png)
  
 ## Review Import Set Rows' Target CIs
-Regardless if you have imported CIs using the SGC Enhancement Suite or not, after the imports are complete, you are now able to review processed import set rows, and the SGC Enhancement Suite will calculate which target CI's were created/updated based on the data present in each row and provide links to directly to those records.
+Regardless if you have imported CIs using the SGC Enhancement Suite or not, after the imports are complete, you are now able to review processed import set rows, and the SGC Enhancement Suite will calculate which target CI's were created/updated based on the data present in each row and provide links directly to those records.
 
 Open an import set row record and an info message should appear at the top of the form listing out the CIs that are associated to this row. 
 
