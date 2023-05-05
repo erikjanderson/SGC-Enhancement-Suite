@@ -98,4 +98,20 @@ File columns include:
  
  ![](Docs/ImportSummaryCSV.png)
  
+## Review Import Set Rows' Target CIs
+Regardless if you have imported CIs using the SGC Enhancement Suite or not, after the imports are complete, you are now able to review processed import set rows, and the SGC Enhancement Suite will calculate which target CI's were created/updated based on the data present in each row and provide links to directly to those records.
+
+Open an import set row record and an info message should appear at the top of the form listing out the CIs that are associated to this row. 
+
+![](Docs/StagingRowSummary.png)
+
+![](Docs/StagingRowSummaryMultiRecord.png)
+
+## View a CI's Source Summary
+When dealing with Service Graph Connectors, chances are that there are multiple integrations updating the same CIs. Unfortunately, the discovery source field on the CI table can only be populated with the most recent discovery source and the Correlation ID field is pretty much a deprecated since Service Graph Connectors wont populated this field. 
+
+The SGC Enhancement Suite helps surface this information by displaying all sources and the source native keys that were used in the IRE. When looking at a CMDB record, a info message should appear at the top listing this data out.
+
+![](Docs/CMDBSourceSummary.png)
+
 
