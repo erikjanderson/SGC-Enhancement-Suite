@@ -35,7 +35,7 @@ The import runs asynchronously so and you can monitor the progress of the import
 
 ![](Docs/CompleteImportSetRunTab.png)
 
-Because running a transform through this process utilizing more ServiceNow reporting and logging, exact for the run time of this process to take longer than if you had just ran the import through the regular process.
+Because running a transform through this process utilizing more ServiceNow reporting and logging, expect for the run time of this process to take longer than if you had just ran the import through the regular process.
 ### Run a full import
 If there is no import set currently available, you can execute a full import like you normally would through the scheduled data import record. If you navigate to the Scheduled Data Import record that you want to track imports for, you can use the **[SGC Enhance] Run full import** UI Action instead of using the "Execute Now" button.
 
