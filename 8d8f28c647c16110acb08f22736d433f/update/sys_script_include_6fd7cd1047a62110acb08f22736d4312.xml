@@ -9,118 +9,142 @@
         <name>SGCEnhanceConfigurationItem</name>
         <script><![CDATA[var SGCEnhanceConfigurationItem = Class.create();
 SGCEnhanceConfigurationItem.prototype = {
-    initialize: function (configItemGr) {
-        if (configItemGr) {
-            if (typeof configItemGr === "string") {
-                configItemGr = this._getGlideRecordWithId(configItemGr);
-            }
-            if (configItemGr + "" === "[object GlideRecord]") {
-                this.setFromGr(configItemGr);
-            }
-        }
-    },
+	initialize: function (configItemGr) {
+		if (configItemGr) {
+			if (typeof configItemGr === "string") {
+				configItemGr = this._getGlideRecordWithId(configItemGr);
+			}
+			if (configItemGr + "" === "[object GlideRecord]") {
+				this.setFromGr(configItemGr);
+			}
+		}
+	},
 
 
-    setFromGr: function (configItemGr) {
-        this.sysId = configItemGr.getUniqueValue();
-        this.name = configItemGr.getValue('name');
-        this.className = configItemGr.getValue('sys_class_name');
-        this.manufacturer = this._getReferenceField('manufacturer', configItemGr);
-        this.sources = this._getSources();
-    },
+	setFromGr: function (configItemGr) {
+		this.sysId = configItemGr.getUniqueValue();
+		this.name = configItemGr.getValue('name');
+		this.className = configItemGr.getValue('sys_class_name');
+		this.manufacturer = this._getReferenceField('manufacturer', configItemGr);
+		this.sources = this._getSources();
+	},
 
-    getFormDisplaySummary: function () {
-        var formReport = new SGCEnhanceFormReport();
-        formReport.setTitle('SGC Enhancement Suite - Source Summary');
-        var mainSection = formReport.addSection('main');
-        mainSection.addParagraph('List of all discovery sources that contribute to this CI. If there are multiple ID\'s listed under a single source, you should check the source data as the IRE has merged these two items together.');
-        var mainUL = mainSection.addUnorderedList();
-        for (var i = 0; i < this.sources.length; i++) {
-            var source = this.sources[i];
-            var text = '<strong>' + source.discovery_source + '</strong>: ';
-            for (var t = 0; t < source.ids.length; t++) {
-                if (t > 0) {
-                    text += ', ';
-                }
-                text += source.ids[t].id;
-            }
-            mainUL.push(text);
-        }
-        return formReport.build();
-    },
-
-
-    //Internal Functions
-
-    _getGlideRecordWithId: function (id) {
-        var configItemGr = new GlideRecord("cmdb_ci");
-        if (configItemGr.get(id)) {
-            return configItemGr;
-        }
-    },
-
-    _getReferenceField: function (columnName, configItemGr) {
-        var returnObj = {};
-        if (columnName) {
-            returnObj.id = configItemGr.getValue(columnName);
-            returnObj.displayValue = configItemGr.getDisplayValue(columnName);
-        }
-        return returnObj;
-    },
-
-    _getSources: function () {
-        var sources = [];
-        var obj = {};
-        new global.GlideQuery('sys_object_source')
-            .where('target_sys_id', this.sysId)
-            .orderByDesc('last_scan')
-            .select('name', 'id', 'last_scan$DISPLAY')
-            .map(function (s) {
-                return {
-                    name: s.name,
-                    id: s.id,
-                    last_scan: s.last_scan$DISPLAY
-                }
-            })
-            .forEach(function (source) {
-                if (!obj[source.name]) {
-                    obj[source.name] = {};
-                }
-
-                if (!obj[source.name][source.id]) {
-                    obj[source.name][source.id] = {
-                        id: source.id,
-                        last_scan: source.last_scan
-                    }
-                }
-            });
-        for (var discovery_source in obj) {
-            var sourceObj = {
-                discovery_source: discovery_source,
-                ids: []
-            }
-            for (var id in obj[discovery_source]) {
-                sourceObj.ids.push(obj[discovery_source][id]);
-            }
-            sources.push(sourceObj);
-        }
-        return sources;
-    },
+	getFormDisplaySummary: function () {
+		var formReport = new SGCEnhanceFormReport();
+		formReport.setTitle('SGC Enhancement Suite - Source Summary');
+		var mainSection = formReport.addSection('main');
+		mainSection.addParagraph('List of all discovery sources that contribute to this CI. If there are multiple ID\'s listed under a single source, you should check the source data as the IRE has merged these two items together.');
+		var mainUL = mainSection.addUnorderedList();
+		for (var i = 0; i < this.sources.length; i++) {
+			var source = this.sources[i];
+			var text = '<strong>' + source.discovery_source + '</strong>: ';
+			for (var t = 0; t < source.ids.length; t++) {
+				if (t > 0) {
+					text += ', ';
+				}
+				text += source.ids[t].id;
+			}
+			mainUL.push(text);
+		}
+		return formReport.build();
+	},
 
 
-    type: 'SGCEnhanceConfigurationItem'
+	//Internal Functions
+
+	_getGlideRecordWithId: function (id) {
+		var configItemGr = new GlideRecord("cmdb_ci");
+		if (configItemGr.get(id)) {
+			return configItemGr;
+		}
+	},
+
+	_getReferenceField: function (columnName, configItemGr) {
+		var returnObj = {};
+		if (columnName) {
+			returnObj.id = configItemGr.getValue(columnName);
+			returnObj.displayValue = configItemGr.getDisplayValue(columnName);
+		}
+		return returnObj;
+	},
+
+	_getSources: function () {
+		var sources = [];
+		var obj = {};
+		var sourceGr = new GlideRecord('sys_object_source');
+		sourceGr.addQuery('target_sys_id', this.sysId);
+		sourceGr.addNotNullQuery('source_feed');
+		sourceGr.orderByDesc('last_scan');
+		sourceGr.query();
+		while(sourceGr.next()){
+			var sourceName = sourceGr.getValue('name');
+			var sourceId = sourceGr.getValue('id');
+			if (!obj[sourceName]) {
+				obj[sourceName] = {};
+			}
+
+			if (!obj[sourceName][sourceId]) {
+				obj[sourceName][sourceId] = {
+					id: sourceId,
+					last_scan: sourceGr.last_scan.getDisplayValue(),
+					source_feeds: []
+				}
+			}
+			var feedObj = this._getSourceFeedDetails(sourceGr.getValue('source_feed'));
+			if(feedObj){
+
+
+
+				obj[sourceName][sourceId].source_feeds.push(feedObj);
+			}
+		}
+
+		for (var discovery_source in obj) {
+			var sourceObj = {
+				discovery_source: discovery_source,
+				ids: []
+			}
+			for (var id in obj[discovery_source]) {
+				sourceObj.ids.push(obj[discovery_source][id]);
+			}
+			sources.push(sourceObj);
+		}
+		return sources;
+	},
+
+	_getSourceFeedDetails: function(sourceFeed){
+		var transformDefinitionGr = new GlideRecord('cmdb_inst_application_feed');
+		if (transformDefinitionGr.get('name', sourceFeed)) {
+			var feedObj = {};
+			feedObj.name = transformDefinitionGr.getValue('name');
+			feed_id = transformDefinitionGr.getUniqueValue();
+			feedObj.staging_table = transformDefinitionGr.sys_data_source.import_set_table_name + '';
+			feedObj.data_in_single_column = transformDefinitionGr.sys_data_source.data_in_single_column + '' === 'true';
+			return feedObj;
+		}
+	},
+
+	_findStagingRow: function(transformDefinitionId, id){
+		
+	},
+
+
+
+
+
+	type: 'SGCEnhanceConfigurationItem'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 18:34:58</sys_created_on>
         <sys_id>6fd7cd1047a62110acb08f22736d4312</sys_id>
-        <sys_mod_count>48</sys_mod_count>
+        <sys_mod_count>66</sys_mod_count>
         <sys_name>SGCEnhanceConfigurationItem</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_6fd7cd1047a62110acb08f22736d4312</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:18:06</sys_updated_on>
+        <sys_updated_on>2023-05-08 19:51:20</sys_updated_on>
     </sys_script_include>
 </record_update>
