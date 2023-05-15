@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceDuplicateRowProcessor</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Extends the sn_cmdb_int_util.DuplicateRowProcessor and is repurposed to detect duplicate rows in existing staging table rows.</description>
+        <name>SGCEnhanceDuplicateRowProcessor</name>
+        <script><![CDATA[var SGCEnhanceDuplicateRowProcessor = Class.create();
+SGCEnhanceDuplicateRowProcessor.prototype = Object.extendsObject(sn_cmdb_int_util.DuplicateRowProcessor, {
+    
+    rule: {
+        rule: '',
+        dataSource: '',
+        table: '',
+        ignore: '"sys_class_name","sys_created_by","sys_created_on","sys_id","sys_import_row","sys_import_set","sys_import_state","sys_import_state_comment","sys_mod_count","sys_row_error","sys_target_sys_id","sys_target_table","sys_transform_map","sys_updated_by","sys_updated_on","template_import_log"'
+    },
+
+
+    indexImportSetRowTargets: function(){
+		var rteDataSourceGr = this._getActiveRTEStagingTables();
+        while(rteDataSourceGr.next()){
+			var stagingTable = rteDataSourceGr.sys_data_source.import_set_table_name + '';
+            var rowBatch = [];
+			var importSetRowGr = new GlideRecord(stagingTable);
+			importSetRowGr.orderByDesc('sys_created_on');
+			importSetRowGr.query();
+			while(importSetRowGr.next()){
+                var rowHash = this.hash(importSetRowGr);
+				var processed = this.insert(importSetRowGr);
+				if(processed){
+					rowBatch.push(importSetRowGr.getUniqueValue());
+				}
+                if(rowBatch >= 100 || !importSetRowGr.hasNext()){
+                    var sources = this._findTargetSources(rteDataSourceGr, rowBatch);
+                    rowBatch = [];
+                }
+			}
+		}
+    },
+
+	//Internal Functions
+
+    insert: function(row) {
+        var hash = this.hash(row);
+        if (null === hash) {
+            return;
+        }
+        if (!this._checkHashExists(hash)) {
+            this._createBlock(this.rule.rule, hash);
+			return true;
+        } else{
+			this._block();
+			return false;
+		}
+            
+    },
+
+    _getActiveRTEStagingTables: function(){
+		var stagingTables = [];
+		var rteDataSourceGr = new GlideRecord('cmdb_inst_application_feed');
+		rteDataSourceGr.addEncodedQuery("active=true");
+		rteDataSourceGr.query();
+		return rteDataSourceGr;
+	},
+
+    _findTargetSources: function(rteDataSourceGr, rowBatch){
+        gs.info('test rowBatch: ' + rowBatch)
+    },
+
+    type: 'SGCEnhanceDuplicateRowProcessor'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-05-11 14:19:49</sys_created_on>
+        <sys_id>e6939c3447766110acb08f22736d438f</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>SGCEnhanceDuplicateRowProcessor</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_e6939c3447766110acb08f22736d438f</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-05-15 14:18:44</sys_updated_on>
+    </sys_script_include>
+</record_update>

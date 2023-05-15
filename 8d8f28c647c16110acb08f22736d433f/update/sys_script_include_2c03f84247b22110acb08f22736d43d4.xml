@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceImportRowToSource</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SGCEnhanceImportRowToSource</name>
+        <script><![CDATA[var SGCEnhanceImportRowToSource = Class.create();
+SGCEnhanceImportRowToSource.prototype = {
+    initialize: function () {
+        this._ignoreColumns = ["sys_class_name", "sys_created_by", "sys_created_on", "sys_id", "sys_import_row", "sys_import_set", "sys_import_state", "sys_import_state_comment", "sys_mod_count", "sys_row_error", "sys_target_sys_id", "sys_target_table", "sys_transform_map", "sys_updated_by", "sys_updated_on", "template_import_log"];
+    },
+
+
+    indexImportSetRowTargets: function () {
+        var rteDataSourceGr = this._getActiveRTEStagingTables();
+        while (rteDataSourceGr.next()) {
+            var stagingTable = rteDataSourceGr.sys_data_source.import_set_table_name + '';
+            var rowBatch = {};
+            var importSetSysId = '';
+            var importSetRowGr = new GlideRecord(stagingTable);
+            importSetRowGr.orderByDesc('sys_import_set');
+            importSetRowGr.addQuery('sys_import_state', 'processed');
+            importSetRowGr.query();
+            while (importSetRowGr.next()) {
+                var m2mAlreadyExists = false;
+                var existingM2M = this._getM2MFromImportRow(importSetRowGr.getUniqueValue());
+                if(existingM2M.hasNext()){
+                     continue;
+                }
+                var rowHash = this._hash(importSetRowGr);
+                existingM2M = this._getM2MFromHash(rowHash);
+                if (existingM2M.hasNext()) {
+                    while (existingM2M.next()) {
+                        existingM2M.primary = false;
+                        existingM2M.sys_import_set_row = importSetRowGr.getUniqueValue();
+                        existingM2M.insert();
+                    }
+                    continue;
+                }
+
+                if (!importSetSysId) {
+                    importSetSysId = importSetRowGr.getValue('sys_import_set');
+                }
+
+                if (importSetRowGr.getValue('sys_import_set') != importSetSysId) {
+                    this._findTargetSources(importSetSysId, rowBatch);
+                    this._addIndexes(rowBatch);
+                    rowBatch = {};
+                    importSetSysId = importSetRowGr.getValue('sys_import_set');
+                }
+
+                if(!m2mAlreadyExists){
+                    rowBatch[importSetRowGr.getUniqueValue()] = {
+                        hash: rowHash,
+                        sources: []
+                    }
+                }
+                
+                if ((Object.keys(rowBatch).length >= 100 || !importSetRowGr.hasNext())) {
+                    this._findTargetSources(importSetSysId, rowBatch);
+                    this._addIndexes(rowBatch);
+                    rowBatch = {};
+                }  
+            }
+            this._findTargetSources(importSetSysId, rowBatch);
+            this._addIndexes(rowBatch);
+        }
+    },
+
+    //Internal Functions
+
+    _addIndexes: function(rowBatch){
+        for(var rowSysId  in rowBatch){
+            var row = rowBatch[rowSysId];
+            var m2mGr = new GlideRecord('x_156954_sgc_enhan_m2m_import_row_source');
+            m2mGr.initialize();
+            m2mGr.sys_import_set_row = rowSysId;
+            m2mGr.hash = row.hash;
+            m2mGr.primary = true;
+            for(var i = 0; i < row.sources.length; i++){
+                m2mGr.sys_object_source = row.sources[i];
+                m2mGr.insert();
+            }
+        }
+    },
+    _getActiveRTEStagingTables: function () {
+        var rteDataSourceGr = new GlideRecord('cmdb_inst_application_feed');
+        rteDataSourceGr.addEncodedQuery("active=true");
+        rteDataSourceGr.query();
+        return rteDataSourceGr;
+    },
+
+    _findTargetSources: function (importSetSysId, rowBatch) {
+        if(Object.keys(rowBatch).length < 1){
+            return rowBatch;
+        }
+        
+        var importSet = new SGCEnhanceImportSet(importSetSysId);
+
+        var query = 'sys_idIN';
+        for (var i = 0; i < Object.keys(rowBatch).length; i++) {
+            var key = Object.keys(rowBatch)[i];
+            if (i != 0) {
+                query += ',';
+            }
+            query += key;
+        }
+
+        var partialPreviewResult = importSet.runPartialPreview(query);
+        if (partialPreviewResult) {
+            for (var i = 0; i < partialPreviewResult.length; i++) {
+                var rowResponse = partialPreviewResult[i];
+                var output = JSON.parse(rowResponse.outputRecord);
+                var targetData = rowBatch[rowResponse.id].sources;
+                for (var entityName in output) {
+
+                    if (entityName.startsWith('temp') || !output[entityName].source_native_key) {
+                        continue;
+                    }
+                    this._getSourceRecords(output[entityName], targetData);
+                }
+            }
+        }
+
+        return rowBatch;
+
+    },
+
+    _getSourceRecords: function (entity, targetData) {
+        var sourceNativeKey = entity.source_native_key;
+        var source = this._findSourceRecord(sourceNativeKey);
+        targetData.push(source);
+
+        for (var key in entity) {
+            if (Array.isArray(entity[key])) {
+                for (var i = 0; i < entity[key].length; i++) {
+                    var subEntity = entity[key][i];
+                    this._getSourceRecords(subEntity, targetData);
+                }
+            }
+        }
+
+    },
+
+    _findSourceRecord: function (id) {
+        var sourceGr = new GlideRecord('sys_object_source');
+        if (sourceGr.get('id', id)) {
+            return sourceGr.getUniqueValue();
+        }
+    },
+
+    _hash: function (row) {
+        var fields = "";
+        var keys = Object.keys(row).sort();
+
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            if (this._ignoreColumns.indexOf(key.toString()) == -1) {
+                fields += "_" + row[key];
+            }
+        }
+
+
+        if (fields == "") {
+            return null;
+        }
+        return new GlideDigest().getMD5Hex("SALT_" + fields);
+    },
+
+    _getM2MFromHash: function (hash) {
+        var m2mGr = new GlideRecord('x_156954_sgc_enhan_m2m_import_row_source');
+        m2mGr.addQuery('hash', hash);
+        m2mGr.addQuery('primary', true);
+        m2mGr.query();
+        return m2mGr;
+    },
+
+    _getM2MFromImportRow: function (rowSysId) {
+        var m2mGr = new GlideRecord('x_156954_sgc_enhan_m2m_import_row_source');
+        m2mGr.addQuery('sys_import_set_row', rowSysId);
+        m2mGr.query();
+        return m2mGr;
+    },
+
+    type: 'SGCEnhanceImportRowToSource'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-05-15 13:49:05</sys_created_on>
+        <sys_id>2c03f84247b22110acb08f22736d43d4</sys_id>
+        <sys_mod_count>76</sys_mod_count>
+        <sys_name>SGCEnhanceImportRowToSource</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_2c03f84247b22110acb08f22736d43d4</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-05-15 19:15:55</sys_updated_on>
+    </sys_script_include>
+</record_update>
