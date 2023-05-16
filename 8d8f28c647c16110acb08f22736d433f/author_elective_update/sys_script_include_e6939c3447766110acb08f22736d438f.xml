@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceDuplicateRowProcessor</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Extends the sn_cmdb_int_util.DuplicateRowProcessor and is repurposed to detect duplicate rows in existing staging table rows.</description>
+        <name>SGCEnhanceDuplicateRowProcessor</name>
+        <script><![CDATA[var SGCEnhanceDuplicateRowProcessor = Class.create();
+SGCEnhanceDuplicateRowProcessor.prototype = Object.extendsObject(sn_cmdb_int_util.DuplicateRowProcessor, {
+    
+    rule: {
+        rule: '',
+        dataSource: '',
+        table: '',
+        ignore: '"sys_class_name","sys_created_by","sys_created_on","sys_id","sys_import_row","sys_import_set","sys_import_state","sys_import_state_comment","sys_mod_count","sys_row_error","sys_target_sys_id","sys_target_table","sys_transform_map","sys_updated_by","sys_updated_on","template_import_log"'
+    },
+
+
+    indexImportSetRowTargets: function(){
+		var rteDataSourceGr = this._getActiveRTEStagingTables();
+        while(rteDataSourceGr.next()){
+			var stagingTable = rteDataSourceGr.sys_data_source.import_set_table_name + '';
+            var rowBatch = [];
+			var importSetRowGr = new GlideRecord(stagingTable);
+			importSetRowGr.orderByDesc('sys_created_on');
+			importSetRowGr.query();
+			while(importSetRowGr.next()){
+                var rowHash = this.hash(importSetRowGr);
+				var processed = this.insert(importSetRowGr);
+				if(processed){
+					rowBatch.push(importSetRowGr.getUniqueValue());
+				}
+                if(rowBatch >= 100 || !importSetRowGr.hasNext()){
+                    var sources = this._findTargetSources(rteDataSourceGr, rowBatch);
+                    rowBatch = [];
+                }
+			}
+		}
+    },
+
+	//Internal Functions
+
+    insert: function(row) {
+        var hash = this.hash(row);
+        if (null === hash) {
+            return;
+        }
+        if (!this._checkHashExists(hash)) {
+            this._createBlock(this.rule.rule, hash);
+			return true;
+        } else{
+			this._block();
+			return false;
+		}
+            
+    },
+
+    _getActiveRTEStagingTables: function(){
+		var stagingTables = [];
+		var rteDataSourceGr = new GlideRecord('cmdb_inst_application_feed');
+		rteDataSourceGr.addEncodedQuery("active=true");
+		rteDataSourceGr.query();
+		return rteDataSourceGr;
+	},
+
+    _findTargetSources: function(rteDataSourceGr, rowBatch){
+        gs.info('test rowBatch: ' + rowBatch)
+    },
+
+    type: 'SGCEnhanceDuplicateRowProcessor'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-05-11 14:19:49</sys_created_on>
+        <sys_id>e6939c3447766110acb08f22736d438f</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>SGCEnhanceDuplicateRowProcessor</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_e6939c3447766110acb08f22736d438f</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-05-15 14:18:44</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>8f3db847db8a9d508aea21c4059619e6</instance_id>
+        <instance_name>dev136818</instance_name>
+        <name>sys_script_include_e6939c3447766110acb08f22736d438f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_156954_sgc_enhan.SGCEnhanceDuplicateRowProcessor&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;Extends the sn_cmdb_int_util.DuplicateRowProcessor and is repurposed to detect duplicate rows in existing staging table rows.&lt;/description&gt;&lt;name&gt;SGCEnhanceDuplicateRowProcessor&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var SGCEnhanceDuplicateRowProcessor = Class.create();
+SGCEnhanceDuplicateRowProcessor.prototype = Object.extendsObject(sn_cmdb_int_util.DuplicateRowProcessor, {
+    
+    rule: {
+        rule: '',
+        dataSource: '',
+        table: '',
+        ignore: '"sys_class_name","sys_created_by","sys_created_on","sys_id","sys_import_row","sys_import_set","sys_import_state","sys_import_state_comment","sys_mod_count","sys_row_error","sys_target_sys_id","sys_target_table","sys_transform_map","sys_updated_by","sys_updated_on","template_import_log"'
+    },
+
+
+    indexImportSetRowTargets: function(){
+		var rteDataSourceGr = this._getActiveRTEStagingTables();
+        while(rteDataSourceGr.next()){
+			var stagingTable = rteDataSourceGr.sys_data_source.import_set_table_name + '';
+            var rowBatch = [];
+			var importSetRowGr = new GlideRecord(stagingTable);
+			importSetRowGr.orderByDesc('sys_created_on');
+			importSetRowGr.query();
+			while(importSetRowGr.next()){
+                var rowHash = this.hash(importSetRowGr);
+				var processed = this.insert(importSetRowGr);
+				if(processed){
+					rowBatch.push(importSetRowGr.getUniqueValue());
+				}
+                if(rowBatch &gt;= 100 || !importSetRowGr.hasNext()){
+                    var sources = this._findTargetSources(rteDataSourceGr, rowBatch);
+                    rowBatch = [];
+                }
+			}
+		}
+    },
+
+	//Internal Functions
+
+    insert: function(row) {
+        var hash = this.hash(row);
+        if (null === hash) {
+            return;
+        }
+        if (!this._checkHashExists(hash)) {
+            this._createBlock(this.rule.rule, hash);
+			return true;
+        } else{
+			this._block();
+			return false;
+		}
+            
+    },
+
+    _getActiveRTEStagingTables: function(){
+		var stagingTables = [];
+		var rteDataSourceGr = new GlideRecord('cmdb_inst_application_feed');
+		rteDataSourceGr.addEncodedQuery("active=true");
+		rteDataSourceGr.query();
+		return rteDataSourceGr;
+	},
+
+    _findTargetSources: function(rteDataSourceGr, rowBatch){
+        gs.info('test rowBatch: ' + rowBatch)
+    },
+
+    type: 'SGCEnhanceDuplicateRowProcessor'
+});]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;erik.anderson&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-05-11 14:19:49&lt;/sys_created_on&gt;&lt;sys_id&gt;e6939c3447766110acb08f22736d438f&lt;/sys_id&gt;&lt;sys_mod_count&gt;21&lt;/sys_mod_count&gt;&lt;sys_name&gt;SGCEnhanceDuplicateRowProcessor&lt;/sys_name&gt;&lt;sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="SGC Enhancement Suite"&gt;8d8f28c647c16110acb08f22736d433f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_e6939c3447766110acb08f22736d438f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;erik.anderson&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-05-15 14:18:44&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>2022119728</payload_hash>
+        <record_name>SGCEnhanceDuplicateRowProcessor</record_name>
+        <reverted_from/>
+        <source>918f28c647c16110acb08f22736d4342</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-05-15 14:18:44</sys_created_on>
+        <sys_id>ffd9bc0a47b22110acb08f22736d43da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1881fc724880000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-05-15 14:18:44</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>b7d9bc0aecb221100b70edeb24111ada</update_guid>
+        <update_guid_history>b7d9bc0aecb221100b70edeb24111ada:2022119728,ee29780ad7b22110928270aeac854897:459584073,31297cc6d5b22110b1a93acbf3d09ab6:266567259,abd8700ae0b2211072d7779732df111c:-1461695677,52a8700aa2b2211008b16fc9cd99a715:874275781,6b983486beb221104deb84586d9eb5ec:-435744700,7b587cc6d3b22110e073e58000393fac:-1274424532,43c5fc066ab22110c9da19380ed3c35a:-1322173475,3985fc06c5b22110bfa5174b52d10b52:1453145986,6b45f806d2b22110bf65dad8480707f9:1397227358,f5e4b0063cb2211083d3e0bdebf76714:-1861490122,9ea4b0c2dbb221109c51f30ef4184fb1:-53796302,139438c2dbb221108e8a25ad4263b178:-294180671,ad84bcc284b22110982e828d874ffee8:-740311999,2a74f4c252b22110f53f84955de6ac67:1440025847,63f3f4c2feb22110ce155a9c7d7c325e:745913997,8fa33c42feb221108b354c639253d70c:-767330652,8c9330c289b2211023897ab14a3e16d0:1002857942,aba2f442fbb22110cea6c90fbf6cb077:1891421173,6dd5583cd77661102757e441e0e70370:-630318341,a094947cc27661107d77def08493c646:-2127761697,e8c3583ce3766110a47047eb74b75f65:-770627819</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-05-15 19:51:01</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>25517bc187764b4a8828698b90b07624</sys_id>
+        <sys_metadata>e6939c3447766110acb08f22736d438f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SGCEnhanceDuplicateRowProcessor</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sys_script_include_e6939c3447766110acb08f22736d438f</sys_update_name>
+        <sys_update_version display_value="sys_script_include_e6939c3447766110acb08f22736d438f">ffd9bc0a47b22110acb08f22736d43da</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-05-15 19:51:01</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

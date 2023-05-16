@@ -42,6 +42,9 @@ SGCEnhanceConfigurationItem.prototype = {
 					text += ', ';
 				}
 				text += source.ids[t].id;
+				if(source.ids[t].staging_rows && Object.keys(source.ids[t].staging_rows).length > 0){
+					text += ' [ ' + this._buildStagingTableLink(source.ids[t].staging_rows) + '  ]';
+				}
 			}
 			mainUL.push(text);
 		}
@@ -70,6 +73,7 @@ SGCEnhanceConfigurationItem.prototype = {
 	_getSources: function () {
 		var sources = [];
 		var obj = {};
+		var stagingRowSourceM2M = new SGCEnhanceImportRowToSource();
 		var sourceGr = new GlideRecord('sys_object_source');
 		sourceGr.addQuery('target_sys_id', this.sysId);
 		sourceGr.addNotNullQuery('source_feed');
@@ -86,16 +90,16 @@ SGCEnhanceConfigurationItem.prototype = {
 				obj[sourceName][sourceId] = {
 					id: sourceId,
 					last_scan: sourceGr.last_scan.getDisplayValue(),
-					source_feeds: []
+					staging_rows: stagingRowSourceM2M.findStagingRows(sourceId, sourceName)
 				};
 			}
-			var feedObj = this._getSourceFeedDetails(sourceGr.getValue('source_feed'));
-			if(feedObj){
+			//var feedObj = this._getSourceFeedDetails(sourceGr.getValue('source_feed'));
+			//if(feedObj){
 
 
 
-				obj[sourceName][sourceId].source_feeds.push(feedObj);
-			}
+			//	obj[sourceName][sourceId].source_feeds.push(feedObj);
+			//}
 		}
 
 		for (var discovery_source in obj) {
@@ -123,8 +127,28 @@ SGCEnhanceConfigurationItem.prototype = {
 		}
 	},
 
-	_findStagingRow: function(transformDefinitionId, id){
-		
+	_buildStagingTableLink: function(stagingRows){
+		var txt = '';
+		var addCommas = false;
+		for(var tableName in stagingRows){
+			var href = tableName + '_list.do?sysparm_query=sys_idIN';
+			for(var i = 0; i < stagingRows[tableName].length; i++){
+				var rowSysId = stagingRows[tableName][i];
+				if(i != 0){
+					href  += ',';
+				}
+				href += rowSysId;
+			}
+
+			var link = '<a href="' + href + '">' + tableName + '</a>';
+			if(addCommas){
+				txt += ', ';
+			}
+			addCommas = true;
+			txt += link;
+
+		}
+		return txt;
 	},
 
 /* 
@@ -148,13 +172,13 @@ SGCEnhanceConfigurationItem.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 18:34:58</sys_created_on>
         <sys_id>6fd7cd1047a62110acb08f22736d4312</sys_id>
-        <sys_mod_count>70</sys_mod_count>
+        <sys_mod_count>80</sys_mod_count>
         <sys_name>SGCEnhanceConfigurationItem</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_6fd7cd1047a62110acb08f22736d4312</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-05-09 17:51:20</sys_updated_on>
+        <sys_updated_on>2023-05-16 02:16:05</sys_updated_on>
     </sys_script_include>
 </record_update>

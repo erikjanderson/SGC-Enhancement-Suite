@@ -25,11 +25,13 @@ SGCEnhanceImportRowToSource.prototype = {
             importSetRowGr.addQuery('sys_import_state', 'processed');
             importSetRowGr.query();
             while (importSetRowGr.next()) {
+
                 var m2mAlreadyExists = false;
                 var existingM2M = this._getM2MFromImportRow(importSetRowGr.getUniqueValue());
                 if(existingM2M.hasNext()){
                      continue;
                 }
+
                 var rowHash = this._hash(importSetRowGr);
                 existingM2M = this._getM2MFromHash(rowHash);
                 if (existingM2M.hasNext()) {
@@ -56,10 +58,10 @@ SGCEnhanceImportRowToSource.prototype = {
                     rowBatch[importSetRowGr.getUniqueValue()] = {
                         hash: rowHash,
                         sources: []
-                    }
+                    };
                 }
                 
-                if ((Object.keys(rowBatch).length >= 100 || !importSetRowGr.hasNext())) {
+                if (Object.keys(rowBatch).length >= 100) {
                     this._findTargetSources(importSetSysId, rowBatch);
                     this._addIndexes(rowBatch);
                     rowBatch = {};
@@ -69,6 +71,23 @@ SGCEnhanceImportRowToSource.prototype = {
             this._addIndexes(rowBatch);
         }
     },
+
+	findStagingRows: function(sourceNativeKey, discoverySource){
+		var m2mGr = new GlideRecord('x_156954_sgc_enhan_m2m_import_row_source');
+        m2mGr.addQuery('sys_object_source.id', sourceNativeKey)
+        if(discoverySource){
+            m2mGr.addQuery('sys_object_source.name', discoverySource);
+        }
+		m2mGr.query();
+        var tables = {}
+		while(m2mGr.next()){
+			if(!tables[m2mGr.sys_import_set_row.sys_class_name + '']){
+                tables[m2mGr.sys_import_set_row.sys_class_name + ''] = [];
+            }
+            tables[m2mGr.sys_import_set_row.sys_class_name + ''].push(m2mGr.getValue('sys_import_set_row'));
+		}
+        return tables;
+	},
 
     //Internal Functions
 
@@ -97,9 +116,7 @@ SGCEnhanceImportRowToSource.prototype = {
         if(Object.keys(rowBatch).length < 1){
             return rowBatch;
         }
-        
         var importSet = new SGCEnhanceImportSet(importSetSysId);
-
         var query = 'sys_idIN';
         for (var i = 0; i < Object.keys(rowBatch).length; i++) {
             var key = Object.keys(rowBatch)[i];
@@ -116,24 +133,21 @@ SGCEnhanceImportRowToSource.prototype = {
                 var output = JSON.parse(rowResponse.outputRecord);
                 var targetData = rowBatch[rowResponse.id].sources;
                 for (var entityName in output) {
-
                     if (entityName.startsWith('temp') || !output[entityName].source_native_key) {
                         continue;
                     }
                     this._getSourceRecords(output[entityName], targetData);
+					rowBatch[rowResponse.id].sources = Object.keys(targetData);
                 }
             }
         }
-
         return rowBatch;
-
     },
 
     _getSourceRecords: function (entity, targetData) {
         var sourceNativeKey = entity.source_native_key;
         var source = this._findSourceRecord(sourceNativeKey);
-        targetData.push(source);
-
+        targetData[source] = true;
         for (var key in entity) {
             if (Array.isArray(entity[key])) {
                 for (var i = 0; i < entity[key].length; i++) {
@@ -142,7 +156,6 @@ SGCEnhanceImportRowToSource.prototype = {
                 }
             }
         }
-
     },
 
     _findSourceRecord: function (id) {
@@ -162,7 +175,6 @@ SGCEnhanceImportRowToSource.prototype = {
                 fields += "_" + row[key];
             }
         }
-
 
         if (fields == "") {
             return null;
@@ -191,13 +203,13 @@ SGCEnhanceImportRowToSource.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-05-15 13:49:05</sys_created_on>
         <sys_id>2c03f84247b22110acb08f22736d43d4</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>93</sys_mod_count>
         <sys_name>SGCEnhanceImportRowToSource</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_2c03f84247b22110acb08f22736d43d4</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-05-15 19:15:55</sys_updated_on>
+        <sys_updated_on>2023-05-16 01:53:59</sys_updated_on>
     </sys_script_include>
 </record_update>
