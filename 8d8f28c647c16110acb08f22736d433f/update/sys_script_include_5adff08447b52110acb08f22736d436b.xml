@@ -60,19 +60,27 @@ SGCEnhanceController.prototype = {
 		sn_fd.FlowAPI.getRunner().action('x_156954_sgc_enhan.sgenhance_rollback_import_set_run').inBackground().withInputs(inputs).run();
 	},
 
+	indexImportSetRowsToSources: function(){
+
+	},
+
+	//Internal Functions
+
+	
+
 	type: 'SGCEnhanceController'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-03-20 16:34:28</sys_created_on>
         <sys_id>5adff08447b52110acb08f22736d436b</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name>SGCEnhanceController</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_5adff08447b52110acb08f22736d436b</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:42:54</sys_updated_on>
+        <sys_updated_on>2023-05-15 15:32:29</sys_updated_on>
     </sys_script_include>
 </record_update>

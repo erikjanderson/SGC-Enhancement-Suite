@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="DELETE">
+        <operation>read</operation>
+        <source_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-05 14:28:55</sys_created_on>
+        <sys_id>839cf6c547822110acb08f22736d43d3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_156954_dup_mac_staging_table</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_scope_privilege_839cf6c547822110acb08f22736d43d3</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-05 14:28:55</sys_updated_on>
+        <target_name>x_156954_dup_mac_staging_table</target_name>
+        <target_scope display_value="Duplicate MAC">54ab92664764a110acb08f22736d4337</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>8f3db847db8a9d508aea21c4059619e6</instance_id>
+        <instance_name>dev136818</instance_name>
+        <name>sys_scope_privilege_839cf6c547822110acb08f22736d43d3</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege"><sys_scope_privilege action="INSERT_OR_UPDATE"><operation>read</operation><source_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</source_scope><status>allowed</status><sys_class_name>sys_scope_privilege</sys_class_name><sys_created_by>erik.anderson</sys_created_by><sys_created_on>2023-04-05 14:28:55</sys_created_on><sys_id>839cf6c547822110acb08f22736d43d3</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_156954_dup_mac_staging_table</sys_name><sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package><sys_policy/><sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope><sys_update_name>sys_scope_privilege_839cf6c547822110acb08f22736d43d3</sys_update_name><sys_updated_by>erik.anderson</sys_updated_by><sys_updated_on>2023-04-05 14:28:55</sys_updated_on><target_name>x_156954_dup_mac_staging_table</target_name><target_scope display_value="Duplicate MAC">54ab92664764a110acb08f22736d4337</target_scope><target_type>sys_db_object</target_type></sys_scope_privilege></record_update>]]></payload>
+        <payload_hash>1147220511</payload_hash>
+        <record_name>x_156954_dup_mac_staging_table</record_name>
+        <reverted_from/>
+        <source>918f28c647c16110acb08f22736d4342</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-04-05 14:28:55</sys_created_on>
+        <sys_id>479cf6c547822110acb08f22736d43d5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18751d216ac0000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-04-05 14:28:55</sys_updated_on>
+        <type>Cross scope privilege</type>
+        <update_guid>c79cf6c51a8221104cb5a39f09daf5d4</update_guid>
+        <update_guid_history>c79cf6c51a8221104cb5a39f09daf5d4:1147220511</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2023-05-16 02:21:52</sys_created_on>
+        <sys_db_object display_value="" name="sys_scope_privilege">sys_scope_privilege</sys_db_object>
+        <sys_id>3512b1b8566c49548fd5050bbee660e1</sys_id>
+        <sys_metadata>839cf6c547822110acb08f22736d43d3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_156954_dup_mac_staging_table</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sys_scope_privilege_839cf6c547822110acb08f22736d43d3</sys_update_name>
+        <sys_update_version display_value="sys_scope_privilege_839cf6c547822110acb08f22736d43d3">479cf6c547822110acb08f22736d43d5</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2023-05-16 02:21:52</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -9,7 +9,7 @@
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_ui_action display_value="[SGCEnhance] - Run Rull Import">5fd6fb0047622110acb08f22736d4322</sys_ui_action>
+        <sys_ui_action display_value="[SGC Enhance] Run full import">5fd6fb0047622110acb08f22736d4322</sys_ui_action>
         <sys_update_name>sys_ui_action_role_8107bbcc47222110acb08f22736d438b</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
         <sys_updated_on>2023-04-27 12:42:14</sys_updated_on>
