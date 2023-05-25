@@ -65,7 +65,7 @@ SGCEnhanceImportSetRow.prototype = {
     getTargetCMDBData: function(){
         var query = 'sys_id=' + this.sysId
         var transformerResponse = this.importSet.runPartialPreview(query);
-        var targetData = [];
+        var targetData = {};
         if(transformerResponse && transformerResponse[0] && transformerResponse[0].outputRecord){
             var output = JSON.parse(transformerResponse[0].outputRecord);
             for(var entityName in output){
@@ -76,7 +76,11 @@ SGCEnhanceImportSetRow.prototype = {
             }
            
         }
-        return targetData;
+        var targetDataArray = [];
+        for(var key in targetData){
+            targetDataArray.push(targetData[key]);
+        }
+        return targetDataArray;
     },
 
     getFormDisplaySummary: function(){
@@ -127,29 +131,28 @@ SGCEnhanceImportSetRow.prototype = {
     },
 
     _getTargetCMDBRecords: function(entity, targetData){
-            
-            var sourceNativeKey = entity.source_native_key;
-			if(sourceNativeKey){
-				var source = this._findSourceRecord(sourceNativeKey);
-				targetData.push(source);
-			}
-
-            for(var key in entity){
-                if(Array.isArray(entity[key])){
-                    for(var i = 0; i < entity[key].length; i++){
-                        var subEntity = entity[key][i];
-                        this._getTargetCMDBRecords(subEntity, targetData);
-                    }
+        var sourceNativeKey = entity.source_native_key;
+        if(sourceNativeKey){
+            var source = this._findSourceRecord(sourceNativeKey);
+            if(source && !targetData[source.sys_id]){
+                targetData[source.sys_id] = source;
+            }	
+        }
+        for(var key in entity){
+            if(Array.isArray(entity[key])){
+                for(var i = 0; i < entity[key].length; i++){
+                    var subEntity = entity[key][i];
+                    this._getTargetCMDBRecords(subEntity, targetData);
                 }
             }
-
+        }
     },
 
     _findSourceRecord: function(id){
 		var sourceGr = new GlideRecord('sys_object_source');
 		if(sourceGr.get('id', id)){
 			var obj = {
-				sys_id: sourceGr.target_sys_id,
+				sys_id: sourceGr.getValue('target_sys_id'),
 				sys_class: sourceGr.getValue('target_table'),
 				link: '/' + sourceGr.getValue('target_table') +'.do?sys_id='+sourceGr.getValue('target_sys_id')
 			};
@@ -167,13 +170,13 @@ SGCEnhanceImportSetRow.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-28 15:30:43</sys_created_on>
         <sys_id>7066a5a447e66110acb08f22736d4331</sys_id>
-        <sys_mod_count>67</sys_mod_count>
+        <sys_mod_count>71</sys_mod_count>
         <sys_name>SGCEnhanceImportSetRow</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_7066a5a447e66110acb08f22736d4331</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-05-15 20:06:57</sys_updated_on>
+        <sys_updated_on>2023-05-25 18:58:37</sys_updated_on>
     </sys_script_include>
 </record_update>
