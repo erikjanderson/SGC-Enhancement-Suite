@@ -35,21 +35,27 @@ SGCEnhanceConfigurationItem.prototype = {
 		var mainUL = mainSection.addUnorderedList();
 		for (var i = 0; i < this.sources.length; i++) {
 			var source = this.sources[i];
-			var text = '<strong>' + source.discovery_source + '</strong>: ';
+			var text = '';
+			if(source.staging_rows && Object.keys(source.staging_rows).length === 1){
+				var tableName = Object.keys(source.staging_rows)[0];
+				text += '<strong><a href="' + this._createTableHref(tableName, source.staging_rows[tableName])  + '">' + source.discovery_source + '</a></strong>: ';
+			}else{
+				text += '<strong>' + source.discovery_source + '</strong>: ';
+			}
+			if(source.staging_rows && Object.keys(source.staging_rows).length > 1){
+				var t = false;
+				for(var stagingTable in source.staging_rows){
+					if(t){
+						text += ',';
+					}
+					text += ' [ ' + this._buildStagingTableLink(source.staging_rows[stagingTable]) + '  ]';
+				}
+			}
 			for (var t = 0; t < source.ids.length; t++) {
 				if (t > 0) {
 					text += ', ';
 				}
-				gs.info('tetst: ' + Object.keys(source.ids[t].staging_rows).length);
-				if(source.ids[t].staging_rows && Object.keys(source.ids[t].staging_rows).length > 1){
-					text += source.ids[t].id;
-					text += ' [ ' + this._buildStagingTableLink(source.ids[t].staging_rows) + '  ]';
-				}else if(source.ids[t].staging_rows && Object.keys(source.ids[t].staging_rows).length === 1){
-					var tableName = Object.keys(source.ids[t].staging_rows)[0]
-					text += '<a href="' + this._createTableHref(tableName, source.ids[t].staging_rows[tableName])  + '">' + source.ids[t].id; + '</a>';
-				}else{
-					text += source.ids[t].id;
-				}
+				text += source.ids[t].id;
 			}
 			mainUL.push(text);
 		}
@@ -78,7 +84,7 @@ SGCEnhanceConfigurationItem.prototype = {
 	_getSources: function () {
 		var sources = [];
 		var obj = {};
-		var stagingRowSourceM2M = new SGCEnhanceImportRowToSource();
+		///var stagingRowSourceM2M = new SGCEnhanceImportRowToSource();
 		var sourceGr = new GlideRecord('sys_object_source');
 		sourceGr.addQuery('target_sys_id', this.sysId);
 		sourceGr.addNotNullQuery('source_feed');
@@ -86,32 +92,46 @@ SGCEnhanceConfigurationItem.prototype = {
 		sourceGr.query();
 		while(sourceGr.next()){
 			var sourceName = sourceGr.getValue('name');
+			var sourceFeed = sourceGr.getValue('source_feed');
 			var sourceId = sourceGr.getValue('id');
 			if (!obj[sourceName]) {
-				obj[sourceName] = {};
+				obj[sourceName] = {
+					staging_rows: {}
+				};
 			}
 
 			if (!obj[sourceName][sourceId]) {
 				obj[sourceName][sourceId] = {
 					id: sourceId,
 					last_scan: sourceGr.last_scan.getDisplayValue(),
-					staging_rows: stagingRowSourceM2M.findStagingRows(sourceId, sourceName)
+					//staging_rows: {}
+					//staging_rows: stagingRowSourceM2M.findStagingRows(sourceId, sourceName)
 				};
 			}
-		}
+			var sourceFeedDetails = this._getSourceFeedDetails(sourceFeed);
+			if(sourceFeedDetails.staging_table && !obj[sourceName].staging_rows[sourceFeedDetails.staging_table]){
+				obj[sourceName].staging_rows[sourceFeedDetails.staging_table] = this._findStagingRows(sourceFeedDetails.staging_table);
+			}
 
+		}
 		for (var discovery_source in obj) {
 			var sourceObj = {
 				discovery_source: discovery_source,
 				ids: []
 			};
 			for (var id in obj[discovery_source]) {
-				sourceObj.ids.push(obj[discovery_source][id]);
+				if(id != 'staging_rows'){
+					sourceObj.ids.push(obj[discovery_source][id]);
+				}else {
+					sourceObj.staging_rows = obj[discovery_source][id];
+				}
 			}
 			sources.push(sourceObj);
 		}
 		return sources;
 	},
+
+
 
 	_getSourceFeedDetails: function(sourceFeed){
 		var transformDefinitionGr = new GlideRecord('cmdb_inst_application_feed');
@@ -153,6 +173,40 @@ SGCEnhanceConfigurationItem.prototype = {
 			return href;
 	},
 
+	_findStagingRows: function(sourceTableName){
+		var firstRunContext = '';
+		var tempRunContext = '';
+		var runTableName = '';
+		var stagingRows = [];
+		var ireOutboundTargetsGr = new GlideRecord('cmdb_ire_output_target_item');
+		ireOutboundTargetsGr.addQuery('target_record_id', this.sysId);
+		ireOutboundTargetsGr.orderByDesc('run_id');
+		ireOutboundTargetsGr.query();
+		while (ireOutboundTargetsGr.next()) {
+			var runId = ireOutboundTargetsGr.getValue('run_id');
+			if(firstRunContext && runId != firstRunContext){
+				break;
+			}
+			if(tempRunContext != runId){
+				tempRunContext = runId;
+				runTableName = this._getImportSetRunTable(runId);
+			}
+			if(runTableName === sourceTableName){
+				firstRunContext = runId;
+				stagingRows.push(ireOutboundTargetsGr.getValue('source_record_id'));
+			}
+		}
+		return stagingRows;
+	},
+
+
+	_getImportSetRunTable: function(runId){
+		var importSetRunGr = new GlideRecord('sys_import_set_run');
+		if(importSetRunGr.get(runId)){
+			return importSetRunGr.set.table_name + '';
+		}
+	},
+
 /* 
 	randomHash: function(type) {
         var input = this.randomString(256);
@@ -174,13 +228,13 @@ SGCEnhanceConfigurationItem.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 18:34:58</sys_created_on>
         <sys_id>6fd7cd1047a62110acb08f22736d4312</sys_id>
-        <sys_mod_count>84</sys_mod_count>
+        <sys_mod_count>152</sys_mod_count>
         <sys_name>SGCEnhanceConfigurationItem</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_6fd7cd1047a62110acb08f22736d4312</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-05-16 12:03:36</sys_updated_on>
+        <sys_updated_on>2023-05-25 15:14:08</sys_updated_on>
     </sys_script_include>
 </record_update>
