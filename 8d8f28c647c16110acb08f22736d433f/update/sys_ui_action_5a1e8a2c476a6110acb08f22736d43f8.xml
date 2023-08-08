@@ -40,7 +40,7 @@ action.setReturnURL(current);]]></script>
         <show_query>false</show_query>
         <show_update>true</show_update>
         <sys_class_name>sys_ui_action</sys_class_name>
-        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-28 18:22:07</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
@@ -52,7 +52,7 @@ action.setReturnURL(current);]]></script>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_ui_action_5a1e8a2c476a6110acb08f22736d43f8</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-01 13:58:08</sys_updated_on>
         <table>sys_import_set_row</table>
         <ui11_compatible>true</ui11_compatible>

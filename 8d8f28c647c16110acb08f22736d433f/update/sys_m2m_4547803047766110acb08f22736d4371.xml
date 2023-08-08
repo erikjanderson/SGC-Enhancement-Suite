@@ -7,7 +7,7 @@
         <m2m_to_field>sys_object_source</m2m_to_field>
         <m2m_to_label>Import Set Rows</m2m_to_label>
         <sys_class_name>sys_m2m</sys_class_name>
-        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-11 13:26:03</sys_created_on>
         <sys_id>4547803047766110acb08f22736d4371</sys_id>
         <sys_mod_count>0</sys_mod_count>
@@ -16,7 +16,7 @@
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_m2m_4547803047766110acb08f22736d4371</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-11 13:26:03</sys_updated_on>
         <to_table>sys_object_source</to_table>
     </sys_m2m>

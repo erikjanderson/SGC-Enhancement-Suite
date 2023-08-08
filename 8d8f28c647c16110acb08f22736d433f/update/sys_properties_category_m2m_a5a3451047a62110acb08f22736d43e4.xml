@@ -4,7 +4,7 @@
         <order>100</order>
         <property display_value="x_156954_sgc_enhan.auto_generate_import_summary" name="x_156954_sgc_enhan.auto_generate_import_summary">75ffb81c47662110acb08f22736d4356</property>
         <sys_class_name>sys_properties_category_m2m</sys_class_name>
-        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-27 18:16:23</sys_created_on>
         <sys_id>a5a3451047a62110acb08f22736d43e4</sys_id>
         <sys_mod_count>0</sys_mod_count>
@@ -13,7 +13,7 @@
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_properties_category_m2m_a5a3451047a62110acb08f22736d43e4</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 18:16:23</sys_updated_on>
     </sys_properties_category_m2m>
 </record_update>

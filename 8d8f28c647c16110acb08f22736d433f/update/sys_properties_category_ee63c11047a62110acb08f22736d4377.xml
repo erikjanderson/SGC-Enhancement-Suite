@@ -2,7 +2,7 @@
     <sys_properties_category action="INSERT_OR_UPDATE">
         <name>SGC Enhancement Suite Settings</name>
         <sys_class_name>sys_properties_category</sys_class_name>
-        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-27 18:15:59</sys_created_on>
         <sys_id>ee63c11047a62110acb08f22736d4377</sys_id>
         <sys_mod_count>1</sys_mod_count>
@@ -11,7 +11,7 @@
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_properties_category_ee63c11047a62110acb08f22736d4377</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 18:19:46</sys_updated_on>
         <title><![CDATA[<p><span style="font-size: 18pt;">SGC Enhancement Suite Settings</span></p>]]></title>
     </sys_properties_category>
