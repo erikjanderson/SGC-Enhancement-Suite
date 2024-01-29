@@ -167,7 +167,7 @@ SGCEnhanceImportSetRow.prototype = {
     type: 'SGCEnhanceImportSetRow'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
-        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-28 15:30:43</sys_created_on>
         <sys_id>7066a5a447e66110acb08f22736d4331</sys_id>
         <sys_mod_count>71</sys_mod_count>
@@ -176,7 +176,7 @@ SGCEnhanceImportSetRow.prototype = {
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_7066a5a447e66110acb08f22736d4331</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-25 18:58:37</sys_updated_on>
     </sys_script_include>
 </record_update>

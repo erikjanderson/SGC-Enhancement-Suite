@@ -8,7 +8,7 @@
         <read_roles>admin</read_roles>
         <suffix>auto_generate_import_summary</suffix>
         <sys_class_name>sys_properties</sys_class_name>
-        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-27 18:02:10</sys_created_on>
         <sys_id>75ffb81c47662110acb08f22736d4356</sys_id>
         <sys_mod_count>2</sys_mod_count>
@@ -17,7 +17,7 @@
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_properties_75ffb81c47662110acb08f22736d4356</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 18:17:19</sys_updated_on>
         <type>boolean</type>
         <value>false</value>
