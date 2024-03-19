@@ -6,11 +6,14 @@
         <action_template/>
         <active>true</active>
         <annotation/>
+        <attributes/>
+        <authored_on_release_version/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
         <copied_from_name/>
         <description/>
+        <flow_priority/>
         <ih_action>false</ih_action>
         <internal_name>sgenhance_rollback_import_set_run</internal_name>
         <label_cache>[{"name":"{{action.import_set_run_id}}","label":"action➛Import Set Run Id","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.import_set_run_sysid}}","label":"action➛Import Set Run SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
@@ -26,7 +29,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6c19305447662110acb08f22736d438d</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>SGEnhance Roll Back Import Set Run</sys_name>
         <sys_overrides/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
@@ -34,7 +37,7 @@
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_6c19305447662110acb08f22736d438d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:00:15</sys_updated_on>
+        <sys_updated_on>2024-02-14 18:26:16</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -130,18 +133,6 @@
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=1459f05447662110acb08f22736d4374"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>1459f05447662110acb08f22736d4374</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:31:14</sys_created_on>
-        <sys_id>1459785447662110acb08f22736d4357</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:31:14</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>importSetRunSysId</field>
         <id>1459f05447662110acb08f22736d4374</id>
         <sys_created_by>erik.anderson</sys_created_by>
@@ -152,18 +143,6 @@
         <sys_updated_on>2023-04-27 17:31:14</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_1459f05447662110acb08f22736d4374</table>
         <value>{{action.import_set_run_sysid}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>1459f05447662110acb08f22736d4374</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:31:14</sys_created_on>
-        <sys_id>d859785447662110acb08f22736d4357</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:31:14</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=1459f05447662110acb08f22736d4374"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=1459f05447662110acb08f22736d4374^sys_idNOT IN5059785447662110acb08f22736d4344"/>
@@ -620,11 +599,14 @@
         <action_status/>
         <action_template/>
         <annotation/>
+        <attributes/>
+        <authored_on_release_version/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
         <copied_from_name/>
         <description/>
+        <flow_priority/>
         <internal_name>sgenhance_rollback_import_set_run</internal_name>
         <label_cache>[{"name":"{{action.import_set_run_id}}","label":"action➛Import Set Run Id","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.import_set_run_sysid}}","label":"action➛Import Set Run SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
         <master>true</master>
@@ -742,18 +724,6 @@
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=6c59785447662110acb08f22736d437b"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>6c59785447662110acb08f22736d437b</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:31:15</sys_created_on>
-        <sys_id>2459785447662110acb08f22736d4386</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>importSetRunSysId</field>
         <id>6c59785447662110acb08f22736d437b</id>
         <sys_created_by>erik.anderson</sys_created_by>
@@ -764,18 +734,6 @@
         <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_6c59785447662110acb08f22736d437b</table>
         <value>{{action.import_set_run_sysid}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>6c59785447662110acb08f22736d437b</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:31:15</sys_created_on>
-        <sys_id>e459785447662110acb08f22736d4386</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=6c59785447662110acb08f22736d437b"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=6c59785447662110acb08f22736d437b^sys_idNOT INe059785447662110acb08f22736d437f"/>

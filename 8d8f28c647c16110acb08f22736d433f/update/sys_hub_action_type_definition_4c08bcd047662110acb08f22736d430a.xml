@@ -6,11 +6,14 @@
         <action_template/>
         <active>true</active>
         <annotation/>
+        <attributes/>
+        <authored_on_release_version/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
         <copied_from_name/>
         <description/>
+        <flow_priority/>
         <ih_action>false</ih_action>
         <internal_name>sgenhance_transform_and_track_import_set</internal_name>
         <label_cache>[{"name":"{{action.import_set_sysid}}","label":"action➛Import Set SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"f2426d9b-5771-4bde-aac7-f12e82873e6e"}}]</label_cache>
@@ -26,7 +29,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4c08bcd047662110acb08f22736d430a</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>SGEnhance Transform and Track Import Set</sys_name>
         <sys_overrides/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
@@ -34,7 +37,7 @@
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_4c08bcd047662110acb08f22736d430a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:31:22</sys_updated_on>
+        <sys_updated_on>2024-02-14 18:26:14</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -130,18 +133,6 @@
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=2f48741447662110acb08f22736d43fb"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>2f48741447662110acb08f22736d43fb</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:26:49</sys_created_on>
-        <sys_id>2348b41447662110acb08f22736d4317</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:26:49</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>importSetSysId</field>
         <id>2f48741447662110acb08f22736d43fb</id>
         <sys_created_by>erik.anderson</sys_created_by>
@@ -152,18 +143,6 @@
         <sys_updated_on>2023-04-27 17:26:49</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_2f48741447662110acb08f22736d43fb</table>
         <value>{{action.import_set_sysid}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>2f48741447662110acb08f22736d43fb</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:26:49</sys_created_on>
-        <sys_id>2b48b41447662110acb08f22736d4317</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:26:49</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=2f48741447662110acb08f22736d43fb"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=2f48741447662110acb08f22736d43fb^sys_idNOT IN6348b41447662110acb08f22736d4310"/>
@@ -620,11 +599,14 @@
         <action_status/>
         <action_template/>
         <annotation/>
+        <attributes/>
+        <authored_on_release_version/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
         <copied_from_name/>
         <description/>
+        <flow_priority/>
         <internal_name>sgenhance_transform_and_track_import_set</internal_name>
         <label_cache>[{"name":"{{action.import_set_sysid}}","label":"action➛Import Set SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"f2426d9b-5771-4bde-aac7-f12e82873e6e"}}]</label_cache>
         <master>true</master>
@@ -742,18 +724,6 @@
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=7f48b41447662110acb08f22736d4348"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>7f48b41447662110acb08f22736d4348</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:26:50</sys_created_on>
-        <sys_id>b348b41447662110acb08f22736d4353</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:26:50</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>importSetSysId</field>
         <id>7f48b41447662110acb08f22736d4348</id>
         <sys_created_by>erik.anderson</sys_created_by>
@@ -764,18 +734,6 @@
         <sys_updated_on>2023-04-27 17:26:50</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_7f48b41447662110acb08f22736d4348</table>
         <value>{{action.import_set_sysid}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>7f48b41447662110acb08f22736d4348</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:26:50</sys_created_on>
-        <sys_id>7748b41447662110acb08f22736d4353</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:26:50</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=7f48b41447662110acb08f22736d4348"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=7f48b41447662110acb08f22736d4348^sys_idNOT INf348b41447662110acb08f22736d434c"/>
