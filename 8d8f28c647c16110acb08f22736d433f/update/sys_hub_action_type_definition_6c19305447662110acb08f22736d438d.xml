@@ -6,8 +6,8 @@
         <action_template/>
         <active>true</active>
         <annotation/>
-        <attributes/>
-        <authored_on_release_version/>
+        <attributes>{labelCacheCleanUpExecuted=true}</attributes>
+        <authored_on_release_version>-1</authored_on_release_version>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
@@ -16,7 +16,7 @@
         <flow_priority/>
         <ih_action>false</ih_action>
         <internal_name>sgenhance_rollback_import_set_run</internal_name>
-        <label_cache>[{"name":"{{action.import_set_run_id}}","label":"action➛Import Set Run Id","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.import_set_run_sysid}}","label":"action➛Import Set Run SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
+        <label_cache>[{"name":"{{action.import_set_run_sysid}}","label":"action➛Import Set Run SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
         <master_snapshot>9859785447662110acb08f22736d4372</master_snapshot>
         <name>SGEnhance Roll Back Import Set Run</name>
         <natlang/>
@@ -29,15 +29,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6c19305447662110acb08f22736d438d</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>SGEnhance Roll Back Import Set Run</sys_name>
         <sys_overrides/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_6c19305447662110acb08f22736d438d</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-02-14 18:26:16</sys_updated_on>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-04-29 18:21:34</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -65,10 +65,10 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-05-01 14:00:07</sys_created_on>
         <sys_id>fa5fe4a147a22110acb08f22736d43b7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:00:07</sys_updated_on>
-        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
+        <sys_updated_on>2024-04-29 18:12:42</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"serializationFormat":"JSON","complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}}}</value>
         <variable display_value="Action Status">265fe4a147a22110acb08f22736d43a7</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_action_output_6c19305447662110acb08f22736d438d^id=6c19305447662110acb08f22736d438d"/>
@@ -90,10 +90,10 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:31:14</sys_created_on>
         <sys_id>1459f05447662110acb08f22736d4374</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:31:14</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:33</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=1459f05447662110acb08f22736d4374"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -104,14 +104,18 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:31:14</sys_created_on>
         <sys_id>1459785447662110acb08f22736d4358</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:31:14</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:33</sys_updated_on>
         <value>(function execute(inputs, outputs) {
   
   var importSetRunId = inputs.importSetRunSysId;
   var importSetRun = new SGCEnhanceTransformHistory(importSetRunId);
   importSetRun.rollback();
+  var transformHistoryGr = new GlideRecord('sys_import_set_run');
+    if(transformHistoryGr.get(importSetRunId)){
+      new SGCEnhanceNotification().postSimpleNotificationToUser(gs.getUserID(), transformHistoryGr, transformHistoryGr.getDisplayValue(), "The transform has been rolled back.", "Reverted");
+    }
 
 })(inputs, outputs);
 </value>
@@ -143,6 +147,18 @@
         <sys_updated_on>2023-04-27 17:31:14</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_1459f05447662110acb08f22736d4374</table>
         <value>{{action.import_set_run_sysid}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>script</field>
+        <id>1459f05447662110acb08f22736d4374</id>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2024-04-29 18:12:42</sys_created_on>
+        <sys_id>e3db84f247794690d299a9f8536d43d1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-04-29 18:12:42</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
+        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=1459f05447662110acb08f22736d4374"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=1459f05447662110acb08f22736d4374^sys_idNOT IN5059785447662110acb08f22736d4344"/>
@@ -209,14 +225,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-27 17:31:14</sys_created_on>
         <sys_id>5059785447662110acb08f22736d4344</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:31:14</sys_updated_on>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-04-29 18:21:33</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -470,14 +486,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-01 14:00:07</sys_created_on>
         <sys_id>ae5fe4a147a22110acb08f22736d43ae</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:00:13</sys_updated_on>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-04-29 18:21:33</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -518,11 +534,11 @@
         <sys_created_on>2023-04-27 17:31:14</sys_created_on>
         <sys_id>d059f05447662110acb08f22736d4372</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Import Set Run SysId</sys_name>
+        <sys_name/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_6c19305447662110acb08f22736d438d_import_set_run_sysid_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 17:31:14</sys_updated_on>
         <url/>
@@ -543,11 +559,11 @@
         <sys_created_on>2023-05-01 14:00:07</sys_created_on>
         <sys_id>325fe4a147a22110acb08f22736d43b4</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Don't Treat as Error</sys_name>
+        <sys_name/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_6c19305447662110acb08f22736d438d___dont_treat_as_error___en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-01 14:00:07</sys_updated_on>
         <url/>
@@ -566,11 +582,11 @@
         <sys_created_on>2023-05-01 14:00:07</sys_created_on>
         <sys_id>6a5fe4a147a22110acb08f22736d43ad</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Action Status</sys_name>
+        <sys_name/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_6c19305447662110acb08f22736d438d___action_status___en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-01 14:00:07</sys_updated_on>
         <url/>
@@ -580,18 +596,18 @@
     <sys_hub_action_plan action="delete_multiple" query="action_id=6c19305447662110acb08f22736d438d^sys_idNOT IN7859785447662110acb08f22736d43e5"/>
     <sys_hub_action_plan action="INSERT_OR_UPDATE">
         <action_id display_value="SGEnhance Roll Back Import Set Run">6c19305447662110acb08f22736d438d</action_id>
-        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"7859785447662110acb08f22736d43e5","name":"plan","plan_signature":null}}</plan>
-        <snapshot>2c6f68a147a22110acb08f22736d430c</snapshot>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"7859785447662110acb08f22736d43e5","name":"plan","plan_signature":null}}</plan>
+        <snapshot>59ed80f647794690d299a9f8536d439d</snapshot>
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:31:16</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>7859785447662110acb08f22736d43e5</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:00:16</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:34</sys_updated_on>
     </sys_hub_action_plan>
     <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
         <access>package_private</access>
@@ -599,8 +615,8 @@
         <action_status/>
         <action_template/>
         <annotation/>
-        <attributes/>
-        <authored_on_release_version/>
+        <attributes>{labelCacheCleanUpExecuted=true}</attributes>
+        <authored_on_release_version>-1</authored_on_release_version>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
@@ -608,7 +624,7 @@
         <description/>
         <flow_priority/>
         <internal_name>sgenhance_rollback_import_set_run</internal_name>
-        <label_cache>[{"name":"{{action.import_set_run_id}}","label":"action➛Import Set Run Id","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.import_set_run_sysid}}","label":"action➛Import Set Run SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
+        <label_cache>[{"name":"{{action.import_set_run_sysid}}","label":"action➛Import Set Run SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
         <master>true</master>
         <name>SGEnhance Roll Back Import Set Run</name>
         <natlang/>
@@ -620,15 +636,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9859785447662110acb08f22736d4372</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:00:14</sys_updated_on>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-04-29 18:21:33</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_snapshot>
@@ -642,10 +658,10 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-05-01 14:00:15</sys_created_on>
         <sys_id>2c6f68a147a22110acb08f22736d430a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:00:15</sys_updated_on>
-        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
+        <sys_updated_on>2024-04-29 18:12:43</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"serializationFormat":"JSON","complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}}}</value>
         <variable display_value="Action Status">6c59785447662110acb08f22736d43a2</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -681,10 +697,10 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:31:15</sys_created_on>
         <sys_id>6c59785447662110acb08f22736d437b</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:34</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=6c59785447662110acb08f22736d437b"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -695,14 +711,18 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:31:15</sys_created_on>
         <sys_id>2c59785447662110acb08f22736d4386</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:34</sys_updated_on>
         <value>(function execute(inputs, outputs) {
   
   var importSetRunId = inputs.importSetRunSysId;
   var importSetRun = new SGCEnhanceTransformHistory(importSetRunId);
   importSetRun.rollback();
+  var transformHistoryGr = new GlideRecord('sys_import_set_run');
+    if(transformHistoryGr.get(importSetRunId)){
+      new SGCEnhanceNotification().postSimpleNotificationToUser(gs.getUserID(), transformHistoryGr, transformHistoryGr.getDisplayValue(), "The transform has been rolled back.", "Reverted");
+    }
 
 })(inputs, outputs);
 </value>
@@ -734,6 +754,18 @@
         <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
         <table>var__m_sys_hub_step_ext_input_6c59785447662110acb08f22736d437b</table>
         <value>{{action.import_set_run_sysid}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>script</field>
+        <id>6c59785447662110acb08f22736d437b</id>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2024-04-29 18:12:43</sys_created_on>
+        <sys_id>3bdbc4f247794690d299a9f8536d431d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-04-29 18:12:43</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
+        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=6c59785447662110acb08f22736d437b"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=6c59785447662110acb08f22736d437b^sys_idNOT INe059785447662110acb08f22736d437f"/>
@@ -1061,14 +1093,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-27 17:31:15</sys_created_on>
         <sys_id>e459785447662110acb08f22736d43a7</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:00:15</sys_updated_on>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-04-29 18:21:34</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1109,11 +1141,11 @@
         <sys_created_on>2023-04-27 17:31:15</sys_created_on>
         <sys_id>2c59785447662110acb08f22736d4379</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Import Set Run SysId</sys_name>
+        <sys_name/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_9859785447662110acb08f22736d4372_import_set_run_sysid_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
         <url/>
@@ -1134,11 +1166,11 @@
         <sys_created_on>2023-04-27 17:31:15</sys_created_on>
         <sys_id>2859785447662110acb08f22736d43a6</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Action Status</sys_name>
+        <sys_name/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_9859785447662110acb08f22736d4372___action_status___en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
         <url/>
@@ -1157,11 +1189,11 @@
         <sys_created_on>2023-04-27 17:31:15</sys_created_on>
         <sys_id>6459785447662110acb08f22736d43ac</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Don't Treat as Error</sys_name>
+        <sys_name/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_9859785447662110acb08f22736d4372___dont_treat_as_error___en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
         <url/>
@@ -1171,6 +1203,6 @@
     <sys_hub_action_type_definition action="UPDATE">
         <sys_id>6c19305447662110acb08f22736d438d</sys_id>
         <latest_snapshot>9859785447662110acb08f22736d4372</latest_snapshot>
-        <compiler_build>glide-utah-12-21-2022__patch1-03-01-2023_03-13-2023_1716.zip</compiler_build>
+        <compiler_build>glide-washingtondc-12-20-2023__patch1-02-28-2024_03-09-2024_0815.zip</compiler_build>
     </sys_hub_action_type_definition>
 </record_update>

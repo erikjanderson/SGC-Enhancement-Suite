@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="INSERT_OR_UPDATE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description/>
+        <elevated_privilege>false</elevated_privilege>
+        <encryption_context/>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_156954_sgc_enhan.internal_api_access</name>
+        <scoped_admin>false</scoped_admin>
+        <suffix>internal_api_access</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2024-04-29 20:25:21</sys_created_on>
+        <sys_id>e82a20b2473d4690d299a9f8536d43c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_156954_sgc_enhan.internal_api_access</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_user_role_e82a20b2473d4690d299a9f8536d43c4</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-04-29 20:25:21</sys_updated_on>
+    </sys_user_role>
+</record_update>

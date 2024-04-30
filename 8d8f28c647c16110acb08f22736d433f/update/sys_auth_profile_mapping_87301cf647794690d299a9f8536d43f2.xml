@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_auth_profile_mapping">
+    <sys_auth_profile_mapping action="INSERT_OR_UPDATE">
+        <api_access_policy display_value="SGC Enhancement Suite Access Policy">023018ba47794690d299a9f8536d436a</api_access_policy>
+        <inbound_auth_profile display_value="ID Token">b4d81637670210101e2becccb585efec</inbound_auth_profile>
+        <sys_class_name>sys_auth_profile_mapping</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2024-04-29 18:36:28</sys_created_on>
+        <sys_id>87301cf647794690d299a9f8536d43f2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_auth_profile_mapping_87301cf647794690d299a9f8536d43f2</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-04-29 18:36:28</sys_updated_on>
+    </sys_auth_profile_mapping>
+</record_update>
