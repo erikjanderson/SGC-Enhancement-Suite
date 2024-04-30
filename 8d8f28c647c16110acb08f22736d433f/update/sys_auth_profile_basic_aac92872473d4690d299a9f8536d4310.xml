@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_auth_profile_basic">
     <sys_auth_profile_basic action="INSERT_OR_UPDATE">
         <name>SGC Enhance Internal Integration User</name>
-        <password>﷞﷟﷒5d8b29c147d33110d299a9f8536d437c﷬﷔1﷬﷭_rjiY7BTi4u4ej1Vpw0aJA==TJ1wTTuZvNLj6hSuY3WNWBoU94Qw3dU=﷮﷯</password>
+        <password>﷞﷟﷒5d8b29c147d33110d299a9f8536d437c﷬﷔1﷬﷭QbHjp3fBlg14rs9KmUwu5g==CwDzOrGmBbAj1mRoFOMeXLOIKGJfwNYQIO7dOuAfT5q6_S20LouC6cYRMy9Ow27d2wt00MUoypR43-ZYSV_aNxzcwMkGrW7OGq88PvqBaiuxhi_FtFD-4XCreoMH8r33zzVIaTYYe9otr6obYdku66B4SHI=﷮﷯</password>
         <sys_class_name>sys_auth_profile_basic</sys_class_name>
-        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-04-29 20:24:30</sys_created_on>
         <sys_id>aac92872473d4690d299a9f8536d4310</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>SGC Enhance Internal Integration User</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_auth_profile_basic_aac92872473d4690d299a9f8536d4310</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2024-04-29 20:24:30</sys_updated_on>
-        <username>sgc_enhance_internal_user</username>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-30 14:19:35</sys_updated_on>
+        <username>sgc_enhance_api_user</username>
     </sys_auth_profile_basic>
 </record_update>

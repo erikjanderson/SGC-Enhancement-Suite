@@ -4,7 +4,7 @@
         <consumes>application/json,application/xml,text/xml</consumes>
         <consumes_customized>false</consumes_customized>
         <default_operation_uri/>
-        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <enforce_acl>9148dc0b4771c690d299a9f8536d4369</enforce_acl>
         <http_method>GET</http_method>
         <name>Get Import Summary</name>
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
@@ -30,14 +30,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-25 14:27:34</sys_created_on>
         <sys_id>dfabbd6f47566110acb08f22736d43d8</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_name>Get Import Summary</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_ws_operation_dfabbd6f47566110acb08f22736d43d8</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2024-04-29 20:19:45</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-30 13:46:17</sys_updated_on>
         <web_service_definition display_value="SGC Enhancement Suite">887bb96f47566110acb08f22736d4381</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>

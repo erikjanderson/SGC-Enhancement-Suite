@@ -9,19 +9,20 @@
         <name>SGCEnhanceImportSummary</name>
         <script><![CDATA[var SGCEnhanceImportSummary = Class.create();
 SGCEnhanceImportSummary.prototype = {
-	initialize: function () {	 },
+	initialize: function () { },
 
 
 	getSummary: function (importSetRun) {
 		//Creating import summary through a scripted API endpoint is required because only scripted rest resources have access to the StreamWriter Object which allows us to create larger attachments.
 		var request = new sn_ws.RESTMessageV2();
-		request.setRequestHeader('X-UserToken', gs.getSession().getSessionToken());
-		request.setRequestHeader('Cookie', 'JSESSIONID=D1E07CB0DBD0F88B94FEB4AD182A195B;')
+		// request.setRequestHeader('X-UserToken', gs.getSession().getSessionToken());
+		// request.setRequestHeader('Cookie', 'JSESSIONID=' + gs.getSessionID() + ';');
+		request.setAuthenticationProfile('basic', this._getAuthProfile());
 		request.setEndpoint(gs.getProperty('glide.servlet.uri').replace(/\/$/, "") + '/api/x_156954_sgc_enhan/sgc_enhance/get_import_summary');
 		request.setQueryParameter('import_set_run', importSetRun.sysId);
 		request.setHttpMethod('GET');
 		request.setRequestHeader("Accept", "application/json");
-		request.saveResponseBodyAsAttachment('sys_import_set_run', importSetRun.sysId,  importSetRun.importSet.displayValue + ' Import Summary (' + importSetRun.number +').csv');
+		request.saveResponseBodyAsAttachment('sys_import_set_run', importSetRun.sysId, importSetRun.importSet.displayValue + ' Import Summary (' + importSetRun.number + ').csv');
 		request.executeAsync();
 	},
 
@@ -166,7 +167,76 @@ SGCEnhanceImportSummary.prototype = {
 		return returnObj;
 	},
 
+	_getAuthProfile: function () {
+		var userName = 'sgc_enhance_api_user';
+		var userGr = new GlideRecord('sys_user');
+		if (userGr.get('user_name', userName)) {
+			//API User already set up and we can return the auth profile.
+			return 'aac92872473d4690d299a9f8536d4310';
+		} else {
+			var returnObj = this._createServiceAccount(userName, 'SGC Enhancment Suite', 'API User');
+			gs.info('TEST: ' + JSON.stringify(returnObj));
+			if (returnObj && returnObj.randomPassword) {
+				//Update Basic auth profile
+				var basicAuthProfileGr = new GlideRecord('sys_auth_profile_basic');
+				if (basicAuthProfileGr.get('aac92872473d4690d299a9f8536d4310')) {
+					basicAuthProfileGr.setValue('username', userName);
+					basicAuthProfileGr.password.setDisplayValue(returnObj.randomPassword);
+					basicAuthProfileGr.update();
+					return 'aac92872473d4690d299a9f8536d4310';
+				}
+			}
+		}
+	},
 
+	_createServiceAccount: function (user_name, first_name, last_name) {
+		var returnObj = {
+			userId: '',
+			randomPassword: ''
+		};
+		var userGr = new GlideRecord('sys_user');
+		if (userGr.get('user_name', user_name)) {
+			returnObj.userId = userGr.getUniqueValue();
+		} else {
+			returnObj.randomPassword = GlideSecureRandomUtil.getSecureRandomString(100);
+			userGr.initialize();
+			userGr.setValue('user_name', user_name);
+			userGr.setValue('first_name', first_name);
+			userGr.setValue('last_name', last_name);
+			userGr.setValue('web_service_access_only', true);
+			userGr.user_password.setDisplayValue(returnObj.randomPassword);
+			returnObj.userId = userGr.insert();
+
+			this._addRoleToUser(returnObj.userId, 'x_156954_sgc_enhan.internal_api_access');
+
+		}
+		return returnObj;
+	},
+
+	_addRoleToUser: function (userId, roleName) {
+		var roleId = this._getRole(roleName);
+		gs.info(roleId);
+		if (!roleId || !userId) {
+			return;
+		}
+		var rolesGr = new GlideRecord('sys_user_has_role');
+		rolesGr.addQuery('role', roleId);
+		rolesGr.addQuery('user', userId);
+		rolesGr.query();
+		if (!rolesGr.next()) {
+			rolesGr.initialize();
+			rolesGr.user = userId;
+			rolesGr.role = roleId;
+			rolesGr.insert();
+		}
+	},
+
+	_getRole: function (roleName) {
+		var rGr = new GlideRecord('sys_user_role');
+		if (rGr.get('name', roleName)) {
+			return rGr.getUniqueValue();
+		}
+	},
 
 	type: 'SGCEnhanceImportSummary'
 };]]></script>
@@ -174,13 +244,13 @@ SGCEnhanceImportSummary.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-04 15:21:46</sys_created_on>
         <sys_id>c16ebdf447866110acb08f22736d43ce</sys_id>
-        <sys_mod_count>89</sys_mod_count>
+        <sys_mod_count>102</sys_mod_count>
         <sys_name>SGCEnhanceImportSummary</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_c16ebdf447866110acb08f22736d43ce</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2024-04-30 12:07:24</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-30 14:19:14</sys_updated_on>
     </sys_script_include>
 </record_update>
