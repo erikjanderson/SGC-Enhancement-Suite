@@ -15,6 +15,7 @@ SGCEnhanceImportSummary.prototype = {
 	getSummary: function (importSetRun) {
 		//Creating import summary through a scripted API endpoint is required because only scripted rest resources have access to the StreamWriter Object which allows us to create larger attachments.
 		var request = new sn_ws.RESTMessageV2();
+		request.setHttpTimeout(600000);
 		// request.setRequestHeader('X-UserToken', gs.getSession().getSessionToken());
 		// request.setRequestHeader('Cookie', 'JSESSIONID=' + gs.getSessionID() + ';');
 		request.setAuthenticationProfile('basic', this._getAuthProfile());
@@ -31,8 +32,8 @@ SGCEnhanceImportSummary.prototype = {
 	_report: function (importSetRunSysId, streamWriter) {
 		var importSetRunGr = new GlideRecord('sys_import_set_run');
 		if (importSetRunGr.get(importSetRunSysId.toString())) {
-			var reportArray = this._reportImportSetRun(importSetRunGr);
-			this._reportCSV(reportArray, streamWriter);
+			this._getImportSetSummaryGlideQuery(importSetRunGr, streamWriter);
+			//this._reportCSV(reportArray, streamWriter);
 		}
 	},
 
@@ -137,6 +138,108 @@ SGCEnhanceImportSummary.prototype = {
 		return ireOutputs;
 	},
 
+	_getImportSetSummaryGlideQuery: function (importSetRunGr, streamWriter) {
+		var stagingTable = importSetRunGr.set.table_name + '';
+		var importSetSysId = importSetRunGr.getValue('set');
+		var columnArray = this._getStagingColumns(stagingTable);
+		columnArray.unshift('sys_import_row');
+		var headerStr = '';
+		for (var i = 0; i < columnArray.length; i++) {
+			if (i > 0) {
+				headerStr += ','
+			}
+			headerStr += '"' + columnArray[i] + '"';
+		}
+		headerStr += (',"target_table","actual_table","operation","target_display","target_record","target_link","error","warning"')
+		streamWriter.writeString(headerStr);
+		new global.GlideQuery(stagingTable)
+			.where('sys_import_set', importSetSysId)
+			.orderBy('sys_import_row')
+			.select(columnArray)
+			.map(function (stagingRow) {
+				var sysId = stagingRow.sys_id
+				var sourceObj = stagingRow;
+				delete sourceObj.sys_id;
+				sourceObj.ire_outputs = [];
+				new global.GlideQuery('cmdb_ire_output_target_item')
+					.orderByDesc('sys_created_on')
+					.where('source_record_id', sysId)
+					.select('target_record_id', 'target_record_id$DISPLAY', 'expected_target_table', 'actual_target_table', 'operation$DISPLAY', 'error_detail', 'warning_detail')
+					.forEach(function (ireOutput) {
+
+						// if(!gs.nil(ireOutput.target_record_id$DISPLAY)){
+						// 	var match = ireOutput.target_record_id$DISPLAY.match(/:(.*)/);
+						// 	if(match && match[1]){
+						// 		ireOutput.target_record_id$DISPLAY = match[1].trim();
+						// 	}
+						// }
+
+						var ireOutputObj = {
+							"target_table": ireOutput.expected_target_table,
+							"actual_table": ireOutput.actual_target_table,
+							"operation": ireOutput.operation$DISPLAY,
+							"target_display": ireOutput.target_record_id$DISPLAY,
+							"target_record": ireOutput.target_record_id,
+							"target_link": ireOutput.actual_target_table + ".do?sys_id=" + ireOutput.target_record_id,
+							"error": ireOutput.error_detail,
+							"warning": ireOutput.warning_detail
+						}
+						sourceObj.ire_outputs.push(ireOutputObj);
+					})
+				return sourceObj
+			}).forEach(function (sourceObj) {
+				for (var i = 0; i < sourceObj.ire_outputs.length; i++) {
+					var rowString = '\n';
+					var first = true;
+					for (column in sourceObj) {
+						if (column === 'ire_outputs') {
+							continue;
+						}
+						if (!first) {
+							rowString += ',';
+						}
+						first = false;
+						rowString += this._buildCell(sourceObj[column]);
+					}
+					var ireOutput = sourceObj.ire_outputs[i]
+					for (var ireAttribute in ireOutput) {
+						rowString += ',' + this._buildCell(ireOutput[ireAttribute]);
+					}
+					streamWriter.writeString(rowString);
+				}
+			}.bind(this));
+	},
+
+	_buildCell: function (val) {
+		if (!gs.nil(val) && typeof val === 'object') {
+			val = JSON.stringify(val);
+		}
+		if (typeof val === 'string') {
+			val = val.replace(/"/g, '""');
+		}
+		if(gs.nil(val)){
+			val = "";
+			gs.info(val);
+		}
+		val = '"' + val + '"';
+		
+		return val;
+	},
+
+	_getStagingColumns: function (stagingTable) {
+		var columnArray = [];
+		new global.GlideQuery("sys_dictionary")
+			.where('name', stagingTable)
+			.whereNotNull('element')
+			.select('element')
+			.forEach(function (column) {
+				if (!column.element.startsWith('sys_')) {
+					columnArray.push(column.element)
+				}
+			})
+		return columnArray;
+	},
+
 
 
 	_getTargetRecordGr: function (targetSysId, targetTable) {
@@ -175,7 +278,6 @@ SGCEnhanceImportSummary.prototype = {
 			return 'aac92872473d4690d299a9f8536d4310';
 		} else {
 			var returnObj = this._createServiceAccount(userName, 'SGC Enhancment Suite', 'API User');
-			gs.info('TEST: ' + JSON.stringify(returnObj));
 			if (returnObj && returnObj.randomPassword) {
 				//Update Basic auth profile
 				var basicAuthProfileGr = new GlideRecord('sys_auth_profile_basic');
@@ -244,13 +346,13 @@ SGCEnhanceImportSummary.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-04 15:21:46</sys_created_on>
         <sys_id>c16ebdf447866110acb08f22736d43ce</sys_id>
-        <sys_mod_count>102</sys_mod_count>
+        <sys_mod_count>169</sys_mod_count>
         <sys_name>SGCEnhanceImportSummary</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_c16ebdf447866110acb08f22736d43ce</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-04-30 14:19:14</sys_updated_on>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-05-03 02:10:17</sys_updated_on>
     </sys_script_include>
 </record_update>
