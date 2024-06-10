@@ -36,7 +36,7 @@
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_6c19305447662110acb08f22736d438d</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2024-04-29 18:21:34</sys_updated_on>
         <system_level>false</system_level>
         <type/>
@@ -231,7 +231,7 @@
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2024-04-29 18:21:33</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
@@ -492,7 +492,7 @@
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2024-04-29 18:21:33</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
@@ -643,7 +643,7 @@
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2024-04-29 18:21:33</sys_updated_on>
         <system_level>false</system_level>
         <type/>
@@ -1099,7 +1099,7 @@
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
-        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2024-04-29 18:21:34</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
