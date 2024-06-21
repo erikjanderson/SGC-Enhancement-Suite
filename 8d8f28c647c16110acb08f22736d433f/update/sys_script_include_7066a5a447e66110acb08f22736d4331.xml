@@ -32,7 +32,7 @@ SGCEnhanceImportSetRow.prototype = {
     },
 
     runPreview: function(){
-        var query = 'sys_id=' + this.sysId
+        var query = 'sys_id=' + this.sysId;
         var transformHistory = this.importSet.runPreview(query);
 
         this.tags.setValue('SGCEnhance - SingleRunTransformHistoryId', transformHistory.sysId);
@@ -46,7 +46,7 @@ SGCEnhanceImportSetRow.prototype = {
         }
 
         var transformHistory = new SGCEnhanceTransformHistory(transformHistorySysId);
-        transformHistory.rollback()
+        transformHistory.rollback();
     },
 
     rollbackAvailable: function(){
@@ -63,7 +63,7 @@ SGCEnhanceImportSetRow.prototype = {
     },
 
     getTargetCMDBData: function(){
-        var query = 'sys_id=' + this.sysId
+        var query = 'sys_id=' + this.sysId;
         var transformerResponse = this.importSet.runPartialPreview(query);
         var targetData = {};
         if(transformerResponse && transformerResponse[0] && transformerResponse[0].outputRecord){
@@ -72,7 +72,7 @@ SGCEnhanceImportSetRow.prototype = {
                 if(entityName.startsWith('temp') || !output[entityName].source_native_key){
                     continue;
                 }
-				 this._getTargetCMDBRecords(output[entityName], targetData);
+				this._getTargetCMDBRecords(output[entityName], targetData);
             }
            
         }
@@ -170,13 +170,13 @@ SGCEnhanceImportSetRow.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-28 15:30:43</sys_created_on>
         <sys_id>7066a5a447e66110acb08f22736d4331</sys_id>
-        <sys_mod_count>71</sys_mod_count>
+        <sys_mod_count>72</sys_mod_count>
         <sys_name>SGCEnhanceImportSetRow</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_7066a5a447e66110acb08f22736d4331</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-25 18:58:37</sys_updated_on>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-06-21 16:56:46</sys_updated_on>
     </sys_script_include>
 </record_update>
