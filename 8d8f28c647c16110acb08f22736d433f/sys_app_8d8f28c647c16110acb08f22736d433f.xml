@@ -5,6 +5,7 @@
         <enforce_license>log</enforce_license>
         <guided_setup_guid/>
         <hide_on_ui>false</hide_on_ui>
+        <ide_created/>
         <installed_as_dependency>false</installed_as_dependency>
         <js_level>helsinki_es5</js_level>
         <licensable>true</licensable>
@@ -15,6 +16,7 @@
         <logo/>
         <menu display_value="SGC Enhancement Suite">8cad642147a22110acb08f22736d43da</menu>
         <name>SGC Enhancement Suite</name>
+        <package_json/>
         <private>false</private>
         <restrict_table_access>false</restrict_table_access>
         <runtime_access_tracking/>
@@ -24,21 +26,22 @@
         <source>x_156954_sgc_enhan</source>
         <store_correlation_id/>
         <store_url/>
+        <subscription_entitlement/>
         <sys_class_name>sys_app</sys_class_name>
         <sys_code/>
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-02-17 13:43:37</sys_created_on>
         <sys_id>8d8f28c647c16110acb08f22736d433f</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:01:38</sys_updated_on>
+        <sys_updated_on>2025-05-21 13:14:37</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
         <user_role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</user_role>
         <vendor/>
         <vendor_prefix/>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
     </sys_app>
     <sys_translated_text action="delete_multiple" query="documentkey=8d8f28c647c16110acb08f22736d433f"/>
 </record_update>
