@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_156954_sgc_enhan.SGCEnhanceTransformPreview</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>You can leverage this script incude from your CMDB Integration Studio Application Data Source [cmdb_inst_application_feed] (AKA the robust transform definition). &#13;
+1. Check the "Execute Before Script" property on the form.&#13;
+2. In the Before Script, populate the function with the following code which will execute this transform preview. Also by default it will automatically set the import set row to "Skipped" so that no actual CMDB updates are applied.&#13;
+&#13;
+     new x_156954_sgc_enhan.SGCEnhanceTransformPreview().previewBatch(input, runId);&#13;
+&#13;
+3. After running an import, you can review the Import Preview Result table to understand how your CMDB data would be imported into ServiceNow after transformation.</description>
+        <mobile_callable>false</mobile_callable>
+        <name>SGCEnhanceTransformPreview</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var SGCEnhanceTransformPreview = Class.create();
+SGCEnhanceTransformPreview.prototype = {
+	initialize: function () {
+
+	},
+
+	/**
+	 * 
+	 * 
+	 * @param (object) input: The array where each element of the input array is an object. Each object contains a status, reason, and payload
+	 * @param (runId) runId: The current import set run id
+	 */
+	previewBatch: function (input, runId) {
+
+		this.indexTrackerDictionary = {};
+		this.concatPayload = {
+			items: [],
+			relations: [],
+			referenceItems: []
+		};
+
+		var strInput = input + "";
+		gs.debug("[DEBUG] SGCEnhanceTransformPreview (processBatch) input:  " + strInput);
+		var inputCopy = JSON.parse(strInput);
+		//Concatenate all of the payloads from input into a single payload. This way we are only needing to submit a single call to the IRE per batch.
+		inputCopy.forEach((row, r) => {
+			//Always skip the row since this is for preview purposes only and we don't want to write to the CMDB right now.
+			input[r].status = "SKIPPED";
+			var rowBindingGUID = gs.generateGUID();
+			input[r].reason = rowBindingGUID;
+			row.payload.items.forEach((item, i) => {
+				this.concatPayload.items.push(item);
+				this.indexTrackerDictionary[this.concatPayload.items.length - 1] = {
+					"rowIndex": r,
+					"itemIndex": i,
+					"rowBind": rowBindingGUID
+				};
+			});
+			if (row.payload.relations && row.payload.relations.length > 0) {
+				//this.concatPayload.relations = this.concatPayload.relations.concat(row.payload.relations);
+			}
+			if (row.payload.referenceItems && row.payload.referenceItems.length > 0) {
+				this.concatPayload.referenceItems = this.concatPayload.referenceItems.concat(row.payload.referenceItems);
+			}
+		});
+
+		gs.debug("[DEBUG] SGCEnhanceTransformPreview (processBatch) this.concatPayload" + JSON.stringify(this.concatPayload))
+
+		//Defaults
+		var options = {
+			"deduplicate_payloads": true,
+			"generate_summary": false,
+			"partial_commits": true,
+			"partial_payloads": true,
+			"skip_updating_last_scan_to_now": false,
+			"skip_updating_source_last_discovered_to_now": false
+		};
+
+		var concatPayloadStr = JSON.stringify(this.concatPayload);
+		var output = sn_cmdb.IdentificationEngine.identifyCIEnhanced("SG-example", concatPayloadStr, options);
+		if (!gs.nil(output)) {
+			var outputObj = JSON.parse(output);
+			gs.debug("[DEBUG] SGCEnhanceTransformPreview (processBatch) output:  " + JSON.stringify(outputObj));
+			outputObj.items.forEach(outputItem => {
+				this.processOutputItem(outputItem, runId);
+			});
+		}
+
+		//Loop over array backwards as to not affect the index order which is tracked in a separate dictionary object.
+		// for (var i = this.concatPayload.items.length - 1; i >= 0; i--) {
+		// 	var item = this.concatPayload.items[i];
+		// 	var indexInfo = indexTrackerDictionary[i];
+		// 	var rowIndex = indexInfo.rowIndex;
+		// 	var itemIndex = indexInfo.itemIndex;
+		// 	if (input[rowIndex].payload.items[itemIndex]) {
+		// 		var internalId = item.internal_id;
+		// 	}
+		// }
+	},
+
+	//Internal Function
+
+	processOutputItem: function (outputItem, runId, rowBind) {
+		if (gs.nil(outputItem)) {
+			return;
+		}
+		var inputIndices = outputItem.inputIndices;
+		if (gs.nil(rowBind)) {
+			rowBind = this.indexTrackerDictionary[inputIndices[0]].rowBind;
+		}
+		var valueObj = {};
+		inputIndices.forEach(index => {
+			if (typeof index == "number") {
+				valueObj = this.getInputValues(valueObj, index)
+			} else if (typeof index == "object") {
+				valueObj = this.getInputValues(valueObj, index.mainIndex, index.subIndex);
+			}
+		})
+
+		var importPreviewResult = new GlideRecord("x_156954_sgc_enhan_import_preview_result");
+		importPreviewResult.initialize();
+		importPreviewResult.row_bind = rowBind;
+		importPreviewResult.import_set_run = runId;
+		importPreviewResult.target_table = outputItem.className;
+		importPreviewResult.target_record = outputItem.sysId === "Unknown" ? "" : outputItem.sysId;
+		importPreviewResult.operation = outputItem.operation;
+		importPreviewResult.values = JSON.stringify(valueObj, null, 4);
+		var {identificationLogs, matchingLookupTable} = this.getIdentificationLogs(outputItem);
+		importPreviewResult.identification_logs = identificationLogs;
+		importPreviewResult.matching_lookup_table = matchingLookupTable;
+		importPreviewResult.error_logs = this.parseLogs(outputItem.errors);
+		importPreviewResult.warning_logs = this.parseLogs(outputItem.warnings);
+		importPreviewResult.insert();
+		//Process Related
+		if (outputItem.relatedItems && outputItem.relatedItems.length > 0) {
+			outputItem.relatedItems.forEach(relatedItem => {
+				this.processOutputItem(relatedItem, runId, rowBind);
+			})
+		}
+	},
+
+	getInputValues: function (valueObj, mainIndex, subIndex) {
+		if (gs.nil(valueObj) || gs.nil(mainIndex)) {
+			return;
+		}
+		if (this.concatPayload.items[mainIndex]) {
+			var item = this.concatPayload.items[mainIndex];
+			if (!gs.nil(subIndex)) {
+				if (!gs.nil(item.lookup) && item.lookup[subIndex]) {
+					item = item.lookup[subIndex];
+				} else if (!gs.nil(item.related) && item.related[subIndex]) {
+					item = item.related[subIndex];
+				}
+			}
+
+			Object.keys(item.values).forEach(key => {
+				valueObj[key] = item.values[key];
+			})
+		}
+		return valueObj;
+	},
+
+	getIdentificationLogs: function (outputItem) {
+		var identificationLogs = "";
+		var matchingLookupTable = "";
+		if (!gs.nil(outputItem.identificationAttempts)) {
+			outputItem.identificationAttempts.forEach((attempt, i) => {
+				if (i > 0) { identificationLogs += "\n"; }
+				identificationLogs += attempt.attemptResult + " searched on " + attempt.searchOnTable + " with: " + attempt.attributes.join(",");
+				if (attempt.attemptResult == "MATCHED") {
+					matchingLookupTable = attempt.searchOnTable;
+				}
+			});
+		}
+		return {"identificationLogs": identificationLogs, "matchingLookupTable": matchingLookupTable}
+	},
+
+	parseLogs: function (logsArray) {
+		var logs = "";
+		if (!gs.nil(logsArray)) {
+			logsArray.forEach((log, i) => {
+				if (i > 0) { logs += "\n\n"; }
+				logs += log.error + ": " + log.message.replace(/'([^']*)'/, (match, group) => {
+					try {
+						var json = JSON.parse(group);
+						var pretty = JSON.stringify(json, null, 4);
+						return `\n${pretty}\n`;
+					} catch (e) {
+						return match;
+					}
+				});
+
+			});
+		}
+		return logs;
+	},
+
+	type: 'SGCEnhanceTransformPreview'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2025-07-01 17:01:07</sys_created_on>
+        <sys_id>df50842883ae6210b2bde360ceaad3e2</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_name>SGCEnhanceTransformPreview</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_script_include_df50842883ae6210b2bde360ceaad3e2</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2025-07-02 03:27:26</sys_updated_on>
+    </sys_script_include>
+</record_update>

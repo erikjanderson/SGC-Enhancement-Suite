@@ -7,7 +7,7 @@
         <hide_on_ui>false</hide_on_ui>
         <ide_created/>
         <installed_as_dependency>false</installed_as_dependency>
-        <js_level>helsinki_es5</js_level>
+        <js_level>es_latest</js_level>
         <licensable>true</licensable>
         <license/>
         <license_category>none</license_category>
@@ -32,9 +32,9 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-02-17 13:43:37</sys_created_on>
         <sys_id>8d8f28c647c16110acb08f22736d433f</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2025-05-21 13:14:37</sys_updated_on>
+        <sys_updated_on>2025-05-21 19:14:57</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
