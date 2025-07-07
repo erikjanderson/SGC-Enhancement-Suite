@@ -32,16 +32,16 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-02-17 13:43:37</sys_created_on>
         <sys_id>8d8f28c647c16110acb08f22736d433f</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2025-05-21 19:14:57</sys_updated_on>
+        <sys_updated_on>2025-07-07 18:01:52</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
         <user_role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</user_role>
         <vendor/>
         <vendor_prefix/>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </sys_app>
     <sys_translated_text action="delete_multiple" query="documentkey=8d8f28c647c16110acb08f22736d433f"/>
 </record_update>
