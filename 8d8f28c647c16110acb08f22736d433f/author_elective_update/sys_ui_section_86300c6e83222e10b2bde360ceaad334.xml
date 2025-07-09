@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section action="DELETE" caption="sys_import_set" section_id="86300c6e83222e10b2bde360ceaad334" sys_domain="global" table="sys_import_set" version="3" view="SGC_Enhance">
+        <sys_ui_section action="DELETE">
+            <caption>sys_import_set</caption>
+            <header>false</header>
+            <name>sys_import_set</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-07 21:52:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>86300c6e83222e10b2bde360ceaad334</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sys_import_set</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+            <sys_update_name>sys_ui_section_86300c6e83222e10b2bde360ceaad334</sys_update_name>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-07 21:52:44</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="SGC Enhance" name="sgc_enhance">236dff5e83eeea10b2bde360ceaad327</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>19c3c4f547fb9ad421f3e676706d432a</instance_id>
+        <instance_name>dev296207</instance_name>
+        <name>sys_ui_section_86300c6e83222e10b2bde360ceaad334</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="sys_import_set" section_id="86300c6e83222e10b2bde360ceaad334" sys_domain="global" table="sys_import_set" version="3" view="SGC_Enhance"><sys_ui_section action="INSERT_OR_UPDATE"><caption>sys_import_set</caption><header>false</header><name>sys_import_set</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>erik.anderson</sys_created_by><sys_created_on>2025-07-07 21:52:44</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>86300c6e83222e10b2bde360ceaad334</sys_id><sys_mod_count>0</sys_mod_count><sys_name>sys_import_set</sys_name><sys_overrides/><sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package><sys_policy/><sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope><sys_update_name>sys_ui_section_86300c6e83222e10b2bde360ceaad334</sys_update_name><sys_updated_by>erik.anderson</sys_updated_by><sys_updated_on>2025-07-07 21:52:44</sys_updated_on><sys_user/><title>false</title><view display_value="SGC Enhance" name="sgc_enhance">236dff5e83eeea10b2bde360ceaad327</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+        <payload_hash>220887338</payload_hash>
+        <record_name>Import Set</record_name>
+        <reverted_from/>
+        <source>39e37fda83eeea10b2bde360ceaad363</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2025-07-07 21:52:44</sys_created_on>
+        <sys_id>d6300c6e83222e10b2bde360ceaad38f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>197e6e08a510000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2025-07-07 21:52:44</sys_updated_on>
+        <type>Form Layout</type>
+        <update_guid>5e300c6ee8222e104715d6fcce5d6e8e</update_guid>
+        <update_guid_history>5e300c6ee8222e104715d6fcce5d6e8e:220887338</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2025-07-07 21:54:09</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
+        <sys_id>0c907e21beeb4df0af8b2ef36b24aef9</sys_id>
+        <sys_metadata>86300c6e83222e10b2bde360ceaad334</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sys_import_set</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent display_value="Sys Import Set">99b0ff265c0022105590c762d23e632d</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sys_ui_section_86300c6e83222e10b2bde360ceaad334</sys_update_name>
+        <sys_update_version display_value="sys_ui_section_86300c6e83222e10b2bde360ceaad334">d6300c6e83222e10b2bde360ceaad38f</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2025-07-07 21:54:09</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

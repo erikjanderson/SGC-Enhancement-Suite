@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Relationship Info" section_id="84746c0b832eae10b2bde360ceaad384" sys_domain="global" table="x_156954_sgc_enhan_import_preview_result" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rel_type</element>
+            <position>0</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>c8746c0b832eae10b2bde360ceaad3c7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>1</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>40746c0b832eae10b2bde360ceaad3c8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rel_parent_preview</element>
+            <position>2</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>c4746c0b832eae10b2bde360ceaad3c8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rel_parent_preview.target_table</element>
+            <position>3</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>4c746c0b832eae10b2bde360ceaad3c8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rel_parent_preview.target_record</element>
+            <position>4</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>c0746c0b832eae10b2bde360ceaad3c9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rel_parent_preview.values</element>
+            <position>5</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>48746c0b832eae10b2bde360ceaad3c9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>6</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>cc746c0b832eae10b2bde360ceaad3c9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rel_child_preview</element>
+            <position>7</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>44746c0b832eae10b2bde360ceaad3ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rel_child_preview.target_table</element>
+            <position>8</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>c8746c0b832eae10b2bde360ceaad3ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rel_child_preview.target_record</element>
+            <position>9</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>40746c0b832eae10b2bde360ceaad3cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rel_child_preview.values</element>
+            <position>10</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
+            <sys_id>c4746c0b832eae10b2bde360ceaad3cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Relationship Info</caption>
+            <header>false</header>
+            <name>x_156954_sgc_enhan_import_preview_result</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-07-09 13:47:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>84746c0b832eae10b2bde360ceaad384</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_156954_sgc_enhan_import_preview_result</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+            <sys_update_name>sys_ui_section_84746c0b832eae10b2bde360ceaad384</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:55</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

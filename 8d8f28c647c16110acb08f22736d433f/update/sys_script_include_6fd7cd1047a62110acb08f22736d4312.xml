@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description/>
+        <mobile_callable>false</mobile_callable>
         <name>SGCEnhanceConfigurationItem</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var SGCEnhanceConfigurationItem = Class.create();
 SGCEnhanceConfigurationItem.prototype = {
 	initialize: function (configItemGr) {
@@ -81,7 +83,7 @@ SGCEnhanceConfigurationItem.prototype = {
 		var stagingRowSourceM2M = new SGCEnhanceImportRowToSource();
 		var sourceGr = new GlideRecord('sys_object_source');
 		sourceGr.addQuery('target_sys_id', this.sysId);
-		sourceGr.addNotNullQuery('source_feed');
+		//sourceGr.addNotNullQuery('source_feed');
 		sourceGr.orderByDesc('last_scan');
 		sourceGr.query();
 		while(sourceGr.next()){
@@ -100,19 +102,22 @@ SGCEnhanceConfigurationItem.prototype = {
 					staging_rows: {}//stagingRowSourceM2M.findStagingRows(sourceId, sourceName)
 				};
 			}
-			var sourceFeedDetails = this._getSourceFeedDetails(sourceFeed);
-			//if(Object.keys(obj[sourceName][sourceId].staging_rows).length < 1){
-			if((sourceFeedDetails) && !obj[sourceName][sourceId].staging_rows[sourceFeedDetails.staging_table]){
-				obj[sourceName][sourceId].staging_rows[sourceFeedDetails.staging_table] = [];
-				// Do a new index
-				if(sourceFeedDetails && sourceFeedDetails.staging_table && !obj[sourceName].staging_rows[sourceFeedDetails.staging_table]){
-					obj[sourceName].staging_rows[sourceFeedDetails.staging_table] = this._findStagingRows(sourceFeedDetails.staging_table);
-					if(obj[sourceName].staging_rows[sourceFeedDetails.staging_table].length > 0){
-						var query = 'sys_idIN' + obj[sourceName].staging_rows[sourceFeedDetails.staging_table].toString();
-						stagingRowSourceM2M.indexSpecificImportSetRowTargets(sourceFeedDetails.staging_table, query);
+			if(sourceFeed){
+				var sourceFeedDetails = this._getSourceFeedDetails(sourceFeed);
+				//if(Object.keys(obj[sourceName][sourceId].staging_rows).length < 1){
+				if((sourceFeedDetails) && !obj[sourceName][sourceId].staging_rows[sourceFeedDetails.staging_table]){
+					obj[sourceName][sourceId].staging_rows[sourceFeedDetails.staging_table] = [];
+					// Do a new index
+					if(sourceFeedDetails && sourceFeedDetails.staging_table && !obj[sourceName].staging_rows[sourceFeedDetails.staging_table]){
+						obj[sourceName].staging_rows[sourceFeedDetails.staging_table] = this._findStagingRows(sourceFeedDetails.staging_table);
+						if(obj[sourceName].staging_rows[sourceFeedDetails.staging_table].length > 0){
+							var query = 'sys_idIN' + obj[sourceName].staging_rows[sourceFeedDetails.staging_table].toString();
+							stagingRowSourceM2M.indexSpecificImportSetRowTargets(sourceFeedDetails.staging_table, query);
+						}
 					}
 				}
 			}
+			
 			var stagingRows =stagingRowSourceM2M.findStagingRows(sourceId, sourceName);
 			for(var stagingTable in stagingRows){
 				obj[sourceName][sourceId].staging_rows[stagingTable] = stagingRows[stagingTable];
@@ -243,13 +248,13 @@ SGCEnhanceConfigurationItem.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-27 18:34:58</sys_created_on>
         <sys_id>6fd7cd1047a62110acb08f22736d4312</sys_id>
-        <sys_mod_count>187</sys_mod_count>
+        <sys_mod_count>189</sys_mod_count>
         <sys_name>SGCEnhanceConfigurationItem</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_6fd7cd1047a62110acb08f22736d4312</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-08-08 12:31:00</sys_updated_on>
+        <sys_updated_on>2024-05-22 12:27:45</sys_updated_on>
     </sys_script_include>
 </record_update>

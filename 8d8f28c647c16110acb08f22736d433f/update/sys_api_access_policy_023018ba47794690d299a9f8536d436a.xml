@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_api_access_policy">
+    <sys_api_access_policy action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <api>SGC Enhancement Suite</api>
+        <api_path>x_156954_sgc_enhan/sgc_enhance</api_path>
+        <api_resource/>
+        <api_tablename/>
+        <apply_all>false</apply_all>
+        <apply_all_methods>true</apply_all_methods>
+        <apply_all_resources>true</apply_all_resources>
+        <apply_all_tables>false</apply_all_tables>
+        <apply_all_versions>true</apply_all_versions>
+        <apply_global>false</apply_global>
+        <http_method/>
+        <name>SGC Enhancement Suite Access Policy</name>
+        <sys_class_name>sys_api_access_policy</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2024-04-29 18:36:35</sys_created_on>
+        <sys_id>023018ba47794690d299a9f8536d436a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SGC Enhancement Suite Access Policy</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_update_name>sys_api_access_policy_023018ba47794690d299a9f8536d436a</sys_update_name>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2024-04-29 18:36:35</sys_updated_on>
+        <version/>
+    </sys_api_access_policy>
+</record_update>

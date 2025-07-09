@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>JS Class to help build consistent form messaging when reporting details in SN forms.</description>
+        <mobile_callable>false</mobile_callable>
         <name>SGCEnhanceFormReport</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var SGCEnhanceFormReport = Class.create();
 SGCEnhanceFormReport.prototype = {
     initialize: function() {

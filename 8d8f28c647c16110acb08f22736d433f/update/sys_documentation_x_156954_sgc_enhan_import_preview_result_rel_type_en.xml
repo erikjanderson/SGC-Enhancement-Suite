@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="rel_type" label="Rel Type" language="en" table="x_156954_sgc_enhan_import_preview_result">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>rel_type</element>
+            <help/>
+            <hint/>
+            <label>Rel Type</label>
+            <language>en</language>
+            <name>x_156954_sgc_enhan_import_preview_result</name>
+            <plural>Rel Types</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-09 02:01:00</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Rel Type</sys_name>
+            <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+            <sys_update_name>sys_documentation_x_156954_sgc_enhan_import_preview_result_rel_type_en</sys_update_name>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 02:01:00</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

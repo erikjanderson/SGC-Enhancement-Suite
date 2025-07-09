@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-04-30 13:46:06</sys_created_on>
+        <sys_id>b248940b4771c690d299a9f8536d43a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>/api/x_156954_sgc_enhan/sgc_enhance/get_import_summary.x_156954_sgc_enhan.internal_api_access</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_security_acl display_value="/api/x_156954_sgc_enhan/sgc_enhance/get_import_summary">9148dc0b4771c690d299a9f8536d4369</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_b248940b4771c690d299a9f8536d43a1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-30 13:46:06</sys_updated_on>
+        <sys_user_role display_value="x_156954_sgc_enhan.internal_api_access" name="x_156954_sgc_enhan.internal_api_access">e82a20b2473d4690d299a9f8536d43c4</sys_user_role>
+    </sys_security_acl_role>
+</record_update>

@@ -6,15 +6,19 @@
         <action_template/>
         <active>true</active>
         <annotation/>
+        <attributes>{labelCacheCleanUpExecuted=true}</attributes>
+        <authored_on_release_version>-1</authored_on_release_version>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
         <copied_from_name/>
         <description/>
+        <flow_priority/>
         <ih_action>false</ih_action>
         <internal_name>sgcenhance_run_full_import</internal_name>
-        <label_cache>[{"name":"{{action.variable}}","label":"action➛variable","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.datasource}}","label":"action➛DataSource","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.data_source_sysid}}","label":"action➛Data Source SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
+        <label_cache>[{"name":"{{action.data_source_sysid}}","label":"action➛Data Source SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
         <master_snapshot>b51ab49447662110acb08f22736d43ef</master_snapshot>
+        <master_snapshot_digest/>
         <name>SGCEnhance Run Full Import</name>
         <natlang/>
         <outputs/>
@@ -26,15 +30,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>51c9709447662110acb08f22736d4323</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>SGCEnhance Run Full Import</sys_name>
         <sys_overrides/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_51c9709447662110acb08f22736d4323</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:37:33</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-05-01 12:26:01</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -48,10 +52,10 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:37:31</sys_created_on>
         <sys_id>58ca34d447662110acb08f22736d4388</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:37:31</sys_updated_on>
-        <value>{"version":"1.0","complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"serializationFormat":"JSON"}</value>
+        <sys_updated_on>2024-04-29 18:15:57</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"serializationFormat":"JSON","complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}}}</value>
         <variable display_value="Action Status">d0ca34d447662110acb08f22736d437b</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -87,10 +91,10 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:34:37</sys_created_on>
         <sys_id>391ab09447662110acb08f22736d4337</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:37:31</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:06</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=391ab09447662110acb08f22736d4337"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -101,17 +105,25 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:34:37</sys_created_on>
         <sys_id>351ab49447662110acb08f22736d43d6</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:37:31</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:06</sys_updated_on>
         <value>(function execute(inputs, outputs) {
   var dataSourceSysId = inputs.dataSourceSysId;
+  var notification = new SGCEnhanceNotification();
+
   //Get Data from source
   var dataSource = new SGCEnhanceDataSource(dataSourceSysId);
   var importSetSysId = dataSource.loadData();
-  //Run Preview
-  var importSet = new SGCEnhanceImportSet(importSetSysId);
-  importSet.runPreview();
+  var importSetGr = new GlideRecord('sys_import_set');
+  if(importSetGr.get(importSetSysId)){
+    notification.postSimpleNotificationToUser(gs.getUserID(), importSetGr, importSetGr.getDisplayValue(), "The data source has completed loading.", "Loaded");
+    //Run Preview
+    var importSet = new SGCEnhanceImportSet(importSetSysId);
+    importSet.runPreview();
+    notification.postSimpleNotificationToUser(gs.getUserID(), importSetGr, importSetGr.getDisplayValue(), "The import set has completed transforming", "Complete");
+  }
+  
 })(inputs, outputs);
 </value>
         <variable display_value="Script">71aa7f6647032200b4fad7527c9a719b</variable>
@@ -132,18 +144,6 @@
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=391ab09447662110acb08f22736d4337"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>391ab09447662110acb08f22736d4337</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:34:37</sys_created_on>
-        <sys_id>3d1ab49447662110acb08f22736d43d5</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:34:37</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>dataSourceSysId</field>
         <id>391ab09447662110acb08f22736d4337</id>
         <sys_created_by>erik.anderson</sys_created_by>
@@ -155,19 +155,8 @@
         <table>var__m_sys_hub_step_ext_input_391ab09447662110acb08f22736d4337</table>
         <value>{{action.data_source_sysid}}</value>
     </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>391ab09447662110acb08f22736d4337</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:34:37</sys_created_on>
-        <sys_id>fd1ab49447662110acb08f22736d43d5</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:34:37</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=391ab09447662110acb08f22736d4337"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=391ab09447662110acb08f22736d4337"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=391ab09447662110acb08f22736d4337^sys_idNOT IN7d1ab49447662110acb08f22736d43cf"/>
     <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -232,14 +221,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-27 17:34:37</sys_created_on>
         <sys_id>7d1ab49447662110acb08f22736d43cf</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:34:37</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:20:57</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -254,7 +243,6 @@
     </sys_hub_step_ext_input>
     <sys_hub_step_ext_output action="delete_multiple" query="model=391ab09447662110acb08f22736d4337"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=391ab09447662110acb08f22736d4337"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_391ab09447662110acb08f22736d4337"/>
     <sys_hub_action_input action="delete_multiple" query="model=51c9709447662110acb08f22736d4323^sys_idNOT IN211ab09447662110acb08f22736d4332"/>
     <sys_hub_action_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -406,14 +394,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-27 17:37:31</sys_created_on>
         <sys_id>90ca34d447662110acb08f22736d4380</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:37:31</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:06</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -527,7 +515,6 @@
         <sys_updated_on>2023-04-27 17:34:37</sys_updated_on>
     </sys_hub_action_status_metadata>
     <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=f91ab49447662110acb08f22736d43da"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_51c9709447662110acb08f22736d4323^sys_idNOT IN691ab09447662110acb08f22736d4335"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>data_source_sysid</element>
         <help/>
@@ -552,7 +539,6 @@
         <url_target/>
     </sys_documentation>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_51c9709447662110acb08f22736d4323"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_51c9709447662110acb08f22736d4323^sys_idNOT IN90ca34d447662110acb08f22736d4385,d0ca34d447662110acb08f22736d437f"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>__dont_treat_as_error__</element>
         <help/>
@@ -603,18 +589,18 @@
     <sys_hub_action_plan action="delete_multiple" query="action_id=51c9709447662110acb08f22736d4323^sys_idNOT IN861af49447662110acb08f22736d43b7"/>
     <sys_hub_action_plan action="INSERT_OR_UPDATE">
         <action_id display_value="SGCEnhance Run Full Import">51c9709447662110acb08f22736d4323</action_id>
-        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"861af49447662110acb08f22736d43b7","name":"plan","plan_signature":null}}</plan>
-        <snapshot>a8ca34d447662110acb08f22736d43e1</snapshot>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"861af49447662110acb08f22736d43b7","name":"plan","plan_signature":null}}</plan>
+        <snapshot>36cdccb647794690d299a9f8536d4337</snapshot>
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:34:39</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>861af49447662110acb08f22736d43b7</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:37:34</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:07</sys_updated_on>
     </sys_hub_action_plan>
     <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
         <access>package_private</access>
@@ -622,13 +608,16 @@
         <action_status/>
         <action_template/>
         <annotation/>
+        <attributes>{labelCacheCleanUpExecuted=true}</attributes>
+        <authored_on_release_version>-1</authored_on_release_version>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
         <copied_from_name/>
         <description/>
+        <flow_priority/>
         <internal_name>sgcenhance_run_full_import</internal_name>
-        <label_cache>[{"name":"{{action.variable}}","label":"action➛variable","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.datasource}}","label":"action➛DataSource","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.data_source_sysid}}","label":"action➛Data Source SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
+        <label_cache>[{"name":"{{action.data_source_sysid}}","label":"action➛Data Source SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
         <master>true</master>
         <name>SGCEnhance Run Full Import</name>
         <natlang/>
@@ -640,7 +629,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>b51ab49447662110acb08f22736d43ef</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -648,7 +637,7 @@
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:34:38</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:20:58</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_snapshot>
@@ -676,10 +665,10 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:37:33</sys_created_on>
         <sys_id>a8ca34d447662110acb08f22736d43df</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:37:33</sys_updated_on>
-        <value>{"version":"1.0","complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"serializationFormat":"JSON"}</value>
+        <sys_updated_on>2024-04-29 18:15:57</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"serializationFormat":"JSON","complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}}}</value>
         <variable display_value="Action Status">c21af49447662110acb08f22736d4338</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_action_output_b51ab49447662110acb08f22736d43ef^id=b51ab49447662110acb08f22736d43ef"/>
@@ -701,10 +690,10 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:34:38</sys_created_on>
         <sys_id>f11af49447662110acb08f22736d4311</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:37:33</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:06</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=f11af49447662110acb08f22736d4311"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -715,17 +704,25 @@
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2023-04-27 17:34:38</sys_created_on>
         <sys_id>021af49447662110acb08f22736d4335</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:37:33</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:06</sys_updated_on>
         <value>(function execute(inputs, outputs) {
   var dataSourceSysId = inputs.dataSourceSysId;
+  var notification = new SGCEnhanceNotification();
+
   //Get Data from source
   var dataSource = new SGCEnhanceDataSource(dataSourceSysId);
   var importSetSysId = dataSource.loadData();
-  //Run Preview
-  var importSet = new SGCEnhanceImportSet(importSetSysId);
-  importSet.runPreview();
+  var importSetGr = new GlideRecord('sys_import_set');
+  if(importSetGr.get(importSetSysId)){
+    notification.postSimpleNotificationToUser(gs.getUserID(), importSetGr, importSetGr.getDisplayValue(), "The data source has completed loading.", "Loaded");
+    //Run Preview
+    var importSet = new SGCEnhanceImportSet(importSetSysId);
+    importSet.runPreview();
+    notification.postSimpleNotificationToUser(gs.getUserID(), importSetGr, importSetGr.getDisplayValue(), "The import set has completed transforming", "Complete");
+  }
+  
 })(inputs, outputs);
 </value>
         <variable display_value="Script">71aa7f6647032200b4fad7527c9a719b</variable>
@@ -746,18 +743,6 @@
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=f11af49447662110acb08f22736d4311"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>f11af49447662110acb08f22736d4311</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:34:38</sys_created_on>
-        <sys_id>0a1af49447662110acb08f22736d4334</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:34:38</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>dataSourceSysId</field>
         <id>f11af49447662110acb08f22736d4311</id>
         <sys_created_by>erik.anderson</sys_created_by>
@@ -769,19 +754,8 @@
         <table>var__m_sys_hub_step_ext_input_f11af49447662110acb08f22736d4311</table>
         <value>{{action.data_source_sysid}}</value>
     </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>f11af49447662110acb08f22736d4311</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2023-04-27 17:34:38</sys_created_on>
-        <sys_id>ca1af49447662110acb08f22736d4334</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:34:38</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=f11af49447662110acb08f22736d4311"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=f11af49447662110acb08f22736d4311"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=f11af49447662110acb08f22736d4311^sys_idNOT IN791af49447662110acb08f22736d4314"/>
     <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -868,7 +842,6 @@
     </sys_hub_step_ext_input>
     <sys_hub_step_ext_output action="delete_multiple" query="model=f11af49447662110acb08f22736d4311"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=f11af49447662110acb08f22736d4311"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_f11af49447662110acb08f22736d4311"/>
     <sys_hub_action_input action="delete_multiple" query="model=b51ab49447662110acb08f22736d43ef^sys_idNOT IN791af49447662110acb08f22736d430b"/>
     <sys_hub_action_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -1020,14 +993,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-27 17:34:38</sys_created_on>
         <sys_id>0e1af49447662110acb08f22736d437a</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-27 17:37:33</sys_updated_on>
+        <sys_updated_on>2024-04-29 18:21:06</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1141,7 +1114,6 @@
         <sys_updated_on>2023-04-27 17:34:38</sys_updated_on>
     </sys_hub_action_status_metadata>
     <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=8a1af49447662110acb08f22736d4383"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_b51ab49447662110acb08f22736d43ef^sys_idNOT INb11af49447662110acb08f22736d430f"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>data_source_sysid</element>
         <help/>
@@ -1166,7 +1138,6 @@
         <url_target/>
     </sys_documentation>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_b51ab49447662110acb08f22736d43ef"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_b51ab49447662110acb08f22736d43ef^sys_idNOT IN461af49447662110acb08f22736d437f,8a1af49447662110acb08f22736d433b"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>__dont_treat_as_error__</element>
         <help/>
@@ -1217,6 +1188,6 @@
     <sys_hub_action_type_definition action="UPDATE">
         <sys_id>51c9709447662110acb08f22736d4323</sys_id>
         <latest_snapshot>b51ab49447662110acb08f22736d43ef</latest_snapshot>
-        <compiler_build>glide-utah-12-21-2022__patch1-03-01-2023_03-13-2023_1716.zip</compiler_build>
+        <compiler_build>glide-washingtondc-12-20-2023__patch1-02-28-2024_03-09-2024_0815.zip</compiler_build>
     </sys_hub_action_type_definition>
 </record_update>

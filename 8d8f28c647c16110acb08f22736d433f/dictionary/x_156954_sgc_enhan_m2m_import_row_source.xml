@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="01770c3847366110acb08f22736d43aa" label="Import Set Row to Source M2M" max_length="40" name="x_156954_sgc_enhan_m2m_import_row_source" type="collection">
         <element label="Hash" max_length="40" name="hash" type="string"/>
-        <element label="Primary" max_length="40" name="primary" type="boolean"/>
-        <element attributes="encode_utf8=false" label="Import Set Row" max_length="32" name="sys_import_set_row" reference="sys_import_set_row" reference_cascade_rule="delete" type="reference"/>
-        <element attributes="encode_utf8=false" label="Source" max_length="32" name="sys_object_source" reference="sys_object_source" reference_cascade_rule="delete" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Primary" max_length="40" name="primary" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Import Set Row" max_length="32" name="sys_import_set_row" reference="sys_import_set_row" reference_cascade_rule="delete" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Source" max_length="32" name="sys_object_source" reference="sys_object_source" reference_cascade_rule="delete" type="reference"/>
         <index name="index">
             <element name="hash"/>
         </index>

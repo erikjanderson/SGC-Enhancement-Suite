@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>true</client_callable>
         <description/>
+        <mobile_callable>false</mobile_callable>
         <name>SGCEnhanceAjaxController</name>
+        <sandbox_callable>true</sandbox_callable>
         <script><![CDATA[var SGCEnhanceAjaxController = Class.create();
 SGCEnhanceAjaxController.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
@@ -29,6 +31,15 @@ SGCEnhanceAjaxController.prototype = Object.extendsObject(global.AbstractAjaxPro
             return reportHTML;
         }
     },
+
+	loadCustomAmount: function(){
+		var dataSourceSysId = this.getParameter('sysparm_ds_sysid');
+		var maxRow = this.getParameter('sysparm_max_row');
+
+		maxRow = parseInt(maxRow);
+		var sgcEnhanceController = new SGCEnhanceController();
+		sgcEnhanceController.loadDataSourceInBackground(dataSourceSysId, maxRow);
+	},
 	
 
     type: 'SGCEnhanceAjaxController'
@@ -37,13 +48,13 @@ SGCEnhanceAjaxController.prototype = Object.extendsObject(global.AbstractAjaxPro
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-28 14:21:12</sys_created_on>
         <sys_id>bd57112447a66110acb08f22736d431f</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>SGCEnhanceAjaxController</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_bd57112447a66110acb08f22736d431f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-01 14:12:58</sys_updated_on>
+        <sys_updated_on>2024-04-29 14:45:20</sys_updated_on>
     </sys_script_include>
 </record_update>
