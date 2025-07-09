@@ -18,6 +18,7 @@
         <internal_name>sgcenhance_load_data</internal_name>
         <label_cache>[{"name":"{{action.variable}}","label":"action➛variable","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.datasource}}","label":"action➛DataSource","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.data_source_sysid}}","label":"action➛Data Source SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{action.max_row}}","label":"action➛Max Row","type":"action","ref":"","reference_display":"","base_type":"integer","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"Integer","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"integer","uiUniqueId":"e4ba703c-8600-450a-ad98-6168dcbce020"}}]</label_cache>
         <master_snapshot>8559132a47354690d299a9f8536d437e</master_snapshot>
+        <master_snapshot_digest/>
         <name>SGCEnhance Load Data</name>
         <natlang/>
         <outputs/>
@@ -29,15 +30,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>5809d7e647354690d299a9f8536d43c8</sys_id>
-        <sys_mod_count>30</sys_mod_count>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>SGCEnhance Load Data</sys_name>
         <sys_overrides/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_5809d7e647354690d299a9f8536d43c8</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-04-29 18:20:28</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-05-01 12:26:02</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -160,18 +161,6 @@
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=6c09d7e647354690d299a9f8536d43ef"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>6c09d7e647354690d299a9f8536d43ef</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2024-04-29 14:30:29</sys_created_on>
-        <sys_id>6c091be647354690d299a9f8536d4308</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2024-04-29 14:30:29</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>dataSourceSysId</field>
         <id>6c09d7e647354690d299a9f8536d43ef</id>
         <sys_created_by>erik.anderson</sys_created_by>
@@ -195,19 +184,8 @@
         <table>var__m_sys_hub_step_ext_input_6c09d7e647354690d299a9f8536d43ef</table>
         <value>{{action.max_row}}</value>
     </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>6c09d7e647354690d299a9f8536d43ef</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2024-04-29 14:30:29</sys_created_on>
-        <sys_id>24091be647354690d299a9f8536d4309</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2024-04-29 14:30:29</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=6c09d7e647354690d299a9f8536d43ef"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=6c09d7e647354690d299a9f8536d43ef"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=6c09d7e647354690d299a9f8536d43ef^sys_idNOT IN3459132a47354690d299a9f8536d4307,6809d7e647354690d299a9f8536d43f3"/>
     <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -377,7 +355,6 @@
     </sys_hub_step_ext_input>
     <sys_hub_step_ext_output action="delete_multiple" query="model=6c09d7e647354690d299a9f8536d43ef"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=6c09d7e647354690d299a9f8536d43ef"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_6c09d7e647354690d299a9f8536d43ef"/>
     <sys_hub_action_input action="delete_multiple" query="model=5809d7e647354690d299a9f8536d43c8^sys_idNOT IN9c09d7e647354690d299a9f8536d43cf,f859dfe647354690d299a9f8536d43fb"/>
     <sys_hub_action_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -757,7 +734,6 @@
         <sys_updated_on>2024-04-29 14:30:30</sys_updated_on>
     </sys_hub_action_status_metadata>
     <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=a4091be647354690d299a9f8536d431f"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_5809d7e647354690d299a9f8536d43c8^sys_idNOT IN1809d7e647354690d299a9f8536d43ed,3c59dfe647354690d299a9f8536d43fe"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>data_source_sysid</element>
         <help/>
@@ -805,7 +781,6 @@
         <url_target/>
     </sys_documentation>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_5809d7e647354690d299a9f8536d43c8"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_5809d7e647354690d299a9f8536d43c8^sys_idNOT IN2c091be647354690d299a9f8536d4319,a4091be647354690d299a9f8536d4313"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>__dont_treat_as_error__</element>
         <help/>
@@ -1027,18 +1002,6 @@
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=8d59132a47354690d299a9f8536d438c"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>application</field>
-        <id>8d59132a47354690d299a9f8536d438c</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2024-04-29 14:31:54</sys_created_on>
-        <sys_id>0559132a47354690d299a9f8536d439b</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2024-04-29 14:31:54</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>dataSourceSysId</field>
         <id>8d59132a47354690d299a9f8536d438c</id>
         <sys_created_by>erik.anderson</sys_created_by>
@@ -1062,19 +1025,8 @@
         <table>var__m_sys_hub_step_ext_input_8d59132a47354690d299a9f8536d438c</table>
         <value>{{action.max_row}}</value>
     </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>8d59132a47354690d299a9f8536d438c</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2024-04-29 14:31:54</sys_created_on>
-        <sys_id>c559132a47354690d299a9f8536d439b</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2024-04-29 14:31:54</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=8d59132a47354690d299a9f8536d438c"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=8d59132a47354690d299a9f8536d438c"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=8d59132a47354690d299a9f8536d438c^sys_idNOT IN0559132a47354690d299a9f8536d4390,c559132a47354690d299a9f8536d4394"/>
     <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -1244,7 +1196,6 @@
     </sys_hub_step_ext_input>
     <sys_hub_step_ext_output action="delete_multiple" query="model=8d59132a47354690d299a9f8536d438c"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=8d59132a47354690d299a9f8536d438c"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_8d59132a47354690d299a9f8536d438c"/>
     <sys_hub_action_input action="delete_multiple" query="model=8559132a47354690d299a9f8536d437e^sys_idNOT IN0d59132a47354690d299a9f8536d4382,c559132a47354690d299a9f8536d4387"/>
     <sys_hub_action_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -1601,7 +1552,6 @@
         <sys_updated_on>2024-04-29 14:31:54</sys_updated_on>
     </sys_hub_action_status_metadata>
     <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=1159132a47354690d299a9f8536d43ae"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_8559132a47354690d299a9f8536d437e^sys_idNOT IN8559132a47354690d299a9f8536d438a,c559132a47354690d299a9f8536d4386"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>max_row</element>
         <help/>
@@ -1649,7 +1599,6 @@
         <url_target/>
     </sys_documentation>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_8559132a47354690d299a9f8536d437e"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_8559132a47354690d299a9f8536d437e^sys_idNOT IN9159132a47354690d299a9f8536d43a3,dd59132a47354690d299a9f8536d43a8"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>__action_status__</element>
         <help/>

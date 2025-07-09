@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Compiles summaries of import set run making it easier to debug and understand where source data is being transformed to.</description>
+        <mobile_callable>false</mobile_callable>
         <name>SGCEnhanceImportSummary</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var SGCEnhanceImportSummary = Class.create();
 SGCEnhanceImportSummary.prototype = {
 	initialize: function () { },

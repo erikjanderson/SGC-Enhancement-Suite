@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description/>
+        <mobile_callable>false</mobile_callable>
         <name>SGCEnhanceImportSetRow</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var SGCEnhanceImportSetRow = Class.create();
 SGCEnhanceImportSetRow.prototype = {
      initialize: function (rowGr) {

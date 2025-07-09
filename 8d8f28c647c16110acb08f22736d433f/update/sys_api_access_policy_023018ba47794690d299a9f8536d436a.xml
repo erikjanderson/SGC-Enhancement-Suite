@@ -4,9 +4,11 @@
         <api>SGC Enhancement Suite</api>
         <api_path>x_156954_sgc_enhan/sgc_enhance</api_path>
         <api_resource/>
+        <api_tablename/>
         <apply_all>false</apply_all>
         <apply_all_methods>true</apply_all_methods>
         <apply_all_resources>true</apply_all_resources>
+        <apply_all_tables>false</apply_all_tables>
         <apply_all_versions>true</apply_all_versions>
         <apply_global>false</apply_global>
         <http_method/>

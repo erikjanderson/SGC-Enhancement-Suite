@@ -18,6 +18,7 @@
         <internal_name>sgenhance_rollback_import_set_run</internal_name>
         <label_cache>[{"name":"{{action.import_set_run_sysid}}","label":"action➛Import Set Run SysId","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
         <master_snapshot>9859785447662110acb08f22736d4372</master_snapshot>
+        <master_snapshot_digest/>
         <name>SGEnhance Roll Back Import Set Run</name>
         <natlang/>
         <outputs/>
@@ -29,15 +30,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6c19305447662110acb08f22736d438d</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>SGEnhance Roll Back Import Set Run</sys_name>
         <sys_overrides/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_6c19305447662110acb08f22736d438d</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-04-29 18:21:34</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-05-01 12:26:03</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -148,19 +149,8 @@
         <table>var__m_sys_hub_step_ext_input_1459f05447662110acb08f22736d4374</table>
         <value>{{action.import_set_run_sysid}}</value>
     </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>1459f05447662110acb08f22736d4374</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2024-04-29 18:12:42</sys_created_on>
-        <sys_id>e3db84f247794690d299a9f8536d43d1</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2024-04-29 18:12:42</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=1459f05447662110acb08f22736d4374"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=1459f05447662110acb08f22736d4374"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=1459f05447662110acb08f22736d4374^sys_idNOT IN5059785447662110acb08f22736d4344"/>
     <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -247,7 +237,6 @@
     </sys_hub_step_ext_input>
     <sys_hub_step_ext_output action="delete_multiple" query="model=1459f05447662110acb08f22736d4374"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=1459f05447662110acb08f22736d4374"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_1459f05447662110acb08f22736d4374"/>
     <sys_hub_action_input action="delete_multiple" query="model=6c19305447662110acb08f22736d438d^sys_idNOT INc059f05447662110acb08f22736d436e"/>
     <sys_hub_action_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -520,7 +509,6 @@
         <sys_updated_on>2023-04-27 17:31:14</sys_updated_on>
     </sys_hub_action_status_metadata>
     <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=1059785447662110acb08f22736d435d"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_6c19305447662110acb08f22736d438d^sys_idNOT INd059f05447662110acb08f22736d4372"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>import_set_run_sysid</element>
         <help/>
@@ -534,18 +522,17 @@
         <sys_created_on>2023-04-27 17:31:14</sys_created_on>
         <sys_id>d059f05447662110acb08f22736d4372</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Import Set Run SysId</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_6c19305447662110acb08f22736d438d_import_set_run_sysid_en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 17:31:14</sys_updated_on>
         <url/>
         <url_target/>
     </sys_documentation>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_6c19305447662110acb08f22736d438d"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_6c19305447662110acb08f22736d438d^sys_idNOT IN325fe4a147a22110acb08f22736d43b4,6a5fe4a147a22110acb08f22736d43ad"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>__dont_treat_as_error__</element>
         <help/>
@@ -559,11 +546,11 @@
         <sys_created_on>2023-05-01 14:00:07</sys_created_on>
         <sys_id>325fe4a147a22110acb08f22736d43b4</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Don't Treat as Error</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_6c19305447662110acb08f22736d438d___dont_treat_as_error___en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-01 14:00:07</sys_updated_on>
         <url/>
@@ -582,11 +569,11 @@
         <sys_created_on>2023-05-01 14:00:07</sys_created_on>
         <sys_id>6a5fe4a147a22110acb08f22736d43ad</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Action Status</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_6c19305447662110acb08f22736d438d___action_status___en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-01 14:00:07</sys_updated_on>
         <url/>
@@ -755,19 +742,8 @@
         <table>var__m_sys_hub_step_ext_input_6c59785447662110acb08f22736d437b</table>
         <value>{{action.import_set_run_sysid}}</value>
     </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>script</field>
-        <id>6c59785447662110acb08f22736d437b</id>
-        <sys_created_by>erik.anderson</sys_created_by>
-        <sys_created_on>2024-04-29 18:12:43</sys_created_on>
-        <sys_id>3bdbc4f247794690d299a9f8536d431d</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2024-04-29 18:12:43</sys_updated_on>
-        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
-        <value/>
-    </sys_element_mapping>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=6c59785447662110acb08f22736d437b"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=6c59785447662110acb08f22736d437b"/>
     <sys_hub_step_ext_input action="delete_multiple" query="model=6c59785447662110acb08f22736d437b^sys_idNOT INe059785447662110acb08f22736d437f"/>
     <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -854,7 +830,6 @@
     </sys_hub_step_ext_input>
     <sys_hub_step_ext_output action="delete_multiple" query="model=6c59785447662110acb08f22736d437b"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=6c59785447662110acb08f22736d437b"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_6c59785447662110acb08f22736d437b"/>
     <sys_hub_action_input action="delete_multiple" query="model=9859785447662110acb08f22736d4372^sys_idNOT INe059785447662110acb08f22736d4376"/>
     <sys_hub_action_input action="INSERT_OR_UPDATE">
         <active>true</active>
@@ -1127,7 +1102,6 @@
         <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
     </sys_hub_action_status_metadata>
     <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=a859785447662110acb08f22736d43b0"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_9859785447662110acb08f22736d4372^sys_idNOT IN2c59785447662110acb08f22736d4379"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>import_set_run_sysid</element>
         <help/>
@@ -1141,18 +1115,17 @@
         <sys_created_on>2023-04-27 17:31:15</sys_created_on>
         <sys_id>2c59785447662110acb08f22736d4379</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Import Set Run SysId</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_9859785447662110acb08f22736d4372_import_set_run_sysid_en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
         <url/>
         <url_target/>
     </sys_documentation>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_9859785447662110acb08f22736d4372"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_9859785447662110acb08f22736d4372^sys_idNOT IN2859785447662110acb08f22736d43a6,6459785447662110acb08f22736d43ac"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>__action_status__</element>
         <help/>
@@ -1166,11 +1139,11 @@
         <sys_created_on>2023-04-27 17:31:15</sys_created_on>
         <sys_id>2859785447662110acb08f22736d43a6</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Action Status</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_9859785447662110acb08f22736d4372___action_status___en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
         <url/>
@@ -1189,11 +1162,11 @@
         <sys_created_on>2023-04-27 17:31:15</sys_created_on>
         <sys_id>6459785447662110acb08f22736d43ac</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Don't Treat as Error</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_9859785447662110acb08f22736d4372___dont_treat_as_error___en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-04-27 17:31:15</sys_updated_on>
         <url/>

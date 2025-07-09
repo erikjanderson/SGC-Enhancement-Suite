@@ -39,14 +39,27 @@ SGCEnhanceTransformPreview.prototype = {
 	 */
 	previewBatch: function (input, runId) {
 		gs.debug("[DEBUG] SGCEnhanceTransformPreview (previewBatch) input:  " + input);
-		var { discoverySource, inputPayload, indexTrackerDictionary } = this._preProcessInputPayload(input);
+		var { discoverySource, inputPayload, itemIndexTrackerDictionary, relationIndexTrackerDictionary } = this._preProcessInputPayload(input);
 		gs.debug("[DEBUG] SGCEnhanceTransformPreview (previewBatch) this.inputPayload" + JSON.stringify(inputPayload));
 		var output = this._simulateIRE(inputPayload, discoverySource);
 		if (!gs.nil(output)) {
 			var outputPayload = JSON.parse(output);
 			gs.debug("[DEBUG] SGCEnhanceTransformPreview (previewBatch) output:  " + JSON.stringify(outputPayload));
-			this._processOutputItems(inputPayload, outputPayload.items, indexTrackerDictionary, runId);
+			var internalIdPreviewDictionary = this._processOutputItems(inputPayload, outputPayload.items, itemIndexTrackerDictionary, runId, this._searchForInputData);
+			this._processOutputRelationItems(inputPayload, outputPayload.relations, internalIdPreviewDictionary, relationIndexTrackerDictionary, runId)
 		}
+	},
+
+	processOutput: function (input, output, runId) {
+		if (gs.nil(input) || gs.nil(output) || gs.nil(runId)) {
+			return;
+		}
+
+		//Process items
+
+
+		//Process relations
+
 	},
 
 
@@ -61,7 +74,6 @@ SGCEnhanceTransformPreview.prototype = {
 		importPreviewResultGr.query();
 		while (importPreviewResultGr.next()) {
 			var importSetRunId = importPreviewResultGr.getValue("import_set_run");
-
 			if (
 				gs.nil(importSetRunDictionary[importSetRunId]) &&
 				(!gs.nil(importPreviewResultGr.import_set_run.set + ""))
@@ -81,7 +93,9 @@ SGCEnhanceTransformPreview.prototype = {
 			importSetRowGr.query();
 			if (importSetRowGr.next()) {
 				importPreviewResultGr.import_set_row = importSetRowGr.getUniqueValue();
+				importPreviewResultGr.import_set = importSetRowGr.getValue("sys_import_set");
 				importPreviewResultGr.sys_robust_import_set_transformer = importSetRunDictionary[importSetRunId].robustImportSetTransformerSysId;
+
 				importPreviewResultGr.update();
 			}
 		}
@@ -95,34 +109,26 @@ SGCEnhanceTransformPreview.prototype = {
 	 * @param (array) outputPayloadItems: The array of output items returned from the IRE after submitting the input payload.
 	 * @param (object) 
 	 */
-	_processOutputItems: function (inputPayload, outputPayloadItems, indexTrackerDictionary, runId, rowBind, relatesToSysId) {
+	_processOutputItems: function (inputPayload, outputPayloadItems, indexTrackerDictionary, runId, getInputDataFunction, internalIdPreviewDictionary, rowBind, relatesToSysId) {
 		if (gs.nil(inputPayload) || gs.nil(outputPayloadItems)) {
 			return;
 		}
-		
+		if(gs.nil(internalIdPreviewDictionary)){
+			internalIdPreviewDictionary = {};
+		}
 		var isRelated = false;
-		if(rowBind){
+		if (rowBind) {
 			isRelated = true;
 		}
-
 		outputPayloadItems.forEach(outputItem => {
 			var inputIndices = outputItem.inputIndices;
 			if (gs.nil(rowBind)) {
 				rowBind = indexTrackerDictionary[inputIndices[0]].rowBind;
 			}
-			var valueObj = {};
-			var sourceNativeKeyDict = {};
-			inputIndices.forEach(index => {
-				if (typeof index == "number") {
-					this._searchForInputData(inputPayload, valueObj, sourceNativeKeyDict, index);
-				} else if (typeof index == "object") {
-					this._searchForInputData(inputPayload, valueObj, sourceNativeKeyDict, index.mainIndex, index.subIndex);
-				}
-			});
 
-
-			for(var key in valueObj){
-				valueObj[key] = valueObj[key].join(",");
+			var {inputValues, sourceNativeKeys, internalIds} = getInputDataFunction(inputPayload, inputIndices);
+			for (var key in inputValues) {
+				inputValues[key] = inputValues[key].join(",");
 			}
 
 			var importPreviewResult = new GlideRecord("x_156954_sgc_enhan_import_preview_result");
@@ -133,8 +139,8 @@ SGCEnhanceTransformPreview.prototype = {
 			importPreviewResult.target_table = outputItem.className;
 			importPreviewResult.target_record = outputItem.sysId === "Unknown" ? "" : outputItem.sysId;
 			importPreviewResult.operation = outputItem.operation;
-			importPreviewResult.values = JSON.stringify(valueObj);
-			importPreviewResult.source_native_keys = Object.keys(sourceNativeKeyDict).join("\n");
+			importPreviewResult.values = JSON.stringify(inputValues);
+			importPreviewResult.source_native_keys = sourceNativeKeys.join("\n");
 			var { identificationLogs, matchingLookupTable } = this._getIdentificationLogs(outputItem);
 			importPreviewResult.identification_logs = identificationLogs;
 			importPreviewResult.matching_lookup_table = matchingLookupTable;
@@ -142,56 +148,152 @@ SGCEnhanceTransformPreview.prototype = {
 			importPreviewResult.warning_logs = this._parseLogs(outputItem.warnings);
 			importPreviewResult.relates_to = relatesToSysId;
 			var sysId = importPreviewResult.insert();
+
+			if(internalIds){
+				internalIds.forEach(internalId => {
+					internalIdPreviewDictionary[internalId] = sysId;
+				});
+			}
 			//Process nested related items
 			if (outputItem.relatedItems && outputItem.relatedItems.length > 0) {
-				this._processOutputItems(inputPayload, outputItem.relatedItems, indexTrackerDictionary, runId, rowBind, sysId);
+				this._processOutputItems(inputPayload, outputItem.relatedItems, indexTrackerDictionary, runId, this._getRelatedInputData, internalIdPreviewDictionary, rowBind, sysId);
 			}
-			if(isRelated == false){
+			if (isRelated == false) {
 				rowBind = null;
 			}
+			//Return a dictionary of all input internal ids and which output preview records contributed to them.
+			
 		});
 
+		return internalIdPreviewDictionary;
+
+	},
+
+	_processOutputRelationItems: function (inputPayload, outputRelations, internalIdPreviewDictionary, relationIndexTrackerDictionary, runId) {
+		gs.info("TEST: " + JSON.stringify(internalIdPreviewDictionary))
+		if (gs.nil(inputPayload) || gs.nil(outputRelations)) {
+			return;
+		}
+		outputRelations.forEach(relation => {
+			var inputIndices = relation.inputIndices;
+			var rowBind = relationIndexTrackerDictionary[inputIndices[0]].rowBind;
+
+			var {parentPreviewSysId, childPreviewSysId, relType} = this._getRelationshipInputData(inputPayload, inputIndices, internalIdPreviewDictionary);
+			var importPreviewResult = new GlideRecord("x_156954_sgc_enhan_import_preview_result");
+			importPreviewResult.initialize();
+			importPreviewResult.row_bind = rowBind;
+			importPreviewResult.import_set_run = runId;
+			//importPreviewResult.sys_robust_import_set_transformer = this.robustImportSetTransformerSysId;
+			importPreviewResult.target_table = relation.className;
+			importPreviewResult.target_record = relation.sysId === "Unknown" ? "" : relation.sysId;
+			importPreviewResult.operation = relation.operation;
+			importPreviewResult.rel_parent_preview = parentPreviewSysId;
+			importPreviewResult.rel_child_preview = childPreviewSysId;
+			importPreviewResult.rel_type = relType;
+			importPreviewResult.error_logs = this._parseLogs(relation.errors);
+			importPreviewResult.warning_logs = this._parseLogs(relation.warnings);
+			importPreviewResult.insert();
+		});
+		
+		
 	},
 
 	/**
 	 * Given the location information searches the input payload for the input payload value data and the source native key data that was submitted to the IRE.
 	 * 
 	 * @param (object) inputPayload: The input payload that was submitted to the IRE.
-	 * @param (object) valueObj: The JSON object item values that were submitted and need to be captured.
+	 * @param (object) inputData: The JSON object item values that were submitted and need to be captured.
 	 * @param (object) sourceNativeKeyDict: The JSON object with the Source Native Key values that need to be captured from the target items.
-	 * @param (integer) mainIndex: The primary index locaiton of th einput payload. This value is specified in the inputIndicies array in the IRE output payload
+	 * @param (integer) mainIndex: The primary index location of th einput payload. This value is specified in the inputIndicies array in the IRE output payload
 	 * @param (integer) subIndex: The secondary index location of related data. THis value is specified in the relatedData array for each related item in the IRE output payload.
 	 */
 
-	_searchForInputData: function (inputPayload, valueObj, sourceNativeKeyDict, mainIndex, subIndex) {
-		if (gs.nil(valueObj) || gs.nil(mainIndex) || gs.nil(sourceNativeKeyDict)) {
-			return;
+	_searchForInputData: function (inputPayload, indices) {
+		var inputData = {
+			inputValues: {},
+			sourceNativeKeys: [],
+			internalIds: []
+		};
+		if (gs.nil(indices) || gs.nil(inputPayload)) {
+			return inputData
 		}
-		if (inputPayload.items[mainIndex]) {
-			var item = inputPayload.items[mainIndex];
-			if (!gs.nil(subIndex)) {
-				if (!gs.nil(item.lookup) && item.lookup[subIndex]) {
-					item = item.lookup[subIndex];
-				} else if (!gs.nil(item.related) && item.related[subIndex]) {
-					item = item.related[subIndex];
+		indices.forEach(mainIndex => {
+			if (inputPayload.items[mainIndex]) {
+				var item = inputPayload.items[mainIndex];
+				if (!gs.nil(item.sys_object_source_info) && !gs.nil(item.sys_object_source_info.source_native_key) && inputData.sourceNativeKeys.indexOf(item.sys_object_source_info.source_native_key) < 0) {
+					inputData.sourceNativeKeys.push(item.sys_object_source_info.source_native_key);
 				}
+				Object.keys(item.values).forEach(key => {
+					if (gs.nil(inputData.inputValues[key])) {
+						inputData.inputValues[key] = [];
+					}
+					if (inputData.inputValues[key].indexOf(item.values[key]) < 0) {
+						inputData.inputValues[key].push(item.values[key]);
+					}
+				});
 			}
-
-			if(!gs.nil(item.sys_object_source_info) && !gs.nil(item.sys_object_source_info.source_native_key)){
-				sourceNativeKeyDict[item.sys_object_source_info.source_native_key] = true;
-			}
-
-			Object.keys(item.values).forEach(key => {
-				if(gs.nil(valueObj[key])){
-					valueObj[key] = [];
-				}
-				if(valueObj[key].indexOf(item.values[key]) < 0){
-					valueObj[key].push(item.values[key]);
-				}
-			});
-		}
+			inputData.internalIds.push(item.internal_id);
+		});
+		return inputData
 	},
 
+	_getRelatedInputData: function (inputPayload, indices) {
+		var inputData = {
+			inputValues: {},
+			sourceNativeKeys: [],
+			internalIds: []
+		};
+		if (gs.nil(inputPayload) || gs.nil(indices)) {
+			return inputData;
+		}
+		
+		indices.forEach(index => {
+			if (inputPayload.items[index.mainIndex]) {
+				var mainItem = inputPayload.items[index.mainIndex];
+				var item = null;
+				if (!gs.nil(mainItem.lookup) && mainItem.lookup[index.subIndex]) {
+					item = mainItem.lookup[index.subIndex];
+				} else if (!gs.nil(mainItem.related) && mainItem.related[index.subIndex]) {
+					item = mainItem.related[index.subIndex];
+				}
+				if (!gs.nil(item.sys_object_source_info) && !gs.nil(item.sys_object_source_info.source_native_key) && inputData.sourceNativeKeys.indexOf(item.sys_object_source_info.source_native_key) < 0) {
+					inputData.sourceNativeKeys.push(item.sys_object_source_info.source_native_key);
+				}
+				Object.keys(item.values).forEach(key => {
+					if (gs.nil(inputData.inputValues[key])) {
+						inputData.inputValues[key] = [];
+					}
+					if (inputData.inputValues[key].indexOf(item.values[key]) < 0) {
+						inputData.inputValues[key].push(item.values[key]);
+					}
+				});
+				inputData.internalIds.push(item.internal_id);
+			}
+		})
+		return inputData;
+	},
+
+
+	_getRelationshipInputData: function(inputPayload, indices, internalIdPreviewDictionary){
+		var inputData = {
+			parentPreviewSysIds: [],
+			childPreviewSysId: [],
+			relType: ""
+		};
+		if (gs.nil(inputPayload) || gs.nil(indices)) {
+			return inputData;
+		}
+		//Technically yes the data model supports multiple input indices but its almost 100% unlikely base on how transforms are built in the ETL.
+		//#Trust
+		indices.forEach(index => {
+			if (inputPayload.relations[index]){
+				inputData.parentPreviewSysId = internalIdPreviewDictionary[inputPayload.relations[index].parent_id];
+				inputData.childPreviewSysId = internalIdPreviewDictionary[inputPayload.relations[index].child_id];
+				inputData.relType = inputPayload.relations[index].type;
+			}
+		});
+		return inputData;
+	},
 
 
 	/**
@@ -281,7 +383,8 @@ SGCEnhanceTransformPreview.prototype = {
 		//Convert weird class object to a string. No JSON.stringify doesn't work.
 		var returnObject = {
 			discoverySource: "",
-			indexTrackerDictionary: [],
+			itemIndexTrackerDictionary: [],
+			relationIndexTrackerDictionary: [],
 			inputPayload: {
 				items: [],
 				relations: [],
@@ -302,14 +405,21 @@ SGCEnhanceTransformPreview.prototype = {
 					returnObject.discoverySource = item.sys_object_source_info.sys_object_source;
 				}
 				returnObject.inputPayload.items.push(item);
-				returnObject.indexTrackerDictionary[returnObject.inputPayload.items.length - 1] = {
+				returnObject.itemIndexTrackerDictionary[returnObject.inputPayload.items.length - 1] = {
 					"rowIndex": r,
 					"itemIndex": i,
 					"rowBind": rowBindingGUID
 				};
 			});
 			if (row.payload.relations && row.payload.relations.length > 0) {
-				returnObject.inputPayload.relations = returnObject.inputPayload.relations.concat(row.payload.relations);
+				row.payload.relations.forEach((relation, i) => {
+					returnObject.inputPayload.relations.push(relation);
+					returnObject.relationIndexTrackerDictionary[returnObject.inputPayload.relations.length - 1] = {
+						"rowIndex": r,
+						"itemIndex": i,
+						"rowBind": rowBindingGUID
+					};
+				});
 			}
 			if (row.payload.referenceItems && row.payload.referenceItems.length > 0) {
 				returnObject.inputPayload.referenceItems = returnObject.inputPayload.referenceItems.concat(row.payload.referenceItems);
@@ -325,13 +435,13 @@ SGCEnhanceTransformPreview.prototype = {
         <sys_created_by>erik.anderson</sys_created_by>
         <sys_created_on>2025-07-01 17:01:07</sys_created_on>
         <sys_id>df50842883ae6210b2bde360ceaad3e2</sys_id>
-        <sys_mod_count>104</sys_mod_count>
+        <sys_mod_count>145</sys_mod_count>
         <sys_name>SGCEnhanceTransformPreview</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_df50842883ae6210b2bde360ceaad3e2</sys_update_name>
         <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2025-07-07 20:52:51</sys_updated_on>
+        <sys_updated_on>2025-07-09 02:27:33</sys_updated_on>
     </sys_script_include>
 </record_update>

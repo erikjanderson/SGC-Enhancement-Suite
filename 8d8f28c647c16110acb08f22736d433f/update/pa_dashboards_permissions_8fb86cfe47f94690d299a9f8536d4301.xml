@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="pa_dashboards_permissions">
     <pa_dashboards_permissions action="INSERT_OR_UPDATE">
-        <dashboard display_value="Context Sensitive Analytics - CS">b86af816eb0112001e68286b1206fe45</dashboard>
+        <dashboard display_value="">b86af816eb0112001e68286b1206fe45</dashboard>
         <delete>true</delete>
         <group/>
         <identity>pa_admin</identity>

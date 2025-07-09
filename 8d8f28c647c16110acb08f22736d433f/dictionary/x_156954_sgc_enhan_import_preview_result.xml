@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="908c7f9083ae6210b2bde360ceaad399" label="SGC Enahnce - Import Preview Result" max_length="40" name="x_156954_sgc_enhan_import_preview_result" type="collection">
         <element label="Run" max_length="32" name="import_set_run" read_only="true" reference="sys_import_set_run" type="reference"/>
+        <element label="Import set" max_length="32" name="import_set" read_only="true" reference="sys_import_set" type="reference"/>
+        <element label="Rel Parent Preview" max_length="32" name="rel_parent_preview" read_only="true" reference="x_156954_sgc_enhan_import_preview_result" type="reference"/>
         <element label="Transform" max_length="32" name="sys_robust_import_set_transformer" read_only="true" reference="sys_robust_import_set_transformer" type="reference"/>
         <element dependent="target_table" dependent_on_field="target_table" label="Target record" max_length="32" name="target_record" read_only="true" type="document_id" use_dependent_field="true"/>
         <element label="Relates to" max_length="32" name="relates_to" read_only="true" reference="x_156954_sgc_enhan_import_preview_result" type="reference"/>
@@ -9,21 +11,32 @@
         <element label="Error logs" max_length="5000" name="error_logs" read_only="true" type="string"/>
         <element label="Warning logs" max_length="5000" name="warning_logs" read_only="true" type="string"/>
         <element label="Import set row" max_length="32" name="import_set_row" read_only="true" reference="sys_import_set_row" reference_cascade_rule="delete" type="reference"/>
+        <element label="Rel Child Preview" max_length="32" name="rel_child_preview" read_only="true" reference="x_156954_sgc_enhan_import_preview_result" type="reference"/>
         <element label="Target table" max_length="80" name="target_table" read_only="true" type="table_name"/>
         <element label="Row bind" max_length="40" name="row_bind" read_only="true" type="string"/>
         <element label="Identification logs" max_length="1000" name="identification_logs" read_only="true" type="string"/>
         <element label="Operation" max_length="40" name="operation" read_only="true" type="string"/>
+        <element label="Rel Type" max_length="100" name="rel_type" read_only="true" type="string"/>
         <element label="Source native keys" max_length="400" name="source_native_keys" read_only="true" type="string"/>
         <index name="index">
-            <element name="import_set_row"/>
+            <element name="import_set"/>
         </index>
         <index name="index2">
-            <element name="import_set_run"/>
+            <element name="import_set_row"/>
         </index>
         <index name="index3">
-            <element name="relates_to"/>
+            <element name="import_set_run"/>
         </index>
         <index name="index4">
+            <element name="rel_child_preview"/>
+        </index>
+        <index name="index5">
+            <element name="rel_parent_preview"/>
+        </index>
+        <index name="index6">
+            <element name="relates_to"/>
+        </index>
+        <index name="index7">
             <element name="target_record"/>
         </index>
     </element>

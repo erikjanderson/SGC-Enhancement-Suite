@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related action="DELETE" sys_domain="global" table="x_156954_sch_job_d_staging_example_data_import" version="2" view="sgc_enhance">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Staging: Example Data Import (Single Column) - SGC Enhance" name="x_156954_sch_job_d_staging_example_data_import" related_list="NULL" sys_domain="global" view="236dff5e83eeea10b2bde360ceaad327">591104ee83222e10b2bde360ceaad392</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>sys_transform_target_row.source_row</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-07 21:56:30</sys_created_on>
+            <sys_id>d51104ee83222e10b2bde360ceaad393</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-07 21:56:30</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Staging: Example Data Import (Single Column) - SGC Enhance" name="x_156954_sch_job_d_staging_example_data_import" related_list="NULL" sys_domain="global" view="236dff5e83eeea10b2bde360ceaad327">591104ee83222e10b2bde360ceaad392</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>import_log.import_set_row</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-07 21:56:30</sys_created_on>
+            <sys_id>d91104ee83222e10b2bde360ceaad393</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-07 21:56:30</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Staging: Example Data Import (Single Column) - SGC Enhance" name="x_156954_sch_job_d_staging_example_data_import" related_list="NULL" sys_domain="global" view="236dff5e83eeea10b2bde360ceaad327">591104ee83222e10b2bde360ceaad392</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>sys_import_set_row_error.row</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-07 21:56:30</sys_created_on>
+            <sys_id>dd1104ee83222e10b2bde360ceaad393</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-07 21:56:30</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Staging: Example Data Import (Single Column) - SGC Enhance" name="x_156954_sch_job_d_staging_example_data_import" related_list="NULL" sys_domain="global" view="236dff5e83eeea10b2bde360ceaad327">591104ee83222e10b2bde360ceaad392</list_id>
+            <order_by/>
+            <position>3</position>
+            <related_list>x_156954_sgc_enhan_import_preview_result.import_set_row</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-07 21:56:30</sys_created_on>
+            <sys_id>d11104ee83222e10b2bde360ceaad394</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-07 21:56:30</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Staging: Example Data Import (Single Column) - SGC Enhance</calculated_name>
+            <filter/>
+            <name>x_156954_sch_job_d_staging_example_data_import</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-07 21:56:30</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>591104ee83222e10b2bde360ceaad392</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Staging: Example Data Import (Single Column) - SGC Enhance</sys_name>
+            <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+            <sys_update_name>sys_ui_related_x_156954_sch_job_d_staging_example_data_import_sgc_enhance</sys_update_name>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-07 21:56:30</sys_updated_on>
+            <sys_user/>
+            <view display_value="SGC Enhance" name="sgc_enhance">236dff5e83eeea10b2bde360ceaad327</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</application>
+        <file_path/>
+        <instance_id>19c3c4f547fb9ad421f3e676706d432a</instance_id>
+        <instance_name>dev296207</instance_name>
+        <name>sys_ui_related_x_156954_sch_job_d_staging_example_data_import_sgc_enhance</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_related sys_domain="global" table="x_156954_sch_job_d_staging_example_data_import" version="2" view="sgc_enhance"><sys_ui_related_list_entry action="INSERT_OR_UPDATE"><filter/><list_id display_value="Staging: Example Data Import (Single Column) - SGC Enhance" name="x_156954_sch_job_d_staging_example_data_import" related_list="NULL" sys_domain="global" view="236dff5e83eeea10b2bde360ceaad327">591104ee83222e10b2bde360ceaad392</list_id><order_by/><position>0</position><related_list>sys_transform_target_row.source_row</related_list><sys_class_name>sys_ui_related_list_entry</sys_class_name><sys_created_by>erik.anderson</sys_created_by><sys_created_on>2025-07-07 21:56:30</sys_created_on><sys_id>d51104ee83222e10b2bde360ceaad393</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>erik.anderson</sys_updated_by><sys_updated_on>2025-07-07 21:56:30</sys_updated_on></sys_ui_related_list_entry><sys_ui_related_list_entry action="INSERT_OR_UPDATE"><filter/><list_id display_value="Staging: Example Data Import (Single Column) - SGC Enhance" name="x_156954_sch_job_d_staging_example_data_import" related_list="NULL" sys_domain="global" view="236dff5e83eeea10b2bde360ceaad327">591104ee83222e10b2bde360ceaad392</list_id><order_by/><position>1</position><related_list>import_log.import_set_row</related_list><sys_class_name>sys_ui_related_list_entry</sys_class_name><sys_created_by>erik.anderson</sys_created_by><sys_created_on>2025-07-07 21:56:30</sys_created_on><sys_id>d91104ee83222e10b2bde360ceaad393</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>erik.anderson</sys_updated_by><sys_updated_on>2025-07-07 21:56:30</sys_updated_on></sys_ui_related_list_entry><sys_ui_related_list_entry action="INSERT_OR_UPDATE"><filter/><list_id display_value="Staging: Example Data Import (Single Column) - SGC Enhance" name="x_156954_sch_job_d_staging_example_data_import" related_list="NULL" sys_domain="global" view="236dff5e83eeea10b2bde360ceaad327">591104ee83222e10b2bde360ceaad392</list_id><order_by/><position>2</position><related_list>sys_import_set_row_error.row</related_list><sys_class_name>sys_ui_related_list_entry</sys_class_name><sys_created_by>erik.anderson</sys_created_by><sys_created_on>2025-07-07 21:56:30</sys_created_on><sys_id>dd1104ee83222e10b2bde360ceaad393</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>erik.anderson</sys_updated_by><sys_updated_on>2025-07-07 21:56:30</sys_updated_on></sys_ui_related_list_entry><sys_ui_related_list_entry action="INSERT_OR_UPDATE"><filter/><list_id display_value="Staging: Example Data Import (Single Column) - SGC Enhance" name="x_156954_sch_job_d_staging_example_data_import" related_list="NULL" sys_domain="global" view="236dff5e83eeea10b2bde360ceaad327">591104ee83222e10b2bde360ceaad392</list_id><order_by/><position>3</position><related_list>x_156954_sgc_enhan_import_preview_result.import_set_row</related_list><sys_class_name>sys_ui_related_list_entry</sys_class_name><sys_created_by>erik.anderson</sys_created_by><sys_created_on>2025-07-07 21:56:30</sys_created_on><sys_id>d11104ee83222e10b2bde360ceaad394</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>erik.anderson</sys_updated_by><sys_updated_on>2025-07-07 21:56:30</sys_updated_on></sys_ui_related_list_entry><sys_ui_related_list action="INSERT_OR_UPDATE"><calculated_name>Staging: Example Data Import (Single Column) - SGC Enhance</calculated_name><filter/><name>x_156954_sch_job_d_staging_example_data_import</name><order_by/><position/><related_list/><sys_class_name>sys_ui_related_list</sys_class_name><sys_created_by>erik.anderson</sys_created_by><sys_created_on>2025-07-07 21:56:30</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>591104ee83222e10b2bde360ceaad392</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Staging: Example Data Import (Single Column) - SGC Enhance</sys_name><sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package><sys_policy/><sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope><sys_update_name>sys_ui_related_x_156954_sch_job_d_staging_example_data_import_sgc_enhance</sys_update_name><sys_updated_by>erik.anderson</sys_updated_by><sys_updated_on>2025-07-07 21:56:30</sys_updated_on><sys_user/><view display_value="SGC Enhance" name="sgc_enhance">236dff5e83eeea10b2bde360ceaad327</view><view_name/></sys_ui_related_list></sys_ui_related></record_update>]]></payload>
+        <payload_hash>-1652222250</payload_hash>
+        <record_name>Staging: Example Data Import (Single Column)</record_name>
+        <reverted_from/>
+        <source>39e37fda83eeea10b2bde360ceaad363</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2025-07-07 21:56:30</sys_created_on>
+        <sys_id>151104ee83222e10b2bde360ceaad396</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>197e6e3fb540000001</sys_recorded_at>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2025-07-07 21:56:30</sys_updated_on>
+        <type>Related Lists</type>
+        <update_guid>d91104ee10222e10f6af1b55ddccc795</update_guid>
+        <update_guid_history>d91104ee10222e10f6af1b55ddccc795:-1652222250,c41104ee2d222e10a29858e050ed604f:381266398</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_on>2025-07-07 21:58:41</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_related_list">sys_ui_related_list</sys_db_object>
+        <sys_id>5c5a4c8443e74e199a5056c42ef469f9</sys_id>
+        <sys_metadata>591104ee83222e10b2bde360ceaad392</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Staging: Example Data Import (Single Column) - SGC Enhance</sys_name>
+        <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
+        <sys_parent display_value="Staging: Example Data Import (Single Column)">3047b60f47032110acb08f22736d43a0</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
+        <sys_scope_delete display_value="">0468e50ff2784dd288a8ec6f18d91d29</sys_scope_delete>
+        <sys_update_name>sys_ui_related_x_156954_sch_job_d_staging_example_data_import_sgc_enhance</sys_update_name>
+        <sys_update_version display_value="sys_ui_related_x_156954_sch_job_d_staging_example_data_import_sgc_enhance">151104ee83222e10b2bde360ceaad396</sys_update_version>
+        <sys_updated_by>erik.anderson</sys_updated_by>
+        <sys_updated_on>2025-07-07 21:58:41</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
