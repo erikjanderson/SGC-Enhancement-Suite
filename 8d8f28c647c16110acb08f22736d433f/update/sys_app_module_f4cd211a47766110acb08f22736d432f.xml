@@ -13,7 +13,7 @@
         <mobile_title>Robust Import Set Transformers</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name>sys_robust_import_set_transformer</name>
-        <order>500</order>
+        <order>600</order>
         <override_menu_roles>false</override_menu_roles>
         <query/>
         <report/>
@@ -25,7 +25,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f4cd211a47766110acb08f22736d432f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Robust Import Set Transformers</sys_name>
         <sys_overrides/>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
@@ -33,7 +33,7 @@
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_app_module_f4cd211a47766110acb08f22736d432f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-16 12:44:12</sys_updated_on>
+        <sys_updated_on>2025-07-09 13:36:22</sys_updated_on>
         <timeline_page/>
         <title>Robust Import Set Transformers</title>
         <uncancelable>false</uncancelable>

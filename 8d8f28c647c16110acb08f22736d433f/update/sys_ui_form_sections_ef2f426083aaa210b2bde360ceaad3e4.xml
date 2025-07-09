@@ -17,16 +17,16 @@
         <sys_ui_form_section action="INSERT_OR_UPDATE">
             <position>1</position>
             <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-02 03:09:30</sys_created_on>
+            <sys_created_on>2025-07-09 13:47:56</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>fb2f826083aaa210b2bde360ceaad30e</sys_id>
-            <sys_mod_count>0</sys_mod_count>
+            <sys_id>08746c0b832eae10b2bde360ceaad387</sys_id>
+            <sys_mod_count>1</sys_mod_count>
             <sys_overrides/>
             <sys_ui_form display_value="x_156954_sgc_enhan_import_preview_result" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">ef2f426083aaa210b2bde360ceaad3e4</sys_ui_form>
-            <sys_ui_section caption="Identification" display_value="Identification" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">e32f426083aaa210b2bde360ceaad3e2</sys_ui_section>
+            <sys_ui_section caption="Relationship Info" display_value="Relationship Info" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">84746c0b832eae10b2bde360ceaad384</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-02 03:09:30</sys_updated_on>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
         </sys_ui_form_section>
         <sys_ui_form_section action="INSERT_OR_UPDATE">
             <position>2</position>
@@ -34,19 +34,33 @@
             <sys_created_on>2025-07-02 03:09:30</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
+            <sys_id>fb2f826083aaa210b2bde360ceaad30e</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_156954_sgc_enhan_import_preview_result" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">ef2f426083aaa210b2bde360ceaad3e4</sys_ui_form>
+            <sys_ui_section caption="Identification" display_value="Identification" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">e32f426083aaa210b2bde360ceaad3e2</sys_ui_section>
+            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_on>2025-07-02 03:09:30</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
             <sys_id>772f826083aaa210b2bde360ceaad312</sys_id>
-            <sys_mod_count>0</sys_mod_count>
+            <sys_mod_count>3</sys_mod_count>
             <sys_overrides/>
             <sys_ui_form display_value="x_156954_sgc_enhan_import_preview_result" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">ef2f426083aaa210b2bde360ceaad3e4</sys_ui_form>
             <sys_ui_section caption="Error Logs" display_value="Error Logs" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">6f2f426083aaa210b2bde360ceaad3e3</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-02 03:09:30</sys_updated_on>
+            <sys_updated_on>2025-07-09 13:47:56</sys_updated_on>
         </sys_ui_form_section>
         <sys_ui_form action="INSERT_OR_UPDATE">
             <name>x_156954_sgc_enhan_import_preview_result</name>
             <roles/>
             <sys_class_name>sys_ui_form</sys_class_name>
-            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_by>admin</sys_created_by>
             <sys_created_on>2025-07-02 03:09:29</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
@@ -58,7 +72,7 @@
             <sys_policy/>
             <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
             <sys_update_name>sys_ui_form_sections_ef2f426083aaa210b2bde360ceaad3e4</sys_update_name>
-            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2025-07-02 03:09:29</sys_updated_on>
             <sys_user/>
             <view display_value="Default view" name="NULL">Default view</view>

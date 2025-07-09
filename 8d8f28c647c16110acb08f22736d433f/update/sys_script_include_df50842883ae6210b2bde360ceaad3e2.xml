@@ -16,7 +16,7 @@ PREVIEW ONLY&#13;
 3. After running an import, you can review the Import Preview Result table to understand how your CMDB data would be imported into ServiceNow after transformation.&#13;
 &#13;
 &#13;
-PROCESS AND PREVIEW&#13;
+PROCESS AND PREVIEW // THIS WOULD BE SO COOL BUT BASICALLY THERE IS NO WAY TO ASSOCIATE THE INPUT / OUTPUT DATA TO A STAGING TABLE ROW WITHOUT  SKIPPING THE ROW  SAGE...&#13;
 1. &#13;
 &#13;
 &#13;
@@ -432,16 +432,16 @@ SGCEnhanceTransformPreview.prototype = {
 	type: 'SGCEnhanceTransformPreview'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
-        <sys_created_by>erik.anderson</sys_created_by>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-07-01 17:01:07</sys_created_on>
         <sys_id>df50842883ae6210b2bde360ceaad3e2</sys_id>
-        <sys_mod_count>145</sys_mod_count>
+        <sys_mod_count>146</sys_mod_count>
         <sys_name>SGCEnhanceTransformPreview</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
         <sys_update_name>sys_script_include_df50842883ae6210b2bde360ceaad3e2</sys_update_name>
-        <sys_updated_by>erik.anderson</sys_updated_by>
-        <sys_updated_on>2025-07-09 02:27:33</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-07-09 15:24:16</sys_updated_on>
     </sys_script_include>
 </record_update>

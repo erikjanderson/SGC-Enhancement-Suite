@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="import_set_row" table="x_156954_sgc_enhan_import_preview_result">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="name" table="x_156954_sgc_enhan_import_preview_result">
         <active>true</active>
         <array>false</array>
         <attributes/>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
-	// Add your code here
-	return '';  // return the calculated value
-
+	var createdOn = current.getValue("sys_created_on");
+	var targetTable = current.getValue("target_table");
+	var rowBind = current.getValue("row_bind");
+	var importSetRow = ""
+	if(current.getValue("import_set_row")){
+		importSetRow = current.import_set_row.getDisplayValue();
+	}
+	//outputItem.sysId === "Unknown" ? "" : outputItem.sysId;
+	return createdOn + ": " + (gs.nil(importSetRow) ? rowBind : importSetRow)  + " - " + targetTable; 
 })(current);]]></calculation>
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Import set row</column_label>
+        <column_label>Name</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -21,27 +27,27 @@
         <delete_roles/>
         <dependent/>
         <dependent_on_field/>
-        <display>false</display>
+        <display>true</display>
         <dynamic_creation>false</dynamic_creation>
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>import_set_row</element>
+        <element>name</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <formula/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="Reference">reference</internal_type>
+        <internal_type display_value="String">string</internal_type>
         <mandatory>false</mandatory>
-        <max_length>32</max_length>
+        <max_length>100</max_length>
         <name>x_156954_sgc_enhan_import_preview_result</name>
         <next_element/>
         <primary>false</primary>
         <read_only>true</read_only>
         <read_roles/>
-        <reference display_value="" name="sys_import_set_row">sys_import_set_row</reference>
-        <reference_cascade_rule>delete</reference_cascade_rule>
+        <reference/>
+        <reference_cascade_rule/>
         <reference_floats>false</reference_floats>
         <reference_key/>
         <reference_qual/>
@@ -51,21 +57,21 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-07-01 16:38:55</sys_created_on>
-        <sys_name>Import set row</sys_name>
+        <sys_created_on>2025-07-09 14:00:48</sys_created_on>
+        <sys_name>Name</sys_name>
         <sys_package display_value="SGC Enhancement Suite" source="x_156954_sgc_enhan">8d8f28c647c16110acb08f22736d433f</sys_package>
         <sys_policy/>
         <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
-        <sys_update_name>sys_dictionary_x_156954_sgc_enhan_import_preview_result_import_set_row</sys_update_name>
+        <sys_update_name>sys_dictionary_x_156954_sgc_enhan_import_preview_result_name</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-07-09 14:08:59</sys_updated_on>
+        <sys_updated_on>2025-07-09 14:17:17</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
         <use_dependent_field>false</use_dependent_field>
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
-        <virtual>false</virtual>
+        <virtual>true</virtual>
         <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>

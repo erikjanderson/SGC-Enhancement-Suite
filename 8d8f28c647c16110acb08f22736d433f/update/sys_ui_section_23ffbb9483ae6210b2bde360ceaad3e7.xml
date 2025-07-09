@@ -4,13 +4,13 @@
             <element>import_set_row</element>
             <position>0</position>
             <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-07 22:03:57</sys_created_on>
-            <sys_id>2ac240a283622e10b2bde360ceaad3a0</sys_id>
+            <sys_created_on>2025-07-09 14:11:04</sys_created_on>
+            <sys_id>4fb92c03836eae10b2bde360ceaad38b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-07 22:03:57</sys_updated_on>
+            <sys_updated_on>2025-07-09 14:11:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>target_table</element>
             <position>1</position>
             <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-07 22:03:57</sys_created_on>
-            <sys_id>aec240a283622e10b2bde360ceaad3a0</sys_id>
+            <sys_created_on>2025-07-09 14:11:04</sys_created_on>
+            <sys_id>c3b92c03836eae10b2bde360ceaad38c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-07 22:03:57</sys_updated_on>
+            <sys_updated_on>2025-07-09 14:11:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>operation</element>
             <position>2</position>
             <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-07 22:03:57</sys_created_on>
-            <sys_id>26c240a283622e10b2bde360ceaad3a1</sys_id>
+            <sys_created_on>2025-07-09 14:11:04</sys_created_on>
+            <sys_id>4bb92c03836eae10b2bde360ceaad38c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-07 22:03:57</sys_updated_on>
+            <sys_updated_on>2025-07-09 14:11:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>.split</element>
             <position>3</position>
             <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-07 22:03:57</sys_created_on>
-            <sys_id>aac240a283622e10b2bde360ceaad3a1</sys_id>
+            <sys_created_on>2025-07-09 14:11:04</sys_created_on>
+            <sys_id>cfb92c03836eae10b2bde360ceaad38c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-07 22:03:57</sys_updated_on>
+            <sys_updated_on>2025-07-09 14:11:04</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -60,13 +60,13 @@
             <element>import_set_run</element>
             <position>4</position>
             <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-07 22:03:57</sys_created_on>
-            <sys_id>22c240a283622e10b2bde360ceaad3a2</sys_id>
+            <sys_created_on>2025-07-09 14:11:04</sys_created_on>
+            <sys_id>47b92c03836eae10b2bde360ceaad38d</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-07 22:03:57</sys_updated_on>
+            <sys_updated_on>2025-07-09 14:11:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -74,13 +74,13 @@
             <element>target_record</element>
             <position>5</position>
             <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-07 22:03:57</sys_created_on>
-            <sys_id>a6c240a283622e10b2bde360ceaad3a2</sys_id>
+            <sys_created_on>2025-07-09 14:11:04</sys_created_on>
+            <sys_id>cbb92c03836eae10b2bde360ceaad38d</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-07 22:03:57</sys_updated_on>
+            <sys_updated_on>2025-07-09 14:11:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -88,13 +88,13 @@
             <element>source_native_keys</element>
             <position>6</position>
             <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-07 22:03:57</sys_created_on>
-            <sys_id>2ec240a283622e10b2bde360ceaad3a2</sys_id>
+            <sys_created_on>2025-07-09 14:11:04</sys_created_on>
+            <sys_id>43b92c03836eae10b2bde360ceaad38e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-07 22:03:57</sys_updated_on>
+            <sys_updated_on>2025-07-09 14:11:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -102,13 +102,13 @@
             <element>.end_split</element>
             <position>7</position>
             <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-07 22:03:57</sys_created_on>
-            <sys_id>a2c240a283622e10b2bde360ceaad3a3</sys_id>
+            <sys_created_on>2025-07-09 14:11:04</sys_created_on>
+            <sys_id>c7b92c03836eae10b2bde360ceaad38e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-07 22:03:57</sys_updated_on>
+            <sys_updated_on>2025-07-09 14:11:04</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
@@ -116,55 +116,13 @@
             <element>values</element>
             <position>8</position>
             <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-07 22:03:57</sys_created_on>
-            <sys_id>2ac240a283622e10b2bde360ceaad3a3</sys_id>
+            <sys_created_on>2025-07-09 14:11:04</sys_created_on>
+            <sys_id>4fb92c03836eae10b2bde360ceaad38e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
             <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-07 22:03:57</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>rel_parent_preview</element>
-            <position>9</position>
-            <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-09 02:01:00</sys_created_on>
-            <sys_id>aca2caf683ee6e10b2bde360ceaad35c</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
-            <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-09 02:01:00</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>rel_child_preview</element>
-            <position>10</position>
-            <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-09 02:01:00</sys_created_on>
-            <sys_id>2ca20a3a83ee6e10b2bde360ceaad316</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
-            <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-09 02:01:00</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>rel_type</element>
-            <position>11</position>
-            <sys_created_by>erik.anderson</sys_created_by>
-            <sys_created_on>2025-07-09 02:01:00</sys_created_on>
-            <sys_id>2ca20a3a83ee6e10b2bde360ceaad32b</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_156954_sgc_enhan_import_preview_result" sys_domain="global" view="Default view">23ffbb9483ae6210b2bde360ceaad3e7</sys_ui_section>
-            <sys_updated_by>erik.anderson</sys_updated_by>
-            <sys_updated_on>2025-07-09 02:01:00</sys_updated_on>
+            <sys_updated_on>2025-07-09 14:11:04</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -174,7 +132,7 @@
             <name>x_156954_sgc_enhan_import_preview_result</name>
             <roles/>
             <sys_class_name>sys_ui_section</sys_class_name>
-            <sys_created_by>erik.anderson</sys_created_by>
+            <sys_created_by>admin</sys_created_by>
             <sys_created_on>2025-07-01 16:43:54</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
@@ -186,7 +144,7 @@
             <sys_policy/>
             <sys_scope display_value="SGC Enhancement Suite">8d8f28c647c16110acb08f22736d433f</sys_scope>
             <sys_update_name>sys_ui_section_23ffbb9483ae6210b2bde360ceaad3e7</sys_update_name>
-            <sys_updated_by>erik.anderson</sys_updated_by>
+            <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2025-07-01 16:43:54</sys_updated_on>
             <sys_user/>
             <title>true</title>
